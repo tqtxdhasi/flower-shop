@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="font-sans bg-black text-white p-3">
+    <div className="font-sans bg-[#FAFAFA] p-3 flex flex-col gap-3">
       <Header />
       <WhyChooseUs />
       <AvailableFlowers />
