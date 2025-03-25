@@ -43,20 +43,98 @@ function AvailableFlowers() {
   };
 
   return (
-    <section className="sm:py-12 ">
+    <section className="sm:py-4">
       <h2 className="text-2xl sm:text-3xl font-semibold text-[#2E2B26] text-center">
         Dostępne kwiaty i Nasze Ceny
       </h2>
-      <div className="mt-8 max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <div className="mt-8 max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         <div className=" bg-[#E8D7D1]  p-3 rounded-lg shadow-lg text-center ">
           <img
-            src={"/image 26.jpg"}
+            src={"/roses.jpg"}
             alt={"Róże"}
             className="w-full rounded-lg shadow-lg mb-4"
           />
           <h3 className="text-xl font-bold ">
             {"Róże red blue rainbow white pink"}
           </h3>
+          <p className="mt-2 text-lg "> od 5.92 zl szt.</p>
+          <button className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg">
+            Order Now
+          </button>
+        </div>{" "}
+        <div className=" bg-[#E8D7D1]  p-3 rounded-lg shadow-lg text-center ">
+          <img
+            src={"/tulips.jpg"}
+            alt={"Róże"}
+            className="w-full rounded-lg shadow-lg mb-4"
+          />
+          <h3 className="text-xl font-bold ">
+            {"Tulipany red pink purple white yellow orange "}
+          </h3>
+          <p className="mt-2 text-lg "> od 5.92 zl szt.</p>
+          <button className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg">
+            Order Now
+          </button>
+        </div>{" "}
+        <div className=" bg-[#E8D7D1]  p-3 rounded-lg shadow-lg text-center ">
+          <img
+            src={"/piwonie.jpg"}
+            alt={"Róże"}
+            className="w-full rounded-lg shadow-lg mb-4"
+          />
+          <h3 className="text-xl font-bold ">{"Piwonie white pink"}</h3>
+          <p className="mt-2 text-lg "> od 5.92 zl szt.</p>
+          <button className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg">
+            Order Now
+          </button>
+        </div>{" "}
+        <div className=" bg-[#E8D7D1]  p-3 rounded-lg shadow-lg text-center ">
+          <img
+            src={"/ranunculus.jpg"}
+            alt={"Róże"}
+            className="w-full rounded-lg shadow-lg mb-4"
+          />
+          <h3 className="text-xl font-bold ">{"Ranunculus pink white"}</h3>
+          <p className="mt-2 text-lg "> od 5.92 zl szt.</p>
+          <button className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg">
+            Order Now
+          </button>
+        </div>{" "}
+        <div className=" bg-[#E8D7D1]  p-3 rounded-lg shadow-lg text-center ">
+          <img
+            src={"/gipsowka.jpg"}
+            alt={"Róże"}
+            className="w-full rounded-lg shadow-lg mb-4"
+          />
+          <h3 className="text-xl font-bold ">
+            {"Gipsówka white pink blue red yellow  purple"}
+          </h3>
+          <p className="mt-2 text-lg "> od 5.92 zl szt.</p>
+          <button className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg">
+            Order Now
+          </button>
+        </div>{" "}
+        <div className=" bg-[#E8D7D1]  p-3 rounded-lg shadow-lg text-center ">
+          <img
+            src={"/hortensje.jpg"}
+            alt={"Róże"}
+            className="w-full rounded-lg shadow-lg mb-4"
+          />
+          <h3 className="text-xl font-bold ">
+            {"Hortensje blue pink white purple red  "}
+          </h3>
+          <p className="mt-2 text-lg "> od 5.92 zl szt.</p>
+          <button className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg">
+            Order Now
+          </button>
+        </div>{" "}
+        <div className=" bg-[#E8D7D1]  p-3 rounded-lg shadow-lg text-center ">
+          <img
+            src={"/image 26.jpg"}
+            alt={"Róże"}
+            className="w-full rounded-lg shadow-lg mb-4"
+          />
+          <h3 className="text-xl font-bold ">{"Mix Kwiatów"}</h3>
           <p className="mt-2 text-lg "> od 5.92 zl szt.</p>
           <button className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg">
             Order Now
