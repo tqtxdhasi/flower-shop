@@ -22,7 +22,7 @@ function AvailableFlowers() {
             Czerwony, Niebieski, Tęczowy, Biały, Różowy
           </p>
           <a
-            href="tel:+1234567890"
+            href="tel:+48731588515"
             className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
           >
             Zamów Teraz
@@ -44,7 +44,7 @@ function AvailableFlowers() {
             Czerwony, Różowy, Fioletowy, Biały, Żółty, Pomarańczowy
           </p>
           <a
-            href="tel:+1234567890"
+            href="tel:+48731588515"
             className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
           >
             Zamów Teraz
@@ -63,7 +63,7 @@ function AvailableFlowers() {
           <p className=" text-lg "> od 10 zl/szt.</p>
           <p className="text-sm text-gray-600"> Biały, Różowy</p>
           <a
-            href="tel:+1234567890"
+            href="tel:+48731588515"
             className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
           >
             Zamów Teraz
@@ -82,7 +82,7 @@ function AvailableFlowers() {
           <p className=" text-lg "> od 10 zl/szt.</p>
           <p className="text-sm text-gray-600"> Różowy, Biały</p>
           <a
-            href="tel:+1234567890"
+            href="tel:+48731588515"
             className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
           >
             Zamów Teraz
@@ -103,7 +103,7 @@ function AvailableFlowers() {
             Biały, Różowy, Niebieski, Czerwony, Żółty, Fioletowy
           </p>
           <a
-            href="tel:+1234567890"
+            href="tel:+48731588515"
             className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
           >
             Zamów Teraz
@@ -124,7 +124,7 @@ function AvailableFlowers() {
             Niebieski, Różowy, Biały, Fioletowy, Czerwony
           </p>
           <a
-            href="tel:+1234567890"
+            href="tel:+48731588515"
             className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
           >
             Zamów Teraz
@@ -143,7 +143,7 @@ function AvailableFlowers() {
           <p className=" text-lg "> od 4 zl/szt.</p>
           <p className="text-sm text-gray-600"> Zróżnicowane</p>
           <a
-            href="tel:+1234567890"
+            href="tel:+48731588515"
             className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
           >
             Zamów Teraz

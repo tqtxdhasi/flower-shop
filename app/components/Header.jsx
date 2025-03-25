@@ -39,15 +39,15 @@ function Header() {
           </p>
           <div className="mt-6 flex justify-center">
             <a
-              href="tel:+1234567890"
+              href="tel:+48731588515"
               className="bg-green-500 py-3 px-8 rounded-lg hover:bg-green-600 text-white font-bold transition-all"
             >
-              Zamów teraz: +1 234 567 890
+              Zamów teraz: +48 731-588-515
             </a>
           </div>
           <div className="mt-6 flex justify-center gap-6">
             <a
-              href="https://wa.me/1234567890"
+              href="https://wa.me/+48731588515"
               target="_blank"
               rel="noopener noreferrer"
               className="text-green-500 hover:text-green-600 transition-all"
@@ -55,7 +55,7 @@ function Header() {
               <FaWhatsapp className="text-3xl" />
             </a>
             <a
-              href="https://t.me/yourusername"
+              href="https://t.me/olhafedko"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:text-blue-600 transition-all"
@@ -63,13 +63,13 @@ function Header() {
               <FaTelegramPlane className="text-3xl" />
             </a>
             <a
-              href="sms:+1234567890"
+              href="sms:+48731588515"
               className="text-gray-600 hover:text-gray-700 transition-all"
             >
               <FaSms className="text-3xl" />
             </a>
             <a
-              href="https://m.me/yourusername"
+              href="https://facebook.com/Olha.Fedko"
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-700 hover:text-blue-800 transition-all"
