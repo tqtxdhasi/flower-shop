@@ -4,10 +4,10 @@ function HowItWorks() {
       <h2 className="text-2xl sm:text-3xl font-semibold text-center">
         Jak to działa
       </h2>
-      <li>
+      <p className="mt-4 text-lg text-center max-w-2xl mx-auto">
         📅 Zamówienia muszą być złożone <strong>co najmniej 1 noc</strong> przed
         datą wręczenia i <strong>nie więcej niż 3 dni</strong> przed
-      </li>
+      </p>
       <p className="mt-4 text-lg text-center max-w-2xl mx-auto">
         Oferujemy wyłącznie świeże, wysokiej jakości kwiaty, dostępne na
         zamówienie z jednodniowym wyprzedzeniem. Zamówienia złożone do
