@@ -12,7 +12,7 @@ export default function OrderForm() {
   const [delivery, setDelivery] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const [packagingCost, setPackagingCost] = useState(0);
-  const [flowerColor, setFlowerColor] = useState("");
+  const [flowerColor, setFlowerColor] = useState("Red");
   const [letterOption, setLetterOption] = useState(false);
 
   const packagingColors = {
