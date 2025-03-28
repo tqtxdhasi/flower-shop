@@ -247,7 +247,7 @@ export default function OrderForm() {
             } `}
             aria-pressed={packaging === ""}
           >
-            Bun
+            Sznur
           </button>
           {Object.entries(packagingColors).map(([color, hex]) => (
             <button
