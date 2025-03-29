@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useMemo } from "react";
 
 export default function OrderForm() {
   const router = useRouter();
@@ -58,11 +59,14 @@ export default function OrderForm() {
     }
   };
 
-  const isOptionAffordable = (q, h) => {
-    const total = (priceSheet[h] && priceSheet[h][q]) || 0;
-    const packagingPrice = packaging === "" ? 0 : packagingCosts[q] || 0;
-    return budget >= total + packagingPrice + (letterOption ? letterCost : 0);
-  };
+  const isOptionAffordable = useMemo(
+    () => (q, h) => {
+      const total = (priceSheet[h] && priceSheet[h][q]) || 0;
+      const packagingPrice = packaging === "" ? 0 : packagingCosts[q] || 0;
+      return budget >= total + packagingPrice + (letterOption ? letterCost : 0);
+    },
+    [budget, letterOption, packaging]
+  ); // Only re-calculate when these change
 
   useEffect(() => {
     const highestQuantity = 49;
@@ -90,7 +94,6 @@ export default function OrderForm() {
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
 
-    // Read URL parameters if available
     const queryQuantity = queryParams.get("quantity");
     const queryHeight = queryParams.get("height");
     const queryPackaging = queryParams.get("packaging");
@@ -118,7 +121,7 @@ export default function OrderForm() {
     if (budget) queryParams.set("budget", budget);
     if (letterOption) queryParams.set("letterOption", "true");
 
-    router.push(`?${queryParams.toString()}`);
+    router.replace(`?${queryParams.toString()}`, { scroll: false }); // ✅ Updates URL without full reload
   };
 
   useEffect(() => {
@@ -151,11 +154,8 @@ export default function OrderForm() {
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-center text-3xl font-bold ">
-        Formularz zamówienia Róże
-      </h1>
-
+    <div className="">
+      <h1 className="text-center text-3xl font-bold ">Zamówienie róż </h1>
       <label className="block mb-2" htmlFor="budget">
         Wprowadź budżet (zl):
       </label>
@@ -169,19 +169,6 @@ export default function OrderForm() {
         min="0"
         aria-label="Wprowadź budżet"
       />
-
-      {/* Letter Option */}
-      <div className="mb-4 flex items-center gap-2">
-        <input
-          type="checkbox"
-          checked={letterOption}
-          onChange={() => setLetterOption(!letterOption)}
-          className="w-5 h-5"
-          aria-label="Dołącz list (+10 PLN)"
-        />
-        <label>Dołącz list (+10 PLN)</label>
-      </div>
-
       {/* Quantity selection */}
       <div className="mb-4">
         <label className="block mb-2">Ilość:</label>
@@ -207,7 +194,6 @@ export default function OrderForm() {
           ))}
         </div>
       </div>
-
       {/* Height selection */}
       <div className="mb-4">
         <label className="block mb-2">Wysokość:</label>
@@ -233,7 +219,6 @@ export default function OrderForm() {
           ))}
         </div>
       </div>
-
       {/* Packaging selection */}
       <div className="mb-4">
         <label className="block mb-2">Opakowanie:</label>
@@ -247,7 +232,7 @@ export default function OrderForm() {
             } `}
             aria-pressed={packaging === ""}
           >
-            Sznur
+            Wstążka
           </button>
           {Object.entries(packagingColors).map(([color, hex]) => (
             <button
@@ -267,7 +252,6 @@ export default function OrderForm() {
           ))}
         </div>
       </div>
-
       {/* Flower Color selection */}
       <div className="mb-4">
         <label className="block mb-2">Kolor kwiatów:</label>
@@ -289,7 +273,6 @@ export default function OrderForm() {
           ))}
         </div>
       </div>
-
       {/* Delivery checkbox */}
       <div className="mb-4 flex items-center gap-2">
         <input
@@ -300,37 +283,65 @@ export default function OrderForm() {
           aria-label="Dołącz dostawę (+20 PLN)"
         />
         <label>Dołącz dostawę (+20 PLN)</label>
+      </div>{" "}
+      {/* Letter Option */}
+      <div className="mb-4 flex items-center gap-2">
+        <input
+          type="checkbox"
+          checked={letterOption}
+          onChange={() => setLetterOption(!letterOption)}
+          className="w-5 h-5"
+          aria-label="Dołącz list (+10 PLN)"
+        />
+        <label>Dołącz list (+10 PLN)</label>
       </div>
-
       {/* Price breakdown */}
-      <div className="mb-4">
-        <label className="block font-bold">Całkowita cena kwiatów (PLN):</label>
-        <p className="font-semibold">{totalPrice}</p>
+      {totalPrice > 0 && (
+        <div className="mb-4">
+          <label className="block font-bold">Cena kwiatów (PLN):</label>
+          <p className="font-semibold">
+            {`${totalPrice} (${+(
+              Math.round(totalPrice / quantity + "e+2") + "e-2"
+            )} /szt)`}
+          </p>
 
-        <label className="block font-bold mt-2">Koszt opakowania (PLN):</label>
-        <p className="font-semibold">{packagingCost}</p>
+          {packagingCost > 0 && (
+            <>
+              <label className="block font-bold mt-2">
+                Koszt opakowania (PLN):
+              </label>
+              <p className="font-semibold">{packagingCost}</p>
+            </>
+          )}
 
-        <label className="block font-bold mt-2">Koszt dostawy (PLN):</label>
-        <p className="font-semibold">{delivery ? deliveryCharge : 0}</p>
+          {delivery && (
+            <>
+              <label className="block font-bold mt-2">
+                Koszt dostawy (PLN):
+              </label>
+              <p className="font-semibold">{deliveryCharge}</p>
+            </>
+          )}
 
-        <label className="block font-bold mt-2">Koszt listu (PLN):</label>
-        <p className="font-semibold">{letterOption ? letterCost : 0}</p>
-      </div>
+          {letterOption && (
+            <>
+              <label className="block font-bold mt-2">Koszt listu (PLN):</label>
+              <p className="font-semibold">{letterCost}</p>
+            </>
+          )}
 
-      <div className="mb-4">
-        <label className="block font-bold mt-2">Całkowita cena (PLN):</label>
-        <p className="font-semibold">{getFinalPrice()}</p>
-      </div>
-
+          <label className="block font-bold mt-2">Całkowita cena (PLN):</label>
+          <p className="font-semibold">{getFinalPrice()}</p>
+        </div>
+      )}
       {/* Submit button */}
       <button
         className="w-full bg-green-500 text-white p-2 rounded-lg hover:bg-green-600 disabled:opacity-50"
         /*disabled={totalPrice === 0 || budget < getFinalPrice()}*/
         onClick={handleSubmit}
       >
-        Wyślij
+        Potwierdź zamówienie
       </button>
-
       {/*budget && budget < getFinalPrice() && (
         <p className="text-red-500 mt-2">
 Twój budżet jest za niski na to zamówienie.
