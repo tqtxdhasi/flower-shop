@@ -22,7 +22,7 @@ function Header() {
           className="w-32 sm:w-48 transform scale-x-[-1] scale-y-[-1]"
         />
       </div>
-      <div className="relative z-10">
+      <div className="relative ">
         <h1 className="text-3xl sm:text-4xl font-bold">
           Świeże kwiaty dostarczone bezpośrednio do Ciebie w Krakowie
         </h1>
