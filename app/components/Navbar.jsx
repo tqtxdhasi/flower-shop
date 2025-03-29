@@ -12,7 +12,7 @@ const Navbar = () => {
     <nav className="bg-[#2E2B26] text-white p-4 sticky top-0 z-10">
       <div className="flex justify-between items-center">
         <a className="text-2xl font-bold" href="/">
-          Flower Shop
+          Kwiaty Krakow
         </a>
 
         {/* Desktop Navbar */}
@@ -24,7 +24,7 @@ const Navbar = () => {
           </li>
           <li>
             <a href="/flowers/roses" className="hover:text-yellow-300">
-              Roses
+              Róże
             </a>
           </li>
           <li>
@@ -66,7 +66,7 @@ const Navbar = () => {
             </li>
             <li>
               <a href="/flowers/roses" className="hover:text-yellow-300 block">
-                Roses
+                Róże
               </a>
             </li>
             <li>
