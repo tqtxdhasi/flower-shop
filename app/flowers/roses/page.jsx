@@ -100,7 +100,6 @@ const FlowerPage = () => {
               Brak zwrotów w przypadku anulowania zamówienia przez klienta.
             </li>
           </ul>
-
           <h2 className="text-3xl font-semibold text-gray-800 mb-4">
             Dostawa i Odbiór w Krakowie
           </h2>
@@ -110,7 +109,6 @@ const FlowerPage = () => {
             23:59. Dzięki naszej prostej i wygodnej usłudze, możesz cieszyć się
             eleganckimi kwiatami dostarczonymi dokładnie wtedy, kiedy chcesz.
           </p>
-
           <h2 className="text-3xl font-semibold text-gray-800 mb-4">
             Idealne Róże na Każdą Okazję
           </h2>
@@ -120,7 +118,8 @@ const FlowerPage = () => {
             imieniny, podziękowania i inne wyjątkowe momenty. Wybierz róże na
             zamówienie dostosowane do Twoich potrzeb i spraw, by każda chwila
             była niezapomniana.
-          </p>
+          </p>{" "}
+          linssen roses, royal flowers
         </section>
       </div>
     </>
