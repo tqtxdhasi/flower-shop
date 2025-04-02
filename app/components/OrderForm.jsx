@@ -155,7 +155,6 @@ export default function OrderForm() {
 
   return (
     <div className="">
-      <h1 className="text-center text-3xl font-bold ">Zamówienie róż </h1>
       <label className="block mb-2" htmlFor="budget">
         Wprowadź budżet (zl):
       </label>
