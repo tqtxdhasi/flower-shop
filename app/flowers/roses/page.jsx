@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import OrderForm from "../../components/OrderForm";
 import Image from "next/image";
+import HowItWorks from "@/app/components/HowItWorks";
 
 const images = [
   "/roses2.jpg",
   "/roses8.jpg",
-
   "/roses1.jpg",
   "/roses3.jpg",
   "/roses4.jpg",
@@ -21,11 +21,11 @@ const FlowerPage = () => {
 
   return (
     <>
-      <h1 className="max-w-4xl p-4 mx-auto text-4xl font-bold text-center text-gray-800 ">
-        Świeże Róże na Zamówienie – Piękne Kwiaty Prosto do Twoich Drzwi w
-        Krakowie
+      <h1 className="max-w-4xl px-4 mx-auto mb-8 text-3xl font-bold text-center text-gray-800 md:text-4xl">
+        Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie
       </h1>
-      <div className=" flex flex-col md:flex-row p-6 ">
+
+      <div className="flex flex-col p-6 md:flex-row gap-8">
         <div className="w-full md:w-2/3 items-center flex flex-col gap-4">
           <div className="max-w-80 sm:max-w-full max-h-[500px] aspect-square">
             <Image
@@ -56,71 +56,98 @@ const FlowerPage = () => {
             ))}
           </div>
         </div>
+
+        {/* Order Form Section - Original Structure Maintained */}
         <div className="w-full md:w-1/3">
           <OrderForm />
-        </div>{" "}
+        </div>
       </div>
-      <div className="p-4 max-w-4xl mx-auto">
-        <section>
-          <p className="text-lg text-gray-700 mb-6">
-            Szukasz świeżych, starannie wyselekcjonowanych róż na zamówienie?
-            Nasza kwiaciarnia oferuje tanie róże w różnych oszałamiających
-            kolorach, które dostarczymy prosto pod Twoje drzwi w Krakowie i
-            okolicach. Niezależnie od tego, czy potrzebujesz róż na prezent, na
-            specjalną okazję, czy chcesz rozjaśnić dzień bliskiej osoby, nasze
-            róże będą doskonałym wyborem.
-          </p>
 
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-            Róże w Różnych Rozmiarach i Kolorach
+      {/* Content Section */}
+      <div className="max-w-4xl px-4 mx-auto prose-lg">
+        <section className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold text-gray-800 md:text-3xl">
+            Eleganckie Bukiety Jednoróżane
           </h2>
-          <p className="text-lg text-gray-700 mb-6">
-            W ofercie mamy róże w różnych rozmiarach: 40 cm, 50 cm, 60 cm, 70
-            cm, 80 cm, a także szeroką gamę kolorów: czerwony, biały, różowy,
-            żółty, pomarańczowy. Możesz także stworzyć unikalny miks kolorów –
-            idealny na wyjątkowe okazje, takie jak rocznice, śluby, Walentynki
-            czy Dzień Kobiet.
+          <p className="mb-6">
+            Oferujemy ekskluzywne bukiety z róż najwyższej jakości, idealne na:
           </p>
-        </section>
+          <div className="grid grid-cols-2 gap-4 mb-8 md:grid-cols-4">
+            {["Śluby", "Walentynki", "Rocznice", "Urodziny"].map((occasion) => (
+              <div
+                key={occasion}
+                className="p-3 text-center bg-red-50 rounded-lg"
+              >
+                {occasion}
+              </div>
+            ))}
+          </div>
 
-        <section>
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-            Zasady Zamówienia
-          </h2>
-          <ul className="list-inside list-disc text-lg text-gray-700 mb-6">
-            <li>Minimalna ilość zamówienia to 9 róż, maksymalna – 49.</li>
-            <li>
-              Każda róża jest starannie zapakowana, co zapewnia jej świeżość i
-              długotrwałe piękno.
-            </li>
-            <li>Przyjmujemy zamówienia do 23:59 dzień przed dostawą.</li>
-            <li>Wymagana jest zaliczka min. 50% wartości zamówienia.</li>
-            <li>Przed wysyłką bukietu przesyłamy zdjęcie do akceptacji.</li>
-            <li>
-              Brak zwrotów w przypadku anulowania zamówienia przez klienta.
-            </li>
-          </ul>
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-            Dostawa i Odbiór w Krakowie
-          </h2>
-          <p className="text-lg text-gray-700 mb-6">
-            Oferujemy wygodną dostawę na terenie Krakowa oraz okolic w cenie 20
-            PLN. Możliwość odbioru osobistego w Krakowie w godzinach 8:00 –
-            23:59. Dzięki naszej prostej i wygodnej usłudze, możesz cieszyć się
-            eleganckimi kwiatami dostarczonymi dokładnie wtedy, kiedy chcesz.
-          </p>
-          <h2 className="text-3xl font-semibold text-gray-800 mb-4">
-            Idealne Róże na Każdą Okazję
-          </h2>
-          <p className="text-lg text-gray-700">
-            Nasze róże to doskonały wybór na każdą okazję – Dzień Kobiet,
-            Walentynki, rocznice, śluby, urodziny, a także na Wielkanoc,
-            imieniny, podziękowania i inne wyjątkowe momenty. Wybierz róże na
-            zamówienie dostosowane do Twoich potrzeb i spraw, by każda chwila
-            była niezapomniana.
-          </p>{" "}
-          linssen roses, royal flowers
+          <h3 className="mb-3 text-xl font-semibold">Dostępne Warianty</h3>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="p-4 bg-white rounded-lg shadow-sm">
+              <h4 className="mb-2 font-semibold">Rozmiary łodyg</h4>
+              <div className="flex flex-wrap gap-2">
+                {["40cm", "50cm", "60cm", "70cm", "80cm"].map((size) => (
+                  <span
+                    key={size}
+                    className="px-3 py-1 text-sm bg-gray-100 rounded-full"
+                  >
+                    {size}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="p-4 bg-white rounded-lg shadow-sm">
+              <h4 className="mb-2 font-semibold">Kolorystyka</h4>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Czerwony",
+                  "Biały",
+                  "Różowy",
+                  "Żółty",
+                  "Pomarańczowy",
+                  "Miks",
+                ].map((color) => (
+                  <span
+                    key={color}
+                    className="px-3 py-1 text-sm bg-gray-100 rounded-full"
+                  >
+                    {color}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
         </section>
+        <section className="mb-12">
+          <h2 className="mb-4 text-2xl font-bold md:text-3xl">
+            Często Zadawane Pytania
+          </h2>
+          <div className="space-y-4">
+            <div className="p-4 bg-white rounded-lg shadow-sm">
+              <h3 className="font-semibold">
+                Jak długo utrzymają się świeże róże?
+              </h3>
+              <p className="mt-2 text-gray-600">
+                Gwarantujemy świeżość przez minimum 7 dni przy prawidłowej
+                pielęgnacji. Do każdego zamówienia dołączamy instrukcję
+                przedłużania trwałości kwiatów.
+              </p>
+            </div>
+            <div className="p-4 bg-white rounded-lg shadow-sm">
+              <h3 className="font-semibold">
+                Czy mogę zmienić termin dostawy?
+              </h3>
+              <p className="mt-2 text-gray-600">
+                Zmiana terminu jest możliwa najpóźniej na 12h przed planowaną
+                dostawą. Prosimy o kontakt telefoniczny lub mailowy.
+              </p>
+            </div>
+          </div>
+        </section>
+        <HowItWorks />
       </div>
     </>
   );

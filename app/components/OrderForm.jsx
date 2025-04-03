@@ -1,131 +1,116 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
-import { useMemo } from "react";
+
+const PRICE_SHEET = {
+  40: { 9: 90, 19: 140, 29: 195, 39: 240, 49: 290 },
+  50: { 9: 100, 19: 160, 29: 225, 39: 280, 49: 340 },
+  60: { 9: 110, 19: 180, 29: 255, 39: 320, 49: 390 },
+  70: { 9: 120, 19: 200, 29: 285, 39: 360, 49: 440 },
+  80: { 9: 130, 19: 220, 29: 315, 39: 400, 49: 490 },
+};
+
+const PACKAGING_COSTS = { 9: 10, 19: 10, 29: 15, 39: 15, 49: 20 };
+const DELIVERY_CHARGE = 20;
+const LETTER_COST = 10;
+const COLOR_OPTIONS = {
+  Red: "#FF0000",
+  Pink: "#FFC0CB",
+  White: "#FFFFFF",
+  Yellow: "#FFFF00",
+  Purple: "#800080",
+  Blue: "#0000FF",
+};
 
 export default function OrderForm() {
   const router = useRouter();
-
-  const [budget, setBudget] = useState(0);
-  const [quantity, setQuantity] = useState(null);
-  const [height, setHeight] = useState(null);
-  const [packaging, setPackaging] = useState("");
+  const [budget, setBudget] = useState(530);
+  const [quantity, setQuantity] = useState(19);
+  const [height, setHeight] = useState(50);
+  const [packaging, setPackaging] = useState("White");
   const [delivery, setDelivery] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const [packagingCost, setPackagingCost] = useState(0);
-  const [flowerColor, setFlowerColor] = useState("Red");
+  const [flowerColor, setFlowerColor] = useState("Pink");
   const [letterOption, setLetterOption] = useState(false);
 
-  const packagingColors = {
-    Red: "#FF0000",
-    Pink: "#FFC0CB",
-    White: "#FFFFFF",
-    Yellow: "#FFFF00",
-    Purple: "#800080",
-    Blue: "#0000FF",
-  };
+  const calculateTotalPrice = useCallback(
+    (q, h) => {
+      if (!q || !h || !PRICE_SHEET[h]?.[q]) {
+        setTotalPrice(0);
+        setPackagingCost(0);
+        return;
+      }
 
-  const flowerColors = {
-    Red: "#FF0000",
-    Pink: "#FFC0CB",
-    White: "#FFFFFF",
-    Yellow: "#FFFF00",
-    Purple: "#800080",
-    Blue: "#0000FF",
-  };
-
-  const priceSheet = {
-    40: { 9: 90, 19: 140, 29: 195, 39: 240, 49: 290 },
-    50: { 9: 100, 19: 160, 29: 225, 39: 280, 49: 340 },
-    60: { 9: 110, 19: 180, 29: 255, 39: 320, 49: 390 },
-    70: { 9: 120, 19: 200, 29: 285, 39: 360, 49: 440 },
-    80: { 9: 130, 19: 220, 29: 315, 39: 400, 49: 490 },
-  };
-
-  const packagingCosts = { 9: 10, 19: 10, 29: 15, 39: 15, 49: 20 };
-
-  const letterCost = 10;
-
-  const calculateTotalPrice = (q, h, packaging) => {
-    if (q && h && priceSheet[h] && priceSheet[h][q]) {
-      let newPrice = priceSheet[h][q];
-
-      setPackagingCost(packaging === "" ? 0 : packagingCosts[q] || 0);
+      const newPrice = PRICE_SHEET[h][q];
+      const newPackagingCost = packaging ? PACKAGING_COSTS[q] || 0 : 0;
 
       setTotalPrice(newPrice);
-    } else {
-      setTotalPrice(0);
-      setPackagingCost(0);
-    }
-  };
-
-  const isOptionAffordable = useMemo(
-    () => (q, h) => {
-      const total = (priceSheet[h] && priceSheet[h][q]) || 0;
-      const packagingPrice = packaging === "" ? 0 : packagingCosts[q] || 0;
-      return budget >= total + packagingPrice + (letterOption ? letterCost : 0);
+      setPackagingCost(newPackagingCost);
     },
-    [budget, letterOption, packaging]
-  ); // Only re-calculate when these change
+    [packaging]
+  );
 
+  const isOptionAffordable = useCallback(
+    (q, h) => {
+      const basePrice = PRICE_SHEET[h]?.[q] || 0;
+      const totalCost =
+        basePrice +
+        (packaging ? PACKAGING_COSTS[q] || 0 : 0) +
+        (delivery ? DELIVERY_CHARGE : 0) +
+        (letterOption ? LETTER_COST : 0);
+
+      return budget >= totalCost;
+    },
+    [budget, packaging, delivery, letterOption]
+  );
+
+  const getFinalPrice = useCallback(() => {
+    return (
+      totalPrice +
+      packagingCost +
+      (delivery ? DELIVERY_CHARGE : 0) +
+      (letterOption ? LETTER_COST : 0)
+    );
+  }, [totalPrice, packagingCost, delivery, letterOption]);
+
+  // URL Handling
   useEffect(() => {
-    const highestQuantity = 49;
-    const highestHeight = 80;
-    const maxPrice = priceSheet[highestHeight][highestQuantity];
-    const maxPackagingCost = packagingCosts[highestQuantity] || 0;
-    setBudget(maxPrice + maxPackagingCost);
+    const params = new URLSearchParams(window.location.search);
+    const setStateFromParams = (param, setter, parser = Number) => {
+      const value = param && parser(param);
+      if (value !== null && value !== undefined) setter(value);
+    };
+
+    setStateFromParams(params.get("quantity"), setQuantity);
+    setStateFromParams(params.get("height"), setHeight);
+    setStateFromParams(params.get("packaging"), setPackaging, String);
+    setStateFromParams(params.get("flowerColor"), setFlowerColor, String);
+    setStateFromParams(params.get("delivery"), (v) =>
+      setDelivery(v === "true")
+    );
+    setStateFromParams(params.get("budget"), setBudget);
+    setStateFromParams(params.get("letterOption"), (v) =>
+      setLetterOption(v === "true")
+    );
   }, []);
 
-  const deliveryCharge = 20;
-
-  const getFinalPrice = () => {
-    const basePrice = totalPrice + packagingCost;
-    return delivery
-      ? basePrice + deliveryCharge + (letterOption ? letterCost : 0)
-      : basePrice + (letterOption ? letterCost : 0);
-  };
-
   useEffect(() => {
-    if (quantity && height !== null) {
-      calculateTotalPrice(quantity, height, packaging);
-    }
-  }, [quantity, height, packaging]);
+    calculateTotalPrice(quantity, height);
+  }, [quantity, height, calculateTotalPrice]);
 
+  // Update URL
   useEffect(() => {
-    const queryParams = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams();
+    if (quantity) params.set("quantity", quantity);
+    if (height) params.set("height", height);
+    if (packaging) params.set("packaging", packaging);
+    if (flowerColor) params.set("flowerColor", flowerColor);
+    if (delivery) params.set("delivery", delivery);
+    if (budget) params.set("budget", budget);
+    if (letterOption) params.set("letterOption", letterOption);
 
-    const queryQuantity = queryParams.get("quantity");
-    const queryHeight = queryParams.get("height");
-    const queryPackaging = queryParams.get("packaging");
-    const queryFlowerColor = queryParams.get("flowerColor");
-    const queryDelivery = queryParams.get("delivery") === "true";
-    const queryBudget = queryParams.get("budget");
-    const queryLetterOption = queryParams.get("letterOption") === "true";
-
-    if (queryQuantity) setQuantity(parseInt(queryQuantity));
-    if (queryHeight) setHeight(parseInt(queryHeight));
-    if (queryPackaging) setPackaging(queryPackaging);
-    if (queryFlowerColor) setFlowerColor(queryFlowerColor);
-    if (queryDelivery) setDelivery(true);
-    if (queryBudget) setBudget(parseInt(queryBudget));
-    if (queryLetterOption) setLetterOption(true);
-  }, []);
-
-  const updateUrl = () => {
-    const queryParams = new URLSearchParams();
-    if (quantity) queryParams.set("quantity", quantity);
-    if (height) queryParams.set("height", height);
-    if (packaging) queryParams.set("packaging", packaging);
-    if (flowerColor) queryParams.set("flowerColor", flowerColor);
-    if (delivery) queryParams.set("delivery", delivery);
-    if (budget) queryParams.set("budget", budget);
-    if (letterOption) queryParams.set("letterOption", "true");
-
-    router.replace(`?${queryParams.toString()}`, { scroll: false }); // ✅ Updates URL without full reload
-  };
-
-  useEffect(() => {
-    updateUrl();
+    router.replace(`?${params.toString()}`, { scroll: false });
   }, [
     quantity,
     height,
@@ -134,9 +119,11 @@ export default function OrderForm() {
     delivery,
     budget,
     letterOption,
+    router,
   ]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const formData = {
       budget,
       quantity,
@@ -149,203 +136,194 @@ export default function OrderForm() {
       finalPrice: getFinalPrice(),
       letterOption,
     };
-    console.log("Form Data:", formData);
-    alert(JSON.stringify(formData, null, 2));
+    console.log("Order Data:", formData);
+    alert(`Potwierdzenie zamówienia:\n${JSON.stringify(formData, null, 2)}`);
   };
 
   return (
-    <div className="">
-      <label className="block mb-2" htmlFor="budget">
-        Wprowadź budżet (zl):
-      </label>
-      <input
-        id="budget"
-        type="number"
-        value={budget}
-        onChange={(e) => setBudget(e.target.value)}
-        className="w-full p-2 border rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-400"
-        placeholder="Wprowadź budżet"
-        min="0"
-        aria-label="Wprowadź budżet"
-      />
-      {/* Quantity selection */}
-      <div className="mb-4">
-        <label className="block mb-2">Ilość:</label>
-        <div className="flex gap-2">
-          {[9, 19, 29, 39, 49].map((q) => (
-            <button
-              key={q}
-              onClick={() => setQuantity(q)}
-              disabled={!isOptionAffordable(q, height)}
-              className={`px-4 py-2 border rounded-lg transition ${
-                quantity === q
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-200 hover:bg-gray-300"
-              } ${
-                !isOptionAffordable(q, height)
-                  ? "cursor-not-allowed opacity-50"
-                  : ""
-              }`}
-              aria-pressed={quantity === q}
-            >
-              {q}
-            </button>
-          ))}
-        </div>
-      </div>
-      {/* Height selection */}
-      <div className="mb-4">
-        <label className="block mb-2">Wysokość:</label>
-        <div className="flex gap-2">
-          {[40, 50, 60, 70, 80].map((h) => (
-            <button
-              key={h}
-              onClick={() => setHeight(h)}
-              disabled={!isOptionAffordable(quantity, h)}
-              className={`px-4 py-2 border rounded-lg transition ${
-                height === h
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-200 hover:bg-gray-300"
-              } ${
-                !isOptionAffordable(quantity, h)
-                  ? "cursor-not-allowed opacity-50"
-                  : ""
-              }`}
-              aria-pressed={height === h}
-            >
-              {h}
-            </button>
-          ))}
-        </div>
-      </div>
-      {/* Packaging selection */}
-      <div className="mb-4">
-        <label className="block mb-2">Opakowanie:</label>
-        <div className="flex gap-2">
-          <button
-            onClick={() => setPackaging("")}
-            className={`px-4 py-2 border rounded-lg transition ${
-              packaging === ""
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 hover:bg-gray-300"
-            } `}
-            aria-pressed={packaging === ""}
-          >
-            Wstążka
-          </button>
-          {Object.entries(packagingColors).map(([color, hex]) => (
-            <button
-              key={color}
-              onClick={() => setPackaging(color)}
-              disabled={!isOptionAffordable(quantity, height)}
-              className={`w-10 h-10 rounded-full flex items-center border-black border justify-center transition ${
-                packaging === color
-                  ? "ring-2 ring-white ring-offset-2"
-                  : "hover:bg-opacity-80"
-              }`}
-              style={{ backgroundColor: hex }}
-              aria-pressed={packaging === color}
-            >
-              {packaging === color && <span className="text-white">✔</span>}
-            </button>
-          ))}
-        </div>
-      </div>
-      {/* Flower Color selection */}
-      <div className="mb-4">
-        <label className="block mb-2">Kolor kwiatów:</label>
-        <div className="flex gap-2">
-          {Object.entries(flowerColors).map(([color, hex]) => (
-            <button
-              key={color}
-              onClick={() => setFlowerColor(color)}
-              className={`w-10 h-10 rounded-full flex items-center border-black border justify-center transition ${
-                flowerColor === color
-                  ? "ring-2 ring-white ring-offset-2"
-                  : "hover:bg-opacity-80"
-              }`}
-              style={{ backgroundColor: hex }}
-              aria-pressed={flowerColor === color}
-            >
-              {flowerColor === color && <span className="text-white">✔</span>}
-            </button>
-          ))}
-        </div>
-      </div>
-      {/* Delivery checkbox */}
-      <div className="mb-4 flex items-center gap-2">
+    <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Budget Input */}
+      <div>
+        <label className="block text-sm font-medium mb-2">
+          Twój budżet (PLN):
+        </label>
         <input
-          type="checkbox"
+          type="number"
+          value={budget}
+          onChange={(e) => setBudget(Math.max(0, Number(e.target.value)))}
+          className="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          min="0"
+          required
+        />
+      </div>
+
+      {/* Quantity Selection */}
+      <FieldGroup label="Wybierz ilość róż:">
+        <div className="grid grid-cols-3 gap-2">
+          {[9, 19, 29, 39, 49].map((q) => (
+            <SelectionButton
+              key={q}
+              value={q}
+              selected={quantity === q}
+              disabled={!isOptionAffordable(q, height)}
+              onClick={() => setQuantity(q)}
+            />
+          ))}
+        </div>
+      </FieldGroup>
+
+      {/* Height Selection */}
+      <FieldGroup label="Wybierz długość łodyg (cm):">
+        <div className="grid grid-cols-3 gap-2">
+          {[40, 50, 60, 70, 80].map((h) => (
+            <SelectionButton
+              key={h}
+              value={h}
+              selected={height === h}
+              disabled={!isOptionAffordable(quantity, h)}
+              onClick={() => setHeight(h)}
+            />
+          ))}
+        </div>
+      </FieldGroup>
+
+      {/* Packaging Selection */}
+      <FieldGroup label="Wybierz opakowanie:">
+        <div className="flex flex-wrap gap-3">
+          <SelectionButton
+            value="Wstążka"
+            selected={packaging === ""}
+            onClick={() => setPackaging("")}
+          />
+          {Object.entries(COLOR_OPTIONS).map(([color, hex]) => (
+            <ColorButton
+              key={color}
+              color={color}
+              hex={hex}
+              selected={packaging === color}
+              disabled={!isOptionAffordable(quantity, height)}
+              onClick={() => setPackaging(color)}
+            />
+          ))}
+        </div>
+      </FieldGroup>
+
+      {/* Flower Color Selection */}
+      <FieldGroup label="Wybierz kolor róż:">
+        <div className="flex flex-wrap gap-3">
+          {Object.entries(COLOR_OPTIONS).map(([color, hex]) => (
+            <ColorButton
+              key={color}
+              color={color}
+              hex={hex}
+              selected={flowerColor === color}
+              onClick={() => setFlowerColor(color)}
+            />
+          ))}
+        </div>
+      </FieldGroup>
+
+      {/* Checkboxes */}
+      <div className="space-y-4">
+        <Checkbox
+          label={`Dołącz dostawę (+${DELIVERY_CHARGE} PLN)`}
           checked={delivery}
           onChange={() => setDelivery(!delivery)}
-          className="w-5 h-5"
-          aria-label="Dołącz dostawę (+20 PLN)"
         />
-        <label>Dołącz dostawę (+20 PLN)</label>
-      </div>{" "}
-      {/* Letter Option */}
-      <div className="mb-4 flex items-center gap-2">
-        <input
-          type="checkbox"
+        <Checkbox
+          label={`Dołącz list (+${LETTER_COST} PLN)`}
           checked={letterOption}
           onChange={() => setLetterOption(!letterOption)}
-          className="w-5 h-5"
-          aria-label="Dołącz list (+10 PLN)"
         />
-        <label>Dołącz list (+10 PLN)</label>
       </div>
-      {/* Price breakdown */}
+
+      {/* Price Summary */}
       {totalPrice > 0 && (
-        <div className="mb-4">
-          <label className="block font-bold">Cena kwiatów (PLN):</label>
-          <p className="font-semibold">
-            {`${totalPrice} (${+(
-              Math.round(totalPrice / quantity + "e+2") + "e-2"
-            )} /szt)`}
-          </p>
-
+        <div className="p-4 bg-gray-50 rounded-lg">
+          <PriceRow label="Cena podstawowa" value={totalPrice} />
           {packagingCost > 0 && (
-            <>
-              <label className="block font-bold mt-2">
-                Koszt opakowania (PLN):
-              </label>
-              <p className="font-semibold">{packagingCost}</p>
-            </>
+            <PriceRow label="Opakowanie" value={packagingCost} />
           )}
+          {delivery && <PriceRow label="Dostawa" value={DELIVERY_CHARGE} />}
+          {letterOption && <PriceRow label="List" value={LETTER_COST} />}
+          <hr className="my-3" />
+          <PriceRow label="Suma końcowa" value={getFinalPrice()} isTotal />
 
-          {delivery && (
-            <>
-              <label className="block font-bold mt-2">
-                Koszt dostawy (PLN):
-              </label>
-              <p className="font-semibold">{deliveryCharge}</p>
-            </>
+          {budget < getFinalPrice() && (
+            <div className="mt-3 text-red-600 text-sm">
+              Budżet przekroczony o {(getFinalPrice() - budget).toFixed(2)} PLN
+            </div>
           )}
-
-          {letterOption && (
-            <>
-              <label className="block font-bold mt-2">Koszt listu (PLN):</label>
-              <p className="font-semibold">{letterCost}</p>
-            </>
-          )}
-
-          <label className="block font-bold mt-2">Całkowita cena (PLN):</label>
-          <p className="font-semibold">{getFinalPrice()}</p>
         </div>
       )}
-      {/* Submit button */}
+
+      {/* Submit Button */}
       <button
-        className="w-full bg-green-500 text-white p-2 rounded-lg hover:bg-green-600 disabled:opacity-50"
-        /*disabled={totalPrice === 0 || budget < getFinalPrice()}*/
-        onClick={handleSubmit}
+        type="submit"
+        disabled={!quantity || !height || budget < getFinalPrice()}
+        className="w-full py-3 px-4 bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
       >
-        Potwierdź zamówienie
+        {budget >= getFinalPrice() ? "Złóż zamówienie" : "Za mały budżet"}
       </button>
-      {/*budget && budget < getFinalPrice() && (
-        <p className="text-red-500 mt-2">
-Twój budżet jest za niski na to zamówienie.
-        </p>
-      )*/}
-    </div>
+    </form>
   );
 }
+
+// Reusable Components
+const FieldGroup = ({ label, children }) => (
+  <div>
+    <label className="block text-sm font-medium mb-3">{label}</label>
+    {children}
+  </div>
+);
+
+const SelectionButton = ({ value, selected, disabled, onClick }) => (
+  <button
+    type="button"
+    onClick={onClick}
+    disabled={disabled}
+    className={`p-3 text-center rounded-lg border transition-colors
+      ${
+        selected
+          ? "bg-blue-600 text-white border-blue-700"
+          : "bg-white hover:bg-gray-50"
+      }
+      ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
+  >
+    {value}
+  </button>
+);
+
+const ColorButton = ({ color, hex, selected, onClick, disabled }) => (
+  <button
+    type="button"
+    onClick={onClick}
+    disabled={disabled}
+    className={`w-10 h-10 rounded-full border-2 transition-all
+      ${selected ? "ring-2 ring-offset-2 ring-blue-500" : ""}
+      ${disabled ? "opacity-50 cursor-not-allowed" : "hover:scale-105"}`}
+    style={{ backgroundColor: hex, borderColor: selected ? hex : "#e5e7eb" }}
+    aria-label={`Kolor ${color}`}
+  >
+    {selected && <span className="text-white">✓</span>}
+  </button>
+);
+
+const Checkbox = ({ label, checked, onChange }) => (
+  <label className="flex items-center space-x-3 cursor-pointer">
+    <input
+      type="checkbox"
+      checked={checked}
+      onChange={onChange}
+      className="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
+    />
+    <span className="text-gray-700">{label}</span>
+  </label>
+);
+
+const PriceRow = ({ label, value, isTotal }) => (
+  <div className={`flex justify-between ${isTotal ? "font-bold" : "text-sm"}`}>
+    <span>{label}:</span>
+    <span>{value.toFixed(2)} PLN</span>
+  </div>
+);
