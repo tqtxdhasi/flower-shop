@@ -152,7 +152,7 @@ export default function OrderForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="p-8 rounded-xl flex flex-col gap-4 bg-rose-50"
+      className="p-6 rounded-xl flex flex-col gap-4 bg-rose-50"
     >
       {/* Budget Input */}
       <div className="flex flex-col gap-2">

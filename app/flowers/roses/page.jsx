@@ -20,28 +20,28 @@ const FlowerPage = () => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
   return (
-    <>
-      <h1 className="max-w-4xl px-4 mx-auto mb-8 text-3xl font-bold text-center text-rose-800 md:text-4xl">
+    <div className="p-4 flex flex-col gap-4">
+      <h1 className="max-w-4xl px-4 mx-auto sm:my-4 text-3xl font-bold text-center text-rose-900 md:text-4xl">
         Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie
       </h1>
 
-      <div className="flex flex-col p-6 md:flex-row gap-8">
-        <div className="w-full md:w-2/3 items-center flex flex-col gap-4">
-          <div className="max-w-80 sm:max-w-full max-h-[500px] aspect-square">
+      <div className="flex flex-col w-full md:flex-row gap-4 mx-auto">
+        <div className="w-full p-4 md:w-2/3  flex flex-col md:flex-row-reverse gap-4 rounded-xl bg-rose-50">
+          <div className="max-w-full aspect-square">
             <Image
               src={selectedImage}
               alt="Selected Flower"
               className="object-cover object-center rounded-lg w-full h-full"
-              width={600}
-              height={600}
+              width={700}
+              height={700}
             />
           </div>
-          <div className="grid grid-cols-5 w-fit md:grid-cols-6 gap-2 ">
+          <div className="grid grid-cols-5 md:flex md:flex-wrap w-fit gap-2 h-fit justify-center ">
             {images.map((img, index) => (
               <button
                 key={index}
                 onClick={() => setSelectedImage(img)}
-                className=" md:w-24"
+                className="w-20 md:w-24"
               >
                 <div className="aspect-square ">
                   <Image
@@ -149,7 +149,7 @@ const FlowerPage = () => {
         </section>
         <HowItWorks />
       </div>
-    </>
+    </div>
   );
 };
 
