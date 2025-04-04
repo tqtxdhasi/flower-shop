@@ -21,7 +21,7 @@ const FlowerPage = () => {
 
   return (
     <>
-      <h1 className="max-w-4xl px-4 mx-auto mb-8 text-3xl font-bold text-center text-gray-800 md:text-4xl">
+      <h1 className="max-w-4xl px-4 mx-auto mb-8 text-3xl font-bold text-center text-rose-800 md:text-4xl">
         Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie
       </h1>
 
