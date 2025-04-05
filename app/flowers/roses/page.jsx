@@ -67,13 +67,34 @@ const FlowerPage = () => {
       <div className="max-w-4xl px-4 mx-auto prose-lg">
         <section className="mb-12">
           <h2 className="mb-4 text-2xl font-bold text-gray-800 md:text-3xl">
-            Eleganckie Bukiety Jednoróżane
+            Eleganckie Bukiety Jednoróżane – Ekskluzywne Róże w Krakowie
           </h2>
           <p className="mb-6">
-            Oferujemy ekskluzywne bukiety z róż najwyższej jakości, idealne na:
+            🌹 Szukasz wyjątkowego bukietu róż w Krakowie? Nasza kwiaciarnia
+            oferuje luksusowe, jednoróżane bukiety wykonane z kwiatów najwyższej
+            jakości. Każda róża jest starannie selekcjonowana, aby zapewnić
+            doskonały wygląd i trwałość. Oferujemy szybką dostawę kwiatów w
+            Krakowie i okolicach oraz możliwość osobistego odbioru. Dzięki
+            naszej elastycznej obsłudze możesz cieszyć się pięknym bukietem na
+            każdą okazję, mając pewność, że każdy detal jest dopracowany zgodnie
+            z Twoimi oczekiwaniami.{" "}
           </p>
           <div className="grid grid-cols-2 gap-4 mb-8 md:grid-cols-4">
-            {["Śluby", "Walentynki", "Rocznice", "Urodziny"].map((occasion) => (
+            {[
+              "Walentynki",
+              "Rocznice",
+              "Zaręczyny",
+              "Urodziny",
+              "Imieniny",
+              "Dzień Matki",
+              "Dzień Ojca",
+              "Dzień Nauczyciela",
+              "Dzień Kobiet",
+              "Boże Narodzenie",
+              "Wielkanoc",
+              "Sylwester",
+              "Nowy Rok",
+            ].map((occasion) => (
               <div
                 key={occasion}
                 className="p-3 text-center bg-red-50 rounded-lg"
@@ -82,7 +103,14 @@ const FlowerPage = () => {
               </div>
             ))}
           </div>
-
+          <p className="mb-6">
+            ✅ Gwarantujemy najwyższą jakość – nasze róże pochodzą od
+            sprawdzonych dostawców z Holandii, Ekwadoru oraz z polskich
+            plantacji. ✅ Dostawa w Krakowie i okolicach – zamówienia
+            realizujemy osobiście, a dostawa wynosi jedynie 20 PLN. ✅
+            Personalizowane kompozycje – wybierz kolor, długość łodygi oraz
+            dodatki, które uczynią Twój bukiet niepowtarzalnym.
+          </p>
           <h3 className="mb-3 text-xl font-semibold">Dostępne Warianty</h3>
           <div className="grid gap-4 md:grid-cols-2">
             <div className="p-4 bg-white rounded-lg shadow-sm">
@@ -109,6 +137,26 @@ const FlowerPage = () => {
                   "Żółty",
                   "Pomarańczowy",
                   "Miks",
+                ].map((color) => (
+                  <span
+                    key={color}
+                    className="px-3 py-1 text-sm bg-gray-100 rounded-full"
+                  >
+                    {color}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="p-4 bg-white rounded-lg shadow-sm">
+              <h4 className="mb-2 font-semibold">Dodatkowe Usługi</h4>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Personalizowane bileciki ",
+                  "Ekskluzywne opakowanie",
+                  "Słodkie upominki",
+                  "Wazon w zestawie",
+                  "Subskrypcja kwiatowa ",
+                  "Kompozycje na zamówienie",
                 ].map((color) => (
                   <span
                     key={color}

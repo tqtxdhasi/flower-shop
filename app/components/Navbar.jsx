@@ -9,7 +9,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-[#2E2B26] text-white p-4 sticky top-0 z-10">
+    <nav className="bg-rose-800 text-white p-4 sticky top-0 z-10">
       <div className="flex justify-between items-center">
         <a className="text-2xl font-bold" href="/">
           Bubeny Kwiaty Krakow
@@ -17,11 +17,6 @@ const Navbar = () => {
 
         {/* Desktop Navbar */}
         <ul className="hidden md:flex space-x-6">
-          <li>
-            <a href="/" className="hover:text-yellow-300">
-              Home
-            </a>
-          </li>
           <li>
             <a href="/flowers/roses" className="hover:text-yellow-300">
               Róże
@@ -57,13 +52,8 @@ const Navbar = () => {
 
       {/* Mobile Navbar */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-[#2E2B26] text-white p-4 mt-2">
+        <div className="md:hidden   p-4 mt-2">
           <ul className="space-y-4">
-            <li>
-              <a href="/" className="hover:text-yellow-300 block">
-                Home
-              </a>
-            </li>
             <li>
               <a href="/flowers/roses" className="hover:text-yellow-300 block">
                 Róże
