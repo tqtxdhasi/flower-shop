@@ -113,13 +113,13 @@ const FlowerPage = () => {
           </p>
           <h3 className="mb-3 text-xl font-semibold">Dostępne Warianty</h3>
           <div className="grid gap-4 md:grid-cols-2">
-            <div className="p-4 bg-white rounded-lg shadow-sm">
-              <h4 className="mb-2 font-semibold">Rozmiary łodyg</h4>
+            <div className="p-4 bg-rose-50 rounded-lg shadow-sm flex flex-col gap-2">
+              <h4 className="text-rose-900 font-semibold">Rozmiary łodyg</h4>
               <div className="flex flex-wrap gap-2">
                 {["40cm", "50cm", "60cm", "70cm", "80cm"].map((size) => (
                   <span
                     key={size}
-                    className="px-3 py-1 text-sm bg-gray-100 rounded-full"
+                    className="bg-white text-rose-900 border-2 border-rose-200 hover:bg-rose-50 transition-colors rounded-full px-4 py-1"
                   >
                     {size}
                   </span>
@@ -127,8 +127,8 @@ const FlowerPage = () => {
               </div>
             </div>
 
-            <div className="p-4 bg-white rounded-lg shadow-sm">
-              <h4 className="mb-2 font-semibold">Kolorystyka</h4>
+            <div className="p-4 bg-rose-50 rounded-lg shadow-sm flex flex-col gap-2">
+              <h4 className="text-rose-900 font-semibold">Kolorystyka</h4>
               <div className="flex flex-wrap gap-2">
                 {[
                   "Czerwony",
@@ -140,15 +140,15 @@ const FlowerPage = () => {
                 ].map((color) => (
                   <span
                     key={color}
-                    className="px-3 py-1 text-sm bg-gray-100 rounded-full"
+                    className="bg-white text-rose-900 border-2 border-rose-200 hover:bg-rose-50 transition-colors rounded-full px-4 py-1"
                   >
                     {color}
                   </span>
                 ))}
               </div>
             </div>
-            <div className="p-4 bg-white rounded-lg shadow-sm">
-              <h4 className="mb-2 font-semibold">Dodatkowe Usługi</h4>
+            <div className="p-4 bg-rose-50 rounded-lg shadow-sm flex flex-col gap-2 col-span-2">
+              <h4 className="text-rose-900 font-semibold">Dodatkowe Usługi</h4>
               <div className="flex flex-wrap gap-2">
                 {[
                   "Personalizowane bileciki ",
@@ -160,7 +160,7 @@ const FlowerPage = () => {
                 ].map((color) => (
                   <span
                     key={color}
-                    className="px-3 py-1 text-sm bg-gray-100 rounded-full"
+                    className="bg-white text-rose-900 border-2 border-rose-200 hover:bg-rose-50 transition-colors rounded-full px-4 py-1"
                   >
                     {color}
                   </span>

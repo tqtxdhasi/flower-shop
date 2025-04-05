@@ -1,6 +1,6 @@
 function HowItWorks() {
   return (
-    <div className="bg-rose-50 py-12 px-4 sm:px-6 lg:px-8 flex flex-col rounded-xl gap-6">
+    <div className="bg-rose-50 max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8 flex flex-col rounded-xl gap-6">
       <h2 className="text-4xl font-bold text-rose-900 flex items-center gap-2">
         <span>📜</span>
         Regulamin zamówień i akceptacji bukietu
