@@ -76,7 +76,7 @@ const FlowerPage = () => {
           <OrderForm />
         </div>
       </div>
-      <div className="max-w-4xl flex flex-col gap-4 px-4 mx-auto">
+      <div className="max-w-4xl flex flex-col gap-4 px-2 mx-auto">
         <h2 className=" text-2xl text-center font-bold text-rose-900 md:text-3xl">
           Eleganckie Bukiety Jednoróżane – Ekskluzywne Róże w Krakowie Online
         </h2>
