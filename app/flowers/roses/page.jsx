@@ -56,7 +56,7 @@ const FlowerPage = () => {
               <button
                 key={index}
                 onClick={() => setSelectedImage(img)}
-                className="w-20 md:w-24"
+                className="w-16 md:w-24"
               >
                 <div className="aspect-square ">
                   <Image
