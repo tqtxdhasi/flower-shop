@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import WhyChooseUs from "./components/WhyChooseUs";
 import AvailableFlowers from "./components/AvailableFlowers";
 import HowItWorks from "./components/HowItWorks";
-import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -13,7 +12,6 @@ export default function Home() {
       <WhyChooseUs />
       <AvailableFlowers />
       <HowItWorks />
-      <Footer />
     </div>
   );
 }

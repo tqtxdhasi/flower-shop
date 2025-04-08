@@ -18,13 +18,18 @@ const Navbar = () => {
         {/* Desktop Navbar */}
         <ul className="hidden md:flex space-x-6">
           <li>
-            <a href="/flowers/roses" className="hover:text-yellow-300">
+            <a href="/" className="hover:text-rose-300 ">
+              Strona główna
+            </a>
+          </li>
+          <li>
+            <a href="/flowers/roses" className="hover:text-rose-300">
               Róże
             </a>
           </li>
           <li>
-            <a href="/blog" className="hover:text-yellow-300">
-              Blog
+            <a href="/blog" className="hover:text-rose-300">
+              Poradnik
             </a>
           </li>
         </ul>
@@ -55,13 +60,18 @@ const Navbar = () => {
         <div className="md:hidden   p-4 mt-2">
           <ul className="space-y-4">
             <li>
-              <a href="/flowers/roses" className="hover:text-yellow-300 block">
+              <a href="/" className="hover:text-rose-300 ">
+                Strona główna
+              </a>
+            </li>
+            <li>
+              <a href="/flowers/roses" className="hover:text-rose-300">
                 Róże
               </a>
             </li>
             <li>
-              <a href="/blog" className="hover:text-yellow-300 block">
-                Blog
+              <a href="/blog" className="hover:text-rose-300">
+                Poradnik
               </a>
             </li>
           </ul>

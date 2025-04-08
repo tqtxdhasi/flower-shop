@@ -48,8 +48,8 @@ const FlowerPage = () => {
               src={selectedImage}
               alt="Luksusowy bukiet świeżych róż online"
               className="object-cover object-center rounded-lg w-full h-full"
-              width={700}
-              height={700}
+              width={900}
+              height={900}
             />
           </div>
           <div className="grid grid-cols-5 md:flex md:flex-wrap w-fit gap-2 h-fit justify-center ">
