@@ -36,6 +36,11 @@ export default function OrderForm() {
   const [flowerColor, setFlowerColor] = useState("Pink");
   const [letterOption, setLetterOption] = useState(false);
   const [imageOption, setImageOption] = useState(false);
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [showModal, setShowModal] = useState(false);
+  const [submittedData, setSubmittedData] = useState(null);
+
   const calculateTotalPrice = useCallback(
     (q, h) => {
       if (!q || !h || !PRICE_SHEET[h]?.[q]) {
@@ -52,6 +57,17 @@ export default function OrderForm() {
     },
     [packaging]
   );
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showModal]);
 
   const isOptionAffordable = useCallback(
     (q, h) => {
@@ -130,8 +146,13 @@ export default function OrderForm() {
     imageOption,
   ]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validatePhoneNumber(phoneNumber)) {
+      setPhoneError("Nieprawidłowy numer telefonu");
+      return;
+    }
+
     const formData = {
       budget,
       quantity,
@@ -144,9 +165,25 @@ export default function OrderForm() {
       finalPrice: getFinalPrice(),
       letterOption,
       imageOption,
+      phoneNumber,
     };
-    console.log("Order Data:", formData);
-    alert(`Potwierdzenie zamówienia:\n${JSON.stringify(formData, null, 2)}`);
+
+    try {
+      await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+    } catch (error) {
+      console.error("Email send failed:", error);
+    }
+
+    setSubmittedData(formData);
+    setShowModal(true);
+  };
+  const validatePhoneNumber = (number) => {
+    const phoneRegex = /^\+?[0-9]{9,15}$/;
+    return phoneRegex.test(number);
   };
 
   return (
@@ -154,6 +191,31 @@ export default function OrderForm() {
       onSubmit={handleSubmit}
       className="p-6 rounded-xl flex flex-col gap-4 bg-rose-50"
     >
+      {/* Phone Number Input */}
+      <div className="flex flex-col gap-2">
+        <label className="block text-sm text-rose-900 font-medium">
+          Numer telefonu:
+        </label>
+        <input
+          type="tel"
+          value={phoneNumber}
+          onChange={(e) => {
+            const value = e.target.value;
+            setPhoneNumber(value);
+            setPhoneError(
+              validatePhoneNumber(value) ? "" : "Nieprawidłowy numer telefonu"
+            );
+          }}
+          className={`bg-white w-full px-4 py-2 rounded-lg text-rose-900 border-2 ${
+            phoneError ? "border-red-500" : "border-rose-200"
+          } focus:ring-rose-500 focus:outline-none focus:border-rose-500`}
+          placeholder="np. +48123456789"
+          required
+        />
+        {phoneError && (
+          <span className="text-red-600 text-sm">{phoneError}</span>
+        )}
+      </div>
       {/* Budget Input */}
       <div className="flex flex-col gap-2">
         <label className="block text-sm text-rose-900 font-medium">
@@ -273,6 +335,73 @@ export default function OrderForm() {
       >
         {budget >= getFinalPrice() ? "Złóż zamówienie" : "Za mały budżet"}
       </button>
+      {showModal && submittedData && (
+        <div
+          className="fixed inset-0 bg-black/50 bg-opacity-50 z-50 flex items-center justify-center"
+          onClick={() => setShowModal(false)}
+        >
+          <div
+            className="bg-white rounded-xl p-6 max-w-md w-full text-rose-900 relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className="text-xl font-bold mb-4">Zamówienie otrzymane!</h2>
+            <div className="bg-rose-50 p-4 rounded text-sm space-y-2">
+              <p>
+                <strong>Budżet:</strong> {submittedData.budget} zł
+              </p>
+              <p>
+                <strong>Ilość róż:</strong> {submittedData.quantity}
+              </p>
+              <p>
+                <strong>Długość łodyg:</strong> {submittedData.height} cm
+              </p>
+              <p>
+                <strong>Opakowanie:</strong>{" "}
+                {submittedData.packaging || "Brak / Wstążka"}
+              </p>
+              <p>
+                <strong>Kolor róż:</strong> {submittedData.flowerColor}
+              </p>
+              <p>
+                <strong>Dostawa:</strong>{" "}
+                {submittedData.delivery ? "Tak" : "Nie"}
+              </p>
+              <p>
+                <strong>List:</strong>{" "}
+                {submittedData.letterOption ? "Tak" : "Nie"}
+              </p>
+              <p>
+                <strong>Zdjęcie:</strong>{" "}
+                {submittedData.imageOption ? "Tak" : "Nie"}
+              </p>
+              <p>
+                <strong>Cena podstawowa:</strong> {submittedData.totalPrice} zł
+              </p>
+              <p>
+                <strong>Koszt opakowania:</strong> {submittedData.packagingCost}{" "}
+                zł
+              </p>
+              <p>
+                <strong>Suma końcowa:</strong> {submittedData.finalPrice} zł
+              </p>
+              <p>
+                <strong>Numer telefonu:</strong> {submittedData.phoneNumber}
+              </p>
+            </div>
+
+            <p className="mt-4">
+              Dziękujemy! Skontaktujemy się z Tobą wkrótce przez SMS lub telefon
+              w celu potwierdzenia zamówienia.
+            </p>
+            <button
+              className="mt-6 w-full py-2 bg-rose-700 text-white rounded-lg hover:bg-rose-800"
+              onClick={() => setShowModal(false)}
+            >
+              Zamknij
+            </button>
+          </div>
+        </div>
+      )}
     </form>
   );
 }

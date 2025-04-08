@@ -43,7 +43,7 @@ const FlowerPage = () => {
       </h1>
       <div className="flex flex-col w-full md:flex-row gap-4 mx-auto">
         <div className="w-full p-4 md:w-2/3  flex flex-col md:flex-row-reverse gap-4 rounded-xl bg-rose-50">
-          <div className="max-w-full aspect-square">
+          <div className="max-w-[700px] aspect-square">
             <Image
               src={selectedImage}
               alt="Luksusowy bukiet świeżych róż online"
