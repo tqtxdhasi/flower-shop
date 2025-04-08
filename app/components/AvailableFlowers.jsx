@@ -7,7 +7,7 @@ function AvailableFlowers() {
         Dostępne kwiaty i Nasze Ceny
       </h2>
       <div className="mt-8 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
-        <div className=" bg-[#E8D7D1] flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
+        <div className=" bg-rose-100 flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
           <div className="relative h-[450px]">
             <Image
               src={"/roses.jpg"}
@@ -23,12 +23,12 @@ function AvailableFlowers() {
           </p>
           <a
             href="tel:+48731588515"
-            className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
+            className="bg-rose-700 text-white hover:bg-rose-800 p-2 rounded-lg inline-block"
           >
             Zamów Teraz
           </a>
         </div>
-        <div className=" bg-[#E8D7D1] flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
+        <div className=" bg-rose-100 flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
           <div className="relative h-[450px]">
             <Image
               src={"/tulips.jpg"}
@@ -45,12 +45,12 @@ function AvailableFlowers() {
           </p>
           <a
             href="tel:+48731588515"
-            className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
+            className="bg-rose-700 text-white hover:bg-rose-800 p-2 rounded-lg inline-block"
           >
             Zamów Teraz
           </a>
         </div>
-        <div className=" bg-[#E8D7D1] flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
+        <div className=" bg-rose-100 flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
           <div className="relative h-[450px]">
             <Image
               src={"/piwonie.jpg"}
@@ -64,12 +64,12 @@ function AvailableFlowers() {
           <p className="text-sm text-gray-600"> Biały, Różowy</p>
           <a
             href="tel:+48731588515"
-            className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
+            className="bg-rose-700 text-white hover:bg-rose-800 p-2 rounded-lg inline-block"
           >
             Zamów Teraz
           </a>
         </div>
-        <div className=" bg-[#E8D7D1] flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
+        <div className=" bg-rose-100 flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
           <div className="relative h-[450px]">
             <Image
               src={"/ranunculus.jpg"}
@@ -83,12 +83,12 @@ function AvailableFlowers() {
           <p className="text-sm text-gray-600"> Różowy, Biały</p>
           <a
             href="tel:+48731588515"
-            className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
+            className="bg-rose-700 text-white hover:bg-rose-800 p-2 rounded-lg inline-block"
           >
             Zamów Teraz
           </a>
         </div>
-        <div className=" bg-[#E8D7D1] flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
+        <div className=" bg-rose-100 flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
           <div className="relative h-[450px]">
             <Image
               src={"/gipsowka.jpg"}
@@ -104,12 +104,12 @@ function AvailableFlowers() {
           </p>
           <a
             href="tel:+48731588515"
-            className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
+            className="bg-rose-700 text-white hover:bg-rose-800 p-2 rounded-lg inline-block"
           >
             Zamów Teraz
           </a>
         </div>
-        <div className=" bg-[#E8D7D1] flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
+        <div className=" bg-rose-100 flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
           <div className="relative h-[450px]">
             <Image
               src={"/hortensje.jpg"}
@@ -125,12 +125,12 @@ function AvailableFlowers() {
           </p>
           <a
             href="tel:+48731588515"
-            className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
+            className="bg-rose-700 text-white hover:bg-rose-800 p-2 rounded-lg inline-block"
           >
             Zamów Teraz
           </a>
         </div>
-        <div className=" bg-[#E8D7D1] flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
+        <div className=" bg-rose-100 flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
           <div className="relative h-[450px]">
             <Image
               src={"/image 26.jpg"}
@@ -144,7 +144,7 @@ function AvailableFlowers() {
           <p className="text-sm text-gray-600"> Zróżnicowane</p>
           <a
             href="tel:+48731588515"
-            className="bg-[#2E2B26] text-[#FAFAFA] p-2 rounded-lg inline-block"
+            className="bg-rose-700 text-white hover:bg-rose-800 p-2 rounded-lg inline-block"
           >
             Zamów Teraz
           </a>

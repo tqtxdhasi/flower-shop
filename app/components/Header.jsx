@@ -7,7 +7,7 @@ import {
 
 function Header() {
   return (
-    <header className="relative pt-8 px-8 sm:p-16 text-center text-[#2E2B26] rounded-lg shadow-lg bg-[#E8D7D1]">
+    <header className="relative pt-8 px-8 sm:p-16 text-center text-rose-900 rounded-lg shadow-lg bg-rose-100">
       <div className="absolute left-0 top-1/2 transform -translate-y-1/2 sm:block hidden">
         <img
           src="/Layer 2.png"
@@ -40,7 +40,7 @@ function Header() {
           <div className="mt-6 flex justify-center">
             <a
               href="tel:+48731588515"
-              className="bg-green-500 py-3 px-8 rounded-lg hover:bg-green-600 text-white font-bold transition-all"
+              className="bg-rose-700 py-3 px-8 rounded-lg hover:bg-rose-800 text-white font-bold transition-all"
             >
               Zamów teraz: +48 731-588-515
             </a>

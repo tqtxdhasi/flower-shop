@@ -1,6 +1,6 @@
 function WhyChooseUs() {
   return (
-    <section className=" text-[#FAFAFA] rounded-lg shadow-lg p-4 bg-[#2E2B26] sm:py-12">
+    <section className=" text-white rounded-lg shadow-lg p-4 bg-rose-700 sm:py-12">
       <h2 className="text-2xl sm:text-3xl font-semibold text-center">
         Dlaczego warto wybrać nas?
       </h2>
