@@ -4,6 +4,7 @@ import OrderForm from "../../components/OrderForm";
 import Image from "next/image";
 import HowItWorks from "@/app/components/HowItWorks";
 import Head from "next/head";
+import Link from "next/link";
 
 const images = [
   "/roses2.jpg",
@@ -283,8 +284,157 @@ const FlowerPage = () => {
             </p>
           </div>
         </div>
-        <HowItWorks />
-      </div>
+      </div>{" "}
+      <h2 className=" text-2xl text-center font-bold text-rose-900 md:text-3xl">
+        Artykuły i Porady o Różach
+      </h2>
+      <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-3">
+        <article className="group h-fit bg-rose-50 rounded-xl col-span-1 shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden max-w-md mx-auto hover:bg-rose-100">
+          {/* Image Section */}
+          <div className="relative h-60 overflow-hidden">
+            <img
+              src="https://placehold.co/800x400.png?text=Proper+Watering+Technique"
+              alt="Czerwone róże z widokiem na Wawel w Krakowie"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute bottom-2 left-2 bg-rose-600/90 text-white px-3 py-1 rounded-full text-sm">
+              Kraków 🌹
+            </div>
+          </div>
+
+          {/* Content Section */}
+          <div className="p-6">
+            <h2 className="text-2xl font-bold text-rose-900 mb-3 hover:text-rose-700 transition-colors">
+              <Link href="/blog/jak-wybrac-idealne-roze-krakow">
+                Jak Wybrać Idealne Róże w Krakowie? Poradnik 2024
+                <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  →
+                </span>
+              </Link>
+            </h2>
+
+            <p className="text-rose-800 mb-4">
+              Poznaj sekrety wyboru najświeższych róż od lokalnych dostawców.
+              Przewodnik po krakowskich dzielnicach i najlepszych okazjach!
+            </p>
+
+            {/* Metadata */}
+            <div className="flex items-center justify-between text-rose-600 text-sm mb-4">
+              <span>📖 5 min czytania</span>
+              <span>🗓️ 15 Maj 2024</span>
+            </div>
+
+            {/* CTA Button */}
+            <Link
+              href="/blog/jak-wybrac-idealne-roze-krakow"
+              className="inline-block w-full bg-rose-600 hover:bg-rose-700 text-white text-center py-3 px-6 rounded-lg font-medium transition-colors duration-300 shadow-sm hover:shadow-md"
+              aria-label="Przeczytaj poradnik o wyborze róż w Krakowie"
+            >
+              Czytaj Poradnik Krakowskiego Florysty 🌹
+            </Link>
+          </div>
+        </article>
+        <article className="group col-span-1 h-fit bg-rose-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden max-w-md mx-auto hover:bg-rose-100 border-2 border-rose-100">
+          {/* Image Section */}
+          <div className="relative h-60 overflow-hidden">
+            <img
+              src="https://placehold.co/800x400.png?text=Proper+Watering+Technique"
+              alt="Pielęgnacja róż w krakowskim mieszkaniu z widokiem na Planty"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+            <div className="absolute bottom-2 left-2  w-full flex flex-wrap gap-2">
+              {" "}
+              <div className=" bg-rose-600/90 text-white px-3 py-1 rounded-full text-sm">
+                Poradnik Kraków 🌹
+              </div>
+              <div className=" bg-rose-600/90 text-white px-3 py-1 rounded-full text-sm">
+                Roze
+              </div>
+            </div>
+          </div>
+
+          {/* Content Section */}
+          <div className="p-6">
+            <h2 className="text-2xl font-bold text-rose-900 mb-3 hover:text-rose-700 transition-colors">
+              <Link href="/blog/przedluzanie-zycia-roz-krakow">
+                Jak Przedłużyć Życie Róż w Krakowie? 7 Sprawdzonych Metod
+                <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  →
+                </span>
+              </Link>
+            </h2>
+
+            <p className="text-rose-800 mb-4">
+              Poznaj tajniki krakowskich florystów! Dowiedz się jak twarda woda
+              z Wisły wpływa na trwałość róż i zamów profesjonalną odżywkę z
+              dostawą pod Twój adres.
+            </p>
+
+            {/* Metadata & CTA */}
+            <div className="flex items-center justify-between text-rose-600 text-sm mb-4">
+              <span>📖 7 min czytania</span>
+              <span>🗓️ 20 Maj 2024</span>
+            </div>
+
+            <div className="space-y-4">
+              <Link
+                href="/blog/przedluzanie-zycia-roz-krakow"
+                className="block text-center bg-rose-600 hover:bg-rose-700 text-white py-3 px-6 rounded-lg font-medium transition-colors shadow-sm hover:shadow-md"
+                aria-label="Poznaj metody przedłużania życia róż"
+              >
+                Poznaj Sekrety Florystów →
+              </Link>
+            </div>
+          </div>
+        </article>
+        <article className="group h-fit bg-rose-50 rounded-xl col-span-1 shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden max-w-md mx-auto hover:bg-rose-100">
+          {/* Image Section */}
+          <div className="relative h-60 overflow-hidden">
+            <img
+              src="https://placehold.co/800x400.png?text=Proper+Watering+Technique"
+              alt="Czerwone róże z widokiem na Wawel w Krakowie"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div className="absolute bottom-2 left-2 bg-rose-600/90 text-white px-3 py-1 rounded-full text-sm">
+              Kraków 🌹
+            </div>
+          </div>
+
+          {/* Content Section */}
+          <div className="p-6">
+            <h2 className="text-2xl font-bold text-rose-900 mb-3 hover:text-rose-700 transition-colors">
+              <Link href="/blog/jak-wybrac-idealne-roze-krakow">
+                Jak Wybrać Idealne Róże w Krakowie? Poradnik 2024
+                <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                  →
+                </span>
+              </Link>
+            </h2>
+
+            <p className="text-rose-800 mb-4">
+              Poznaj sekrety wyboru najświeższych róż od lokalnych dostawców.
+              Przewodnik po krakowskich dzielnicach i najlepszych okazjach!
+            </p>
+
+            {/* Metadata */}
+            <div className="flex items-center justify-between text-rose-600 text-sm mb-4">
+              <span>📖 5 min czytania</span>
+              <span>🗓️ 15 Maj 2024</span>
+            </div>
+
+            {/* CTA Button */}
+            <Link
+              href="/blog/jak-wybrac-idealne-roze-krakow"
+              className="inline-block w-full bg-rose-600 hover:bg-rose-700 text-white text-center py-3 px-6 rounded-lg font-medium transition-colors duration-300 shadow-sm hover:shadow-md"
+              aria-label="Przeczytaj poradnik o wyborze róż w Krakowie"
+            >
+              Czytaj Poradnik Krakowskiego Florysty 🌹
+            </Link>
+          </div>
+        </article>{" "}
+      </div>{" "}
+      <HowItWorks />
     </div>
   );
 };
