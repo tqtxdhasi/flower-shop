@@ -133,7 +133,7 @@ function AvailableFlowers() {
         <div className=" bg-rose-100 flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center ">
           <div className="relative h-[450px]">
             <Image
-              src={"/image 26.jpg"}
+              src={"/tulips.jpg"}
               alt={"Mix Kwiatów"}
               fill
               className="object-cover rounded-lg min-h-[300px]"
