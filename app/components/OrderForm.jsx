@@ -148,6 +148,7 @@ export default function OrderForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!validatePhoneNumber(phoneNumber)) {
       setPhoneError("Nieprawidłowy numer telefonu");
       return;
@@ -169,18 +170,36 @@ export default function OrderForm() {
     };
 
     try {
-      await fetch("/api/send-email", {
+      const res = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-    } catch (error) {
-      console.error("Email send failed:", error);
-    }
 
-    setSubmittedData(formData);
-    setShowModal(true);
+      if (res.ok) {
+        setSubmittedData(formData);
+        setShowModal(true);
+
+        // Reset form fields
+        setBudget(530);
+        setQuantity(19);
+        setHeight(50);
+        setPackaging("White");
+        setFlowerColor("Pink");
+        setDelivery(false);
+        setLetterOption(false);
+        setImageOption(false);
+        setPhoneNumber("");
+        setPhoneError("");
+      } else {
+        const error = await res.json();
+        console.error("Błąd wysyłania:", error);
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+    }
   };
+
   const validatePhoneNumber = (number) => {
     const phoneRegex = /^\+?[0-9]{9,15}$/;
     return phoneRegex.test(number);
