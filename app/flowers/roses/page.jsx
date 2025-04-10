@@ -254,13 +254,14 @@ const FlowerPage = () => {
             </p>
           </div>
         </div>
-      </div>{" "}
+      </div>
+      {/* FAQ Section 
       <h2 className=" text-2xl text-center font-bold text-rose-900 md:text-3xl">
         Artykuły i Porady o Różach
       </h2>
       <div className="md:col-span-3 grid grid-cols-1 md:grid-cols-3">
         <article className="group h-fit bg-rose-50 rounded-xl col-span-1 shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden max-w-md mx-auto hover:bg-rose-100">
-          {/* Image Section */}
+          
           <div className="relative h-60 overflow-hidden">
             <img
               src="https://placehold.co/800x400.png?text=Proper+Watering+Technique"
@@ -272,7 +273,7 @@ const FlowerPage = () => {
             </div>
           </div>
 
-          {/* Content Section */}
+          
           <div className="p-6">
             <h2 className="text-2xl font-bold text-rose-900 mb-3 hover:text-rose-700 transition-colors">
               <Link href="/blog/jak-wybrac-idealne-roze-krakow">
@@ -288,13 +289,13 @@ const FlowerPage = () => {
               Przewodnik po krakowskich dzielnicach i najlepszych okazjach!
             </p>
 
-            {/* Metadata */}
+            
             <div className="flex items-center justify-between text-rose-600 text-sm mb-4">
               <span>📖 5 min czytania</span>
               <span>🗓️ 15 Maj 2024</span>
             </div>
 
-            {/* CTA Button */}
+            
             <Link
               href="/blog/jak-wybrac-idealne-roze-krakow"
               className="inline-block w-full bg-rose-600 hover:bg-rose-700 text-white text-center py-3 px-6 rounded-lg font-medium transition-colors duration-300 shadow-sm hover:shadow-md"
@@ -305,7 +306,7 @@ const FlowerPage = () => {
           </div>
         </article>
         <article className="group col-span-1 h-fit bg-rose-50 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden max-w-md mx-auto hover:bg-rose-100 border-2 border-rose-100">
-          {/* Image Section */}
+          
           <div className="relative h-60 overflow-hidden">
             <img
               src="https://placehold.co/800x400.png?text=Proper+Watering+Technique"
@@ -324,7 +325,7 @@ const FlowerPage = () => {
             </div>
           </div>
 
-          {/* Content Section */}
+          
           <div className="p-6">
             <h2 className="text-2xl font-bold text-rose-900 mb-3 hover:text-rose-700 transition-colors">
               <Link href="/blog/przedluzanie-zycia-roz-krakow">
@@ -341,7 +342,7 @@ const FlowerPage = () => {
               dostawą pod Twój adres.
             </p>
 
-            {/* Metadata & CTA */}
+            
             <div className="flex items-center justify-between text-rose-600 text-sm mb-4">
               <span>📖 7 min czytania</span>
               <span>🗓️ 20 Maj 2024</span>
@@ -359,7 +360,7 @@ const FlowerPage = () => {
           </div>
         </article>
         <article className="group h-fit bg-rose-50 rounded-xl col-span-1 shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden max-w-md mx-auto hover:bg-rose-100">
-          {/* Image Section */}
+          
           <div className="relative h-60 overflow-hidden">
             <img
               src="https://placehold.co/800x400.png?text=Proper+Watering+Technique"
@@ -371,7 +372,7 @@ const FlowerPage = () => {
             </div>
           </div>
 
-          {/* Content Section */}
+          
           <div className="p-6">
             <h2 className="text-2xl font-bold text-rose-900 mb-3 hover:text-rose-700 transition-colors">
               <Link href="/blog/jak-wybrac-idealne-roze-krakow">
@@ -387,13 +388,13 @@ const FlowerPage = () => {
               Przewodnik po krakowskich dzielnicach i najlepszych okazjach!
             </p>
 
-            {/* Metadata */}
+            
             <div className="flex items-center justify-between text-rose-600 text-sm mb-4">
               <span>📖 5 min czytania</span>
               <span>🗓️ 15 Maj 2024</span>
             </div>
 
-            {/* CTA Button */}
+            
             <Link
               href="/blog/jak-wybrac-idealne-roze-krakow"
               className="inline-block w-full bg-rose-600 hover:bg-rose-700 text-white text-center py-3 px-6 rounded-lg font-medium transition-colors duration-300 shadow-sm hover:shadow-md"
@@ -403,7 +404,7 @@ const FlowerPage = () => {
             </Link>
           </div>
         </article>{" "}
-      </div>{" "}
+      </div>{" "}*/}
       <HowItWorks />
     </div>
   );
