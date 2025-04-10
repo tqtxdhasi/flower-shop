@@ -34,12 +34,16 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           <a
-            className="text-2xl font-bold hover:text-rose-200 transition-colors"
+            className="flex items-center text-2xl font-bold hover:text-rose-200 transition-colors space-x-2"
             href="/"
           >
-            Bubeny Kwiaty Krakow
+            <img
+              src="/icon1.png"
+              alt="Logo"
+              className="w-10 h-10 rounded-full object-cover"
+            />
+            <span>Bubeny Kwiaty Krakow</span>
           </a>
-
           {/* Desktop Navbar */}
           <ul className="hidden md:flex space-x-8">
             {menuItems.map((item) => (

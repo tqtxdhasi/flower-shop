@@ -203,7 +203,7 @@ const FlowerPage = () => {
               Jak długo utrzymają się świeże róże?
             </h3>
             <p className="mt-2 text-rose-800">
-              Gwarantujemy świeżość przez minimum 7 dni przy prawidłowej
+              Gwarantujemy świeżość przez minimum 3 dni przy prawidłowej
               pielęgnacji. Do każdego zamówienia dołączamy instrukcję
               przedłużania trwałości kwiatów.
             </p>
@@ -213,9 +213,8 @@ const FlowerPage = () => {
               Czy mogę zmienić termin wysyłki?
             </h3>
             <p className="mt-2 text-rose-800">
-              Tak, zmiana terminu wysyłki jest możliwa do 12 godzin przed
-              planowanym nadaniem. Skontaktuj się z nami mailowo lub
-              telefonicznie.
+              Tak, zmiana terminu wysyłki jest możliwa do 6 godzin przed
+              planowanym nadaniem. Skontaktuj się z nami telefonicznie.
             </p>
           </div>
           <div className="p-4 bg-rose-50 rounded-lg shadow-sm">
@@ -223,8 +222,8 @@ const FlowerPage = () => {
               Czy mogę zamówić róże z dostawą na konkretny dzień?
             </h3>
             <p className="mt-2 text-rose-800">
-              Oczywiście! W formularzu zamówienia możesz wybrać preferowaną datę
-              dostawy. Dokładamy wszelkich starań, aby bukiet dotarł na czas.
+              Oczywiście! W zamówieniu możesz wybrać preferowaną datę dostawy.
+              Dokładamy wszelkich starań, aby bukiet dotarł na czas.
             </p>
           </div>
           <div className="p-4 bg-rose-50 rounded-lg shadow-sm">
@@ -242,7 +241,7 @@ const FlowerPage = () => {
             </h3>
             <p className="mt-2 text-rose-800">
               Tak, umożliwiamy dołączenie bileciku z personalizowaną wiadomością
-              – wystarczy wpisać tekst podczas składania zamówienia.
+              – wystarczy wpisać tekst podczas składania zamówienia (10 zl).
             </p>
           </div>
           <div className="p-4 bg-rose-50 rounded-lg shadow-sm">
@@ -250,37 +249,8 @@ const FlowerPage = () => {
               Jakie formy płatności są akceptowane?
             </h3>
             <p className="mt-2 text-rose-800">
-              Akceptujemy płatności kartą, BLIK, szybkie przelewy oraz PayPal.
-              Wszystkie transakcje są szyfrowane i w pełni bezpieczne.
-            </p>
-          </div>
-          <div className="p-4 bg-rose-50 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-rose-900">
-              Czy mogę śledzić status mojego zamówienia?
-            </h3>
-            <p className="mt-2 text-rose-800">
-              Tak, po złożeniu zamówienia otrzymasz link do śledzenia przesyłki
-              oraz powiadomienia e-mail/SMS o etapach realizacji.
-            </p>
-          </div>
-          <div className="p-4 bg-rose-50 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-rose-900">
-              Co jeśli odbiorca nie jest dostępny w momencie dostawy?
-            </h3>
-            <p className="mt-2 text-rose-800">
-              W takim przypadku podejmiemy próbę kontaktu telefonicznego.
-              Możliwe jest też przekazanie kwiatów sąsiadowi lub ponowna dostawa
-              w ustalonym terminie.
-            </p>
-          </div>
-          <div className="p-4 bg-rose-50 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-rose-900">
-              Jak pakowane są kwiaty do wysyłki?
-            </h3>
-            <p className="mt-2 text-rose-800">
-              Kwiaty są starannie zabezpieczone w opakowaniu ochronnym z
-              dostępem do wody i dodatkową warstwą dekoracyjną. Dzięki temu
-              docierają świeże i w nienaruszonym stanie.
+              Akceptujemy płatności gotówką, BLIK, szybkie przelewy, crypto oraz
+              PayPal. Wszystkie transakcje są szyfrowane i w pełni bezpieczne.
             </p>
           </div>
         </div>
