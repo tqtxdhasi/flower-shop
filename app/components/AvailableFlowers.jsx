@@ -78,7 +78,7 @@ function AvailableFlowers() {
               className="object-cover rounded-lg min-h-[300px]"
             />
           </div>
-          <h3 className="text-xl font-bold">Ranunculus</h3>{" "}
+          <h3 className="text-xl font-bold">Jaskry </h3>{" "}
           <p className=" text-lg "> od 10 zl/szt.</p>
           <p className="text-sm text-gray-600"> Różowy, Biały</p>
           <a
