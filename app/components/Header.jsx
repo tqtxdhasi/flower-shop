@@ -46,36 +46,13 @@ function Header() {
             </a>
           </div>
           <div className="mt-6 flex justify-center gap-6">
-            <a
-              href="https://wa.me/+48731588515"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-green-500 hover:text-green-600 transition-all"
-            >
-              <FaWhatsapp className="text-3xl" />
-            </a>
-            <a
-              href="https://t.me/olhafedko"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-600 transition-all"
-            >
-              <FaTelegramPlane className="text-3xl" />
-            </a>
-            <a
-              href="sms:+48731588515"
-              className="text-gray-600 hover:text-gray-700 transition-all"
-            >
-              <FaSms className="text-3xl" />
-            </a>
-            <a
-              href="https://facebook.com/Olha.Fedko"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-700 hover:text-blue-800 transition-all"
-            >
-              <FaFacebookMessenger className="text-3xl" />
-            </a>
+            <FaWhatsapp className="text-3xl" />
+
+            <FaTelegramPlane className="text-3xl" />
+
+            <FaSms className="text-3xl" />
+
+            <FaFacebookMessenger className="text-3xl" />
           </div>
         </div>
       </div>
