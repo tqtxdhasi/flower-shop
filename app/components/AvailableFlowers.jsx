@@ -47,8 +47,8 @@ const flowers = [
 
 function FlowerCard({ src, alt, name, price, colors }) {
   return (
-    <div className="bg-rose-100 flex flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center">
-      <div className="relative h-[450px]">
+    <div className="bg-rose-100 flex text-rose-900 flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center">
+      <div className="relative h-[400px]">
         <Image
           src={src}
           alt={alt}
@@ -72,7 +72,7 @@ function FlowerCard({ src, alt, name, price, colors }) {
 function AvailableFlowers() {
   return (
     <section className="sm:py-4">
-      <h2 className="text-2xl sm:text-3xl font-semibold text-[#2E2B26] text-center">
+      <h2 className="text-2xl sm:text-3xl font-semibold text-rose-900 text-center">
         Dostępne kwiaty i Nasze Ceny
       </h2>
       <div className="mt-8 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">

@@ -9,7 +9,7 @@ function WhyChooseUs() {
           <li>🌸 Świeże kwiaty bezpośrednio z hurtowni</li>
           <li>🌿 Przystępne ceny</li>
           <li>🎀 Piękne opcje ozdobnego pakowania</li>
-          <li>🚚 Dostawa 20 zl lub odbiór dostępny w Krakowie i okolicy</li>
+          <li>🚚 Dostawa 20 zl lub odbiór dostępny w Krakowie </li>
           <li>
             💡 Przypomnienia o nadchodzących terminach wręczenia, aby nigdy nie
             przegapić ważnej okazji
