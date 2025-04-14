@@ -9,15 +9,15 @@ const PopularBouquetsWidget = () => (
       <Link href="/sklep/czerwone-roze" className="group">
         <div className="flex items-center gap-4">
           <img
-            src="https://placehold.co/100x100.png?text=Czerwone"
+            src="/roses8.jpg"
             alt="Czerwone róże klasyczne"
             className="rounded-lg w-20 h-20 object-cover"
           />
           <div>
             <p className="font-medium group-hover:text-rose-700">
-              Klasyczna Czerwień
+              19 czerwonych róż
             </p>
-            <p className="text-sm">od 149 zł</p>
+            <p className="text-sm">od 150 zł</p>
           </div>
         </div>
       </Link>

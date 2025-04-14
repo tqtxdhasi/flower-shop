@@ -2,7 +2,7 @@ const DeliveryWidget = () => (
   <section className="bg-rose-700 text-white p-4 rounded-xl shadow-md">
     <h2 className="text-lg font-bold mb-3">🚚 Szybka Dostawa w Krakowie</h2>
 
-    <div className="space-y-3 text-sm">
+    <div className="space-y-3">
       <div className="flex items-start gap-2">
         <span className="shrink-0">📍</span>
         <div>

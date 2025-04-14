@@ -36,7 +36,7 @@ const RoseCareBlogPost = () => {
             <BlogCard key={index} {...post} />
           ))}
         </div>
-        <aside className="space-y-6">
+        <aside className="flex flex-col-reverse md:flex-col gap-6">
           <DeliveryWidget />
           <PopularBouquetsWidget />
         </aside>
