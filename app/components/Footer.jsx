@@ -9,9 +9,7 @@ function Footer() {
               <span className="text-3xl" aria-label="Ikona róż">
                 🌹
               </span>
-              <h2 className="text-2xl font-bold ml-2 text-rose-600">
-                Bubeny Kwiaty
-              </h2>
+              <h2 className="text-2xl font-bold ml-2 text-rose-600">Kwiaty</h2>
             </div>
             <p className="text-sm">
               Profesjonalna kwiaciarnia w sercu Krakowa. Świeże kwiaty,
@@ -76,7 +74,7 @@ function Footer() {
             <h3 className="text-lg font-semibold text-rose-600">Śledź nas</h3>
             <div className="flex space-x-4">
               <a
-                href="https://www.facebook.com/BubenyKwiaty"
+                href="https://www.facebook.com/"
                 aria-label="Profil na Facebooku"
                 className="text-rose-600 hover:text-rose-800 transition-colors"
               >
@@ -89,7 +87,7 @@ function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/BubenyKwiaty"
+                href="https://www.instagram.com/"
                 aria-label="Profil na Instagramie"
                 className="text-rose-600 hover:text-rose-800 transition-colors"
               >
@@ -107,8 +105,8 @@ function Footer() {
 
         <div className="mt-12 border-t border-rose-200 pt-8 text-center">
           <p className="text-sm text-rose-600">
-            © {new Date().getFullYear()} Bubeny Kwiaty - Kwiaciarnia Kraków.
-            Wszelkie prawa zastrzeżone.
+            © {new Date().getFullYear()} Kwiaty - Kwiaciarnia Kraków. Wszelkie
+            prawa zastrzeżone.
           </p>
         </div>
       </div>

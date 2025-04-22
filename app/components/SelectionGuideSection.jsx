@@ -9,7 +9,7 @@ const SelectionGuideSection = () => (
       <div>
         <img
           src="https://placehold.co/400x300.png?text=Świeże+czerwone+róże"
-          alt="Czerwone róże w kwiaciarni Bubeny Kwiaty Kraków"
+          alt="Czerwone róże w kwiaciarni Kwiaty Kraków"
           className="rounded-lg mb-4"
         />
         <h3 className="font-medium">Znaki Świeżości:</h3>
@@ -20,7 +20,7 @@ const SelectionGuideSection = () => (
         </ul>
       </div>
       <div className="bg-rose-50 p-4 rounded-lg">
-        <p className="font-medium mb-2">W Bubeny Kwiaty zapewniamy:</p>
+        <p className="font-medium mb-2">W Kwiaty zapewniamy:</p>
         <ul className="space-y-2">
           <li>✅ Róże cięte w dniu dostawy</li>
           <li>✅ Gwarancja świeżości 7 dni</li>

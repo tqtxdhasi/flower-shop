@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import OrderForm from "../../components/OrderForm";
 import Image from "next/image";
 import HowItWorks from "@/app/components/HowItWorks";
-import Head from "next/head";
 import Link from "next/link";
 
 const images = [
@@ -23,21 +22,6 @@ const FlowerPage = () => {
 
   return (
     <div className="p-4 flex flex-col gap-4">
-      <Head>
-        <title>
-          Bukiet Róż Premium – Luksusowe Róże Online | Świeże Róże z Dostawą |
-          Bukiety na Święta i Okazje
-        </title>
-        <meta
-          name="description"
-          content="Kup luksusowy bukiet róż online. Świeże róże najwyższej jakości na każdą okazję – Walentynki, Boże Narodzenie, Wielkanoc, Nowy Rok i wiele innych."
-        />
-        <meta
-          name="keywords"
-          content="róże online, bukiet róż, kwiaty online, bukiety na Walentynki, bukiety na Boże Narodzenie, bukiety na Wielkanoc, bukiety na Nowy Rok, luksusowe kwiaty"
-        />
-        <meta name="robots" content="index, follow" />
-      </Head>
       <h1 className="max-w-4xl px-4 mx-auto sm:my-4 text-3xl font-bold text-center text-rose-900 md:text-4xl">
         Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie
       </h1>
