@@ -41,7 +41,7 @@ const DesktopMenu = ({ menuItems }) => {
               </button>
               <Submenu
                 items={item.submenu}
-                className="absolute top-full left-0 bg-white text-black rounded-md shadow-lg min-w-max z-10 overflow-hidden"
+                className="absolute top-full left-0 bg-rose-50 text-rose-900 rounded-md shadow-lg min-w-max z-10 overflow-hidden"
                 itemClassName="px-4 py-2 hover:bg-rose-100"
               />
             </div>
