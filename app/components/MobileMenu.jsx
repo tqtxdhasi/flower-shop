@@ -11,7 +11,7 @@ const MobileMenu = ({
 }) => {
   return (
     <div
-      className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+      className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
         isOpen ? "max-h-[600px] py-4" : "max-h-0"
       }`}
       role="navigation"

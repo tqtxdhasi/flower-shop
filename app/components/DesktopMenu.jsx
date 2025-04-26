@@ -6,7 +6,7 @@ import Submenu from "./Submenu";
 const DesktopMenu = ({ menuItems }) => {
   return (
     <ul
-      className="hidden md:flex space-x-6 font-medium"
+      className="hidden lg:flex space-x-6 font-medium"
       itemScope
       itemType="https://schema.org/SiteNavigationElement"
     >

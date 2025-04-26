@@ -52,7 +52,7 @@ const Navbar = () => {
 
           <button
             onClick={toggleMobileMenu}
-            className="md:hidden p-2 rounded-md hover:bg-rose-700 transition-colors"
+            className="lg:hidden p-2 rounded-md hover:bg-rose-700 transition-colors"
             aria-label={isMobileMenuOpen ? "Zamknij menu" : "Otwórz menu"}
             aria-expanded={isMobileMenuOpen}
           >
