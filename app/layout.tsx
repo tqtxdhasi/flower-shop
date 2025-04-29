@@ -15,20 +15,39 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// ✅ Recommended: use generateMetadata() if dynamic logic is needed
 export const metadata: Metadata = {
   title: "Kwiaciarnia Kraków Online | Bukiety z Dostawą i Odbiorem",
   description:
     "Zamów kwiaty online w Krakowie z darmowym odbiorem osobistym lub ekspresową dostawą. Kwiaty na każdą okazję.",
+  metadataBase: new URL("https://krakow-kwiaciarnia.pl"),
+  alternates: {
+    canonical: "/",
+  },
   keywords: [
     "kwiaciarnia Kraków",
     "kwiaty online Kraków",
     "dostawa kwiatów",
     "odbiór osobisty kwiatów",
   ],
-  metadataBase: new URL("https://krakow-kwiaciarnia.pl"),
-  alternates: {
-    canonical: "/",
+  authors: [{ name: "Kwiaciarnia Kraków Online" }],
+  publisher: "Kwiaciarnia Kraków Online",
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    other: [{ rel: "manifest", url: "/site.webmanifest" }],
   },
   openGraph: {
     title: "Kwiaciarnia Kraków Online",
@@ -37,7 +56,7 @@ export const metadata: Metadata = {
     url: "https://krakow-kwiaciarnia.pl",
     images: [
       {
-        url: "https://krakow-kwiaciarnia.pl/images/og-image.jpg",
+        url: "https://krakow-kwiaciarnia.pl/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Kwiaciarnia Kraków Online",
@@ -50,19 +69,22 @@ export const metadata: Metadata = {
     title: "Kwiaciarnia Kraków Online",
     description:
       "Zamów kwiaty online z dostawą lub odbiorem osobistym w Krakowie.",
-    images: ["https://krakow-kwiaciarnia.pl/images/og-image.jpg"],
+    images: ["https://krakow-kwiaciarnia.pl/og-image.jpg"],
   },
 };
 
 const schemaData = {
   "@context": "https://schema.org",
-  "@type": "Store",
+  "@type": "Florist",
+  "@id": "https://krakow-kwiaciarnia.pl#store",
   name: "Kwiaciarnia Kraków Online",
   url: "https://krakow-kwiaciarnia.pl",
-  image: "https://krakow-kwiaciarnia.pl/images/og-image.jpg",
-  telephone: "+48 123 456 789",
+  image: "https://krakow-kwiaciarnia.pl/og-image.jpg",
+  telephone: "+48 575 480 360",
   description:
     "Zamów kwiaty online z dostawą lub darmowym odbiorem osobistym w Krakowie.",
+
+  priceRange: "$",
   areaServed: {
     "@type": "Place",
     name: "Kraków",
@@ -71,7 +93,19 @@ const schemaData = {
     "@type": "Offer",
     availability: "https://schema.org/InStorePickup",
   },
-  hasMap: "https://goo.gl/maps/YOUR_MAP_LINK",
+  pickupLocation: {
+    "@type": "Place",
+    name: "Punkt Odbioru – Urzędnicza 14",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Urzędnicza 14",
+      addressLocality: "Kraków",
+      postalCode: "30-051",
+      addressCountry: "PL",
+    },
+  },
+  hasMap:
+    "https://www.google.com/maps/place/Urzędnicza+14,+30-051+Kraków/@50.0686091,19.9179472,21z",
 };
 
 export default function RootLayout({
