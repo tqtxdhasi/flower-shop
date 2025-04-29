@@ -41,7 +41,7 @@ export const menuItems = [
         schemaType: "Product",
       },*/,
     ],
-  },
+  } /*
   {
     text: "Święta",
     schemaType: "ItemList",
@@ -92,7 +92,7 @@ export const menuItems = [
         schemaType: "Product",
       },
     ],
-  } /*
+  } 
 
   {
     text: "Okazje",
@@ -223,6 +223,7 @@ export const menuItems = [
       contactType: "customer service",
     },
   },*/
+  ,
 ];
 export const companyInfo = {
   name: "Kwiaty Kraków",
