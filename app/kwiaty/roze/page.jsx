@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import OrderForm from "../../components/OrderForm";
 import Image from "next/image";
-import HowItWorks from "@/app/components/HowItWorks";
+import Regulamin from "@/app/components/Regulamin";
 import Link from "next/link";
 
 const images = [
@@ -389,7 +389,7 @@ const FlowerPage = () => {
           </div>
         </article>{" "}
       </div>{" "}*/}
-      <HowItWorks />
+      <Regulamin />
     </div>
   );
 };

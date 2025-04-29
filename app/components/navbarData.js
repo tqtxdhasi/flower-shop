@@ -6,9 +6,10 @@ export const menuItems = [
       {
         href: "/kwiaty/roze",
         text: "Róże",
-        title: "Róże w Krakowie - Najpiękniejsze Bukiet Róż | Kwiaty",
+        title: "Róże w Krakowie - Najpiękniejsze Bukiet Róż",
         schemaType: "Product",
-      },
+      } /*
+
       {
         href: "/kwiaty/tulipany",
         text: "Tulipany",
@@ -38,7 +39,7 @@ export const menuItems = [
         text: "Piwonie",
         title: "Piwonie w Krakowie - Najpiękniejsze Bukiety z Piwoniami",
         schemaType: "Product",
-      },
+      },*/,
     ],
   },
   {
@@ -91,7 +92,8 @@ export const menuItems = [
         schemaType: "Product",
       },
     ],
-  },
+  } /*
+
   {
     text: "Okazje",
     schemaType: "ItemList",
@@ -136,6 +138,8 @@ export const menuItems = [
       },
     ],
   },
+*/,
+  /*
 
   {
     text: "Prezenty",
@@ -184,7 +188,9 @@ export const menuItems = [
         schemaType: "Product",
       },
     ],
-  },
+  },*/
+  /*
+
   {
     text: "Dostawa",
   },
@@ -216,7 +222,7 @@ export const menuItems = [
       telephone: "+48-123-456-789",
       contactType: "customer service",
     },
-  },
+  },*/
 ];
 export const companyInfo = {
   name: "Kwiaty Kraków",

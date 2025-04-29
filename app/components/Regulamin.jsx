@@ -1,4 +1,4 @@
-function HowItWorks() {
+function Regulamin() {
   return (
     <div className="bg-rose-50 max-w-full md:max-w-4xl mx-auto py-6 px-4 lg:px-6 flex flex-col rounded-xl gap-6">
       <h2 className="text-4xl font-bold text-rose-900 flex items-center gap-2">
@@ -183,4 +183,4 @@ function HowItWorks() {
   );
 }
 
-export default HowItWorks;
+export default Regulamin;

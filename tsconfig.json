@@ -23,6 +23,13 @@
       "@components/*": ["./components/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/dostawa/[region]/page.jsx", "app/okazje/[slug]/page.jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/dostawa/page.jsx",
+    "app/okazje/[slug]/page.jsx"
+  ],
   "exclude": ["node_modules"]
 }

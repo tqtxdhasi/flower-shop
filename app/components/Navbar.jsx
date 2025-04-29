@@ -26,7 +26,7 @@ const Navbar = () => {
       itemType="https://schema.org/LocalBusiness"
     >
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-around items-center py-4">
           <a
             href="/"
             className="flex items-center text-2xl font-bold hover:text-rose-200 transition-colors space-x-2"

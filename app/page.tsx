@@ -4,7 +4,7 @@ import React from "react";
 import Header from "./components/Header";
 import WhyChooseUs from "./components/WhyChooseUs";
 import AvailableFlowers from "./components/AvailableFlowers";
-import HowItWorks from "./components/HowItWorks";
+import Regulamin from "../app/components/Regulamin";
 import type { Metadata } from "next";
 
 // ✅ Static metadata — App Router compatible
@@ -46,7 +46,7 @@ export default function Home() {
       <Header />
       <WhyChooseUs />
       <AvailableFlowers />
-      <HowItWorks />
+      <Regulamin />
     </main>
   );
 }
