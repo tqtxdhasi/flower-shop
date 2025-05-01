@@ -11,7 +11,6 @@ export async function generateMetadata({ params }) {
 }
 
 export default function SwietaPage({ params }) {
-  console.log("params", params);
   const holiday = holidayData.get(params.slug);
 
   return (

@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import Image from "next/image";
 import Script from "next/script";
 import { notFound } from "next/navigation";

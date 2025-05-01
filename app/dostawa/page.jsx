@@ -1,5 +1,4 @@
 // app/dostawa/[region]/page.tsx
-import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 // Fake region data - you can later replace this with a CMS or API call
