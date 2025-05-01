@@ -1,18 +1,13 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { menuItems, companyInfo } from "./navbarData";
 import DesktopMenu from "./DesktopMenu";
 import MobileMenu from "./MobileMenu";
 import MenuIcon from "./MenuIcon";
-
+import { shopName } from "../data/mainData";
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openMobileSubmenu, setOpenMobileSubmenu] = useState(null);
-  const [currentUrl, setCurrentUrl] = useState("");
-
-  useEffect(() => {
-    setCurrentUrl(window.location.href);
-  }, []);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const closeMobileMenu = () => setIsMobileMenuOpen(false);
@@ -21,16 +16,17 @@ const Navbar = () => {
 
   return (
     <nav
+      role="navigation"
       className="w-full sticky top-0 z-50 bg-rose-800 text-white transition-all"
       itemScope
-      itemType="https://schema.org/LocalBusiness"
+      itemType="https://schema.org/Florist"
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-around items-center py-4">
           <a
             href="/"
             className="flex items-center text-2xl font-bold hover:text-rose-200 transition-colors space-x-2"
-            aria-label="Kwiaty Kraków - Strona główna"
+            aria-label={`${shopName} - Strona główna`}
             itemProp="url"
           >
             <img
@@ -42,10 +38,7 @@ const Navbar = () => {
               loading="eager"
               itemProp="logo"
             />
-            <span itemProp="name">
-              <span className="sr-only">Kwiaciarnia</span>
-              {companyInfo.name}
-            </span>
+            <span itemProp="name">{shopName}</span>
           </a>
 
           <DesktopMenu menuItems={menuItems} />

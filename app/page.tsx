@@ -1,7 +1,7 @@
-// app/page.tsx 
+// app/page.tsx
 
 import React from "react";
-import Header from "./components/Header";
+import HeroSection from "./components/HeroSection";
 import WhyChooseUs from "./components/WhyChooseUs";
 import AvailableFlowers from "./components/AvailableFlowers";
 import Regulamin from "../app/components/Regulamin";
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="font-sans bg-white p-3 flex flex-col gap-3">
-      <Header />
+      <HeroSection />
       <WhyChooseUs />
       <AvailableFlowers />
       <Regulamin />

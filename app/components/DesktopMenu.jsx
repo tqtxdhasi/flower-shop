@@ -1,8 +1,5 @@
-"use client";
-import React from "react";
 import Submenu from "./Submenu";
 
-// DesktopMenu.jsx
 const DesktopMenu = ({ menuItems }) => {
   return (
     <ul
