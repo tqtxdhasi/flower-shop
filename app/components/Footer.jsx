@@ -35,14 +35,14 @@ function Footer() {
                 </a>
               </li>
 
-              <li>
+              {/*<li>
                 <a
                   href="/blog"
                   className="hover:text-rose-600 transition-colors"
                 >
                   Poradnik
                 </a>
-              </li>
+              </li>*/}
             </ul>
           </div>
 
@@ -69,7 +69,7 @@ function Footer() {
             </div>
           </div>
 
-          {/* Social Media & Certificates */}
+          {/* Social Media & Certificates 
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-rose-600">Śledź nas</h3>
             <div className="flex space-x-4">
@@ -100,7 +100,7 @@ function Footer() {
                 </svg>
               </a>
             </div>
-          </div>
+          </div>*/}
         </div>
 
         <div className="mt-12 border-t border-rose-200 pt-8 text-center">
