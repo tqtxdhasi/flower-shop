@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Script from "next/script";
+import { shopPhone } from "./data/mainData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -80,7 +81,7 @@ const schemaData = {
   name: "Kwiaciarnia Kraków Online",
   url: "https://krakow-kwiaciarnia.pl",
   image: "https://krakow-kwiaciarnia.pl/og-image.jpg",
-  telephone: "+48 575 480 360",
+  telephone: shopPhone,
   description:
     "Zamów kwiaty online z dostawą lub darmowym odbiorem osobistym w Krakowie.",
 

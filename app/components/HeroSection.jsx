@@ -5,6 +5,7 @@ import {
   FaFacebookMessenger,
 } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
+import { shopPhone } from "../data/mainData";
 
 function HeroSection() {
   return (
@@ -40,10 +41,10 @@ function HeroSection() {
           </p>
           <div className="mt-6 flex justify-center">
             <a
-              href="tel:+48731588515"
+              href={`tel:${shopPhone}`}
               className="bg-rose-700 py-3 px-8 rounded-lg hover:bg-rose-800 text-white font-bold transition-all"
             >
-              Zamów teraz: +48 731-588-515
+              Zamów teraz: {shopPhone}
             </a>
           </div>
           <div className="mt-6 flex justify-center gap-6">

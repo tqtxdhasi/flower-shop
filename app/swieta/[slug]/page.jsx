@@ -2,6 +2,8 @@ import { holidayData } from "./holidayData";
 import AvailableFlowers from "@/app/components/AvailableFlowers";
 import Regulamin from "@/app/components/Regulamin";
 import Image from "next/image";
+import { shopPhone } from "@/app/data/mainData";
+
 export async function generateStaticParams() {
   return Array.from(holidayData.keys()).map((slug) => ({ slug }));
 }
@@ -22,7 +24,7 @@ export default function SwietaPage({ params }) {
           name: "KwiatowySklep.pl",
           image: "https://kwiatowysklep.pl/images/logo.jpg",
           url: "https://kwiatowysklep.pl",
-          telephone: holiday.deliveryInfo.contact,
+          telephone: shopPhone,
           email: "kontakt@kwiatowysklep.pl",
           address: {
             "@type": "PostalAddress",

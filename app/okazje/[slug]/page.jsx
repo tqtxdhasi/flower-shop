@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Script from "next/script";
 import { notFound } from "next/navigation";
+import { shopPhone } from "@/app/data/mainData";
 
 // ✅ Mock data - replace with actual API/CMS calls
 const getOccasionBySlug = (slug) => {
@@ -212,7 +213,7 @@ export default function OccasionPage({ params }) {
           <div className="p-4 bg-white rounded-lg">
             <h3 className="font-semibold text-rose-900">Kontakt</h3>
             <p className="text-sm text-rose-700 mt-2">
-              +48 123 456 789
+              {shopPhone}
               <br />
               ul. Kwiatowa 15, Kraków
             </p>
@@ -285,8 +286,7 @@ export default function OccasionPage({ params }) {
           <div class="p-4 bg-white rounded-lg">
             <h3 class="font-semibold text-rose-900">Kontakt</h3>
             <p class="text-sm text-rose-700 mt-2">
-              +48 123 456 789
-              <br />
+              {shopPhone} <br />
               ul. Kwiatowa 15, Kraków
             </p>
           </div>

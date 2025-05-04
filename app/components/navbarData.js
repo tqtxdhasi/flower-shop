@@ -1,3 +1,5 @@
+import { shopPhone } from "../data/mainData";
+
 export const menuItems = [
   {
     text: "Kwiaty",
@@ -219,7 +221,7 @@ export const menuItems = [
     title: "Skontaktuj się z Nami - Kwiaty Kraków",
     schemaType: "ContactPage",
     structuredData: {
-      telephone: "+48-123-456-789",
+      telephone: shopPhone,
       contactType: "customer service",
     },
   },*/
@@ -234,7 +236,7 @@ export const companyInfo = {
     height: 40,
   },
   structuredData: {
-    telephone: "+48-123-456-789",
+    telephone: shopPhone,
     contactType: "customer service",
   },
 };

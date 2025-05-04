@@ -1,3 +1,5 @@
+import { shopName, shopPhone } from "../data/mainData";
+
 function Footer() {
   return (
     <footer className="bg-rose-100 text-rose-900 pt-12 pb-8 px-4 sm:px-6 lg:px-8">
@@ -9,11 +11,20 @@ function Footer() {
               <span className="text-3xl" aria-label="Ikona róż">
                 🌹
               </span>
-              <h2 className="text-2xl font-bold ml-2 text-rose-600">Kwiaty</h2>
+              <h2 className="text-2xl font-bold ml-2 text-rose-600">
+                {shopName}
+              </h2>
             </div>
             <p className="text-sm">
-              Profesjonalna kwiaciarnia w sercu Krakowa. Świeże kwiaty,
-              artystyczne kompozycje i ekspresowa dostawa pod wskazany adres.
+              Internetowa kwiaciarnia z siedzibą w Krakowie – świeże kwiaty,
+              oryginalne kompozycje florystyczne tworzone z pasją i ekspresowa
+              dostawa pod wskazany adres.{" "}
+            </p>
+            <p className="text-sm">
+              Oferujemy również możliwość osobistego odbioru zamówień.{" "}
+            </p>{" "}
+            <p className="text-sm">
+              Zamów online i spraw radość bliskim wyjątkowymi bukietami!{" "}
             </p>
           </div>
 
@@ -64,7 +75,7 @@ function Footer() {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                +48 731-588-515
+                {shopPhone}
               </p>
             </div>
           </div>
@@ -105,8 +116,8 @@ function Footer() {
 
         <div className="mt-12 border-t border-rose-200 pt-8 text-center">
           <p className="text-sm text-rose-600">
-            © {new Date().getFullYear()} Kwiaty - Kwiaciarnia Kraków. Wszelkie
-            prawa zastrzeżone.
+            © {new Date().getFullYear() + " " + shopName}. Wszelkie prawa
+            zastrzeżone.
           </p>
         </div>
       </div>
