@@ -1,4 +1,5 @@
 import React from "react";
+import { shopPhone } from "../data/mainData";
 
 export const HeaderBlog = () => {
   return (
