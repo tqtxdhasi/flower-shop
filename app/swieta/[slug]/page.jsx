@@ -1,8 +1,8 @@
 import { holidayData } from "./holidayData";
 import AvailableFlowers from "@/app/components/AvailableFlowers";
 import Regulamin from "@/app/components/Regulamin";
-import Image from "next/image";
 import { shopPhone } from "@/app/data/mainData";
+import Image from "next/image";
 
 export async function generateStaticParams() {
   return Array.from(holidayData.keys()).map((slug) => ({ slug }));
@@ -85,8 +85,8 @@ export default function SwietaPage({ params }) {
       >
         <div className="container mx-auto text-center">
           <p className="font-semibold">
-            📞 {holiday.deliveryInfo.contact} | 🚚 Darmowa dostawa w{" "}
-            <strong>Krakowie</strong> przy zamówieniach powyżej 200zł
+            📞 {shopPhone} | 🚚 Darmowa dostawa w <strong>Krakowie</strong> przy
+            zamówieniach powyżej 200zł
           </p>
         </div>
       </section>

@@ -11,7 +11,6 @@ export const holidayData = new Map([
       deliveryInfo: {
         area: "Cały Kraków",
         time: "Dostawa 26 maja 8:00-20:00",
-        contact: shopPhone,
       },
       description: `Specjalnie na Dzień Matki: ręcznie układane mono-kompozycje z najświeższych róż holenderskich lub polskich piwonii.`,
       faq: [
@@ -23,8 +22,7 @@ export const holidayData = new Map([
         {
           question: "Czy mogę zmienić adres dostawy po złożeniu zamówienia?",
           answer:
-            "Tak, zmiany w zamówieniu możliwe są do 2 godzin przed planowaną dostawą. Prosimy o kontakt telefoniczny pod numer " +
-            shopPhone,
+            "Tak, zmiany w zamówieniu możliwe są do 2 godzin przed planowaną dostawą. Prosimy o kontakt telefoniczny pod numer ",
         },
       ],
       localSeo: {
@@ -72,7 +70,6 @@ export const holidayData = new Map([
       deliveryInfo: {
         area: "Cały Kraków",
         time: "Dostawa 14 lutego 8:00-20:00",
-        contact: shopPhone,
       },
       description: `Zaskocz swoją drugą połówkę – wyjątkowe bukiety róż na Walentynki z szybką dostawą w Krakowie.`,
       faq: [
@@ -132,7 +129,6 @@ export const holidayData = new Map([
       deliveryInfo: {
         area: "Cały Kraków",
         time: "Dostawa 8 marca 8:00-20:00",
-        contact: shopPhone,
       },
       description: `Podaruj uśmiech z okazji Dnia Kobiet – bukiety tulipanów, róż i innych sezonowych kwiatów z dostawą w Krakowie.`,
       faq: [
@@ -192,7 +188,6 @@ export const holidayData = new Map([
       deliveryInfo: {
         area: "Cały Kraków",
         time: "Dostawa 23 czerwca 8:00-20:00",
-        contact: shopPhone,
       },
       description: `Zaskocz tatę elegancką kompozycją – stylowe bukiety i dodatki z dostawą na Dzień Ojca w Krakowie.`,
       faq: [
@@ -252,7 +247,6 @@ export const holidayData = new Map([
       deliveryInfo: {
         area: "Cały Kraków",
         time: "Dostawa 21 stycznia 8:00-20:00",
-        contact: shopPhone,
       },
       description: `Pokaż babci, jak bardzo ją kochasz – wyjątkowe bukiety z dostawą na Dzień Babci w całym Krakowie.`,
       faq: [
@@ -312,7 +306,6 @@ export const holidayData = new Map([
       deliveryInfo: {
         area: "Cały Kraków",
         time: "Dostawa 22 stycznia 8:00-20:00",
-        contact: shopPhone,
       },
       description: `Wyjątkowe kompozycje i drobne upominki z dostawą na Dzień Dziadka – spraw radość swojemu dziadkowi w Krakowie.`,
       faq: [
@@ -372,7 +365,6 @@ export const holidayData = new Map([
       deliveryInfo: {
         area: "Cały Kraków",
         time: "Dostawa 29-30 marca 8:00-20:00",
-        contact: shopPhone,
       },
       description: `Stwórz świąteczny nastrój z pomocą świeżych, wiosennych kwiatów – bukiety wielkanocne z dostawą pod drzwi w Krakowie.`,
       faq: [

@@ -29,7 +29,9 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/dostawa/page.jsx",
-    "app/okazje/[slug]/page.jsx"
+    "app/okazje/[slug]/page.jsx",
+    "app/data/**/*.js"
   ],
+
   "exclude": ["node_modules"]
 }
