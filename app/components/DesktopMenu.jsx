@@ -2,26 +2,17 @@ import Submenu from "./Submenu";
 
 const DesktopMenu = ({ menuItems }) => {
   return (
-    <ul
-      className="hidden lg:flex space-x-6 font-medium"
-      itemScope
-      itemType="https://schema.org/SiteNavigationElement"
-    >
+    <ul className="hidden lg:flex space-x-6 font-medium">
       {menuItems.map((item) => (
-        <li
-          key={item.href || item.text}
-          className="relative group"
-          itemProp="name"
-        >
+        <li key={item.href || item.text} className="relative group">
           {item.submenu ? (
             <div className="relative">
               <button
                 aria-haspopup="true"
                 aria-expanded="false"
                 className="hover:text-rose-200 flex items-center space-x-1"
-                itemProp="url"
               >
-                <span itemProp="name">{item.text}</span>
+                <span>{item.text}</span>
                 <svg
                   className="w-4 h-4"
                   fill="none"
@@ -47,9 +38,8 @@ const DesktopMenu = ({ menuItems }) => {
               href={item.href}
               className="hover:text-rose-200 transition-colors"
               title={item.title}
-              itemProp="url"
             >
-              <span itemProp="name">{item.text}</span>
+              <span>{item.text}</span>
             </a>
           )}
         </li>

@@ -11,25 +11,19 @@ const Submenu = ({ items, isOpen, className, itemClassName, onItemClick }) => {
       role="menu"
     >
       {items.map((sub, subIndex) => (
-        <li
-          key={sub.href}
-          itemScope
-          itemType="https://schema.org/ListItem"
-          itemProp="itemListElement"
-        >
+        <li key={sub.href}>
           <a
             href={sub.href}
             className={`block ${itemClassName}`}
             title={sub.title}
-            itemProp="url"
             onClick={onItemClick}
           >
-            <meta itemProp="position" content={String(subIndex + 1)} />
-            <span itemProp="name">{sub.text}</span>
+            <span>{sub.text}</span>
           </a>
         </li>
       ))}
     </ul>
   );
 };
+
 export default Submenu;

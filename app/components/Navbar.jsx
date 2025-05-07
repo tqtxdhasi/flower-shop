@@ -18,8 +18,6 @@ const Navbar = () => {
     <nav
       role="navigation"
       className="w-full sticky top-0 z-50 bg-rose-800 text-white transition-all"
-      itemScope
-      itemType="https://schema.org/Florist"
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-around items-center py-4">
@@ -27,7 +25,6 @@ const Navbar = () => {
             href="/"
             className="flex items-center text-2xl font-bold hover:text-rose-200 transition-colors space-x-2"
             aria-label={`${shopName} - Strona główna`}
-            itemProp="url"
           >
             <img
               src={companyInfo.logo.src}
@@ -36,9 +33,8 @@ const Navbar = () => {
               width={companyInfo.logo.width}
               height={companyInfo.logo.height}
               loading="eager"
-              itemProp="logo"
             />
-            <span itemProp="name">{shopName}</span>
+            <span>{shopName}</span>
           </a>
 
           <DesktopMenu menuItems={menuItems} />

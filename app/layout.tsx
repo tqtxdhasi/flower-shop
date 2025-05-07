@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     "dostawa kwiatów",
     "odbiór osobisty kwiatów",
   ],
-  authors: [{ name: "Kwiaciarnia Kraków Online" }],
+  authors: [{ name: "Kwiaciarnia Kraków" }],
   publisher: "Kwiaciarnia Kraków Online",
 
   robots: {

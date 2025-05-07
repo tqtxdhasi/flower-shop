@@ -17,11 +17,7 @@ const MobileMenu = ({
     >
       <ul className="space-y-2">
         {menuItems.map((item, index) => (
-          <li
-            key={`mobile-${item.text}`}
-            itemScope
-            itemType={`https://schema.org/${item.schemaType}`}
-          >
+          <li key={`mobile-${item.text}`}>
             {item.submenu ? (
               <>
                 <button
@@ -30,7 +26,7 @@ const MobileMenu = ({
                   aria-expanded={openSubmenu === index}
                   onClick={() => toggleSubmenu(index)}
                 >
-                  <span itemProp="name">{item.text}</span>
+                  <span>{item.text}</span>
                   <svg
                     className={`w-4 h-4 transform transition-transform ${
                       openSubmenu === index ? "rotate-180" : ""
@@ -61,9 +57,8 @@ const MobileMenu = ({
                 className="block py-2 px-4 hover:bg-rose-700 rounded-md"
                 onClick={closeMenu}
                 title={item.title}
-                itemProp="url"
               >
-                <span itemProp="name">{item.text}</span>
+                <span>{item.text}</span>
               </a>
             )}
           </li>
