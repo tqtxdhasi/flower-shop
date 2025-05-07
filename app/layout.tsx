@@ -77,23 +77,46 @@ export const metadata: Metadata = {
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "Florist",
-  "@id": "https://krakow-kwiaciarnia.pl#store",
+  "@id": "https://krakow-kwiaciarnia.pl#florist",
   name: "Kwiaciarnia Kraków Online",
   url: "https://krakow-kwiaciarnia.pl",
-  image: "https://krakow-kwiaciarnia.pl/og-image.jpg",
-  telephone: shopPhone,
   description:
     "Zamów kwiaty online z dostawą lub darmowym odbiorem osobistym w Krakowie.",
-
+  telephone: shopPhone,
+  image: "https://krakow-kwiaciarnia.pl/og-image.jpg",
   priceRange: "$",
   areaServed: {
     "@type": "Place",
     name: "Kraków",
   },
-  offers: {
-    "@type": "Offer",
-    availability: "https://schema.org/InStorePickup",
-  },
+  offers: [
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Odbiór osobisty",
+      },
+      availability: "https://schema.org/InStorePickup",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        price: "0.00",
+        priceCurrency: "PLN",
+      },
+    },
+    {
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: "Dostawa kwiatów",
+      },
+      availability: "https://schema.org/InStock",
+      priceSpecification: {
+        "@type": "DeliveryChargeSpecification",
+        price: "20.00",
+        priceCurrency: "PLN",
+      },
+    },
+  ],
   pickupLocation: {
     "@type": "Place",
     name: "Punkt Odbioru – Urzędnicza 14",
