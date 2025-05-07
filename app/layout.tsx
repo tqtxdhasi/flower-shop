@@ -128,6 +128,13 @@ const schemaData = {
       addressCountry: "PL",
     },
   },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Urzędnicza 14",
+    addressLocality: "Kraków",
+    postalCode: "30-051",
+    addressCountry: "PL",
+  },
   hasMap:
     "https://www.google.com/maps/place/Urzędnicza+14,+30-051+Kraków/@50.0686091,19.9179472,21z",
 };
