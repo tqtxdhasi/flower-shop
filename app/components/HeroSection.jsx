@@ -18,15 +18,17 @@ function HeroSection() {
           width={192}
           height={192}
           className="w-32 sm:w-48"
+          loading="lazy"
         />
       </div>
       <div className="absolute right-0 top-1/2 transform -translate-y-1/2 sm:block hidden">
         <Image
           src="/Layer 2.jpg"
+          alt="Dekoracyjny motyw kwiatowy - kwiaciarnia Kraków"
           width={192}
           height={192}
-          alt="Dekoracyjny motyw kwiatowy - kwiaciarnia Kraków"
           className="w-32 sm:w-48 transform scale-x-[-1] scale-y-[-1]"
+          loading="lazy"
         />
       </div>
       <div className="relative">
@@ -84,6 +86,7 @@ function HeroSection() {
           alt="Kwiaciarnia mobilna wersja - Kraków"
           fill
           priority
+          sizes="100vw"
           className="object-bottom object-contain"
         />
       </div>
