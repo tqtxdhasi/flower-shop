@@ -78,7 +78,7 @@ function HeroSection() {
           </a>
         </p>
       </div>
-      <div className="sm:hidden mt-8 flex justify-center relative w-full h-56">
+      <div className="sm:hidden flex justify-center relative w-full h-48">
         <Image
           src="/Layer 3.jpg"
           alt="Kwiaciarnia mobilna wersja - Kraków"
