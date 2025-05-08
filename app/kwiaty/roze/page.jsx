@@ -3,6 +3,7 @@ import OrderForm from "../../components/OrderForm";
 import Regulamin from "@/app/components/Regulamin";
 import Link from "next/link";
 import Script from "next/script";
+import FAQSection from "@/app/components/FAQSection";
 
 const schemaData = {
   "@context": "https://schema.org/",
@@ -229,66 +230,7 @@ const FlowerPage = () => {
           Zainspiruj się naszymi propozycjami na każdą okazję – od Walentynek po
           Dzień Kobiet.
         </p>
-        <h2 className=" text-2xl text-center font-bold text-rose-900 md:text-3xl">
-          Często Zadawane Pytania
-        </h2>
-        <div className=" grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="p-4 bg-rose-50 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-rose-900">
-              Jak długo utrzymają się świeże róże?
-            </h3>
-            <p className="mt-2 text-rose-800">
-              Gwarantujemy świeżość przez minimum 3 dni przy prawidłowej
-              pielęgnacji. Do każdego zamówienia dołączamy instrukcję
-              przedłużania trwałości kwiatów.
-            </p>
-          </div>
-          <div className="p-4 bg-rose-50 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-rose-900">
-              Czy mogę zmienić termin wysyłki?
-            </h3>
-            <p className="mt-2 text-rose-800">
-              Tak, zmiana terminu wysyłki jest możliwa do 6 godzin przed
-              planowanym nadaniem. Skontaktuj się z nami telefonicznie.
-            </p>
-          </div>
-          <div className="p-4 bg-rose-50 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-rose-900">
-              Czy mogę zamówić róże z dostawą na konkretny dzień?
-            </h3>
-            <p className="mt-2 text-rose-800">
-              Oczywiście! W zamówieniu możesz wybrać preferowaną datę dostawy.
-              Dokładamy wszelkich starań, aby bukiet dotarł na czas.
-            </p>
-          </div>
-          <div className="p-4 bg-rose-50 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-rose-900">
-              Czy oferujecie anonimową wysyłkę bukietu?
-            </h3>
-            <p className="mt-2 text-rose-800">
-              Tak, możesz wysłać bukiet anonimowo – nie dołączamy danych
-              nadawcy, chyba że wyraźnie zaznaczysz taką opcję przy zamówieniu.
-            </p>
-          </div>
-          <div className="p-4 bg-rose-50 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-rose-900">
-              Czy można dołączyć bilecik z wiadomością?
-            </h3>
-            <p className="mt-2 text-rose-800">
-              Tak, umożliwiamy dołączenie bileciku z personalizowaną wiadomością
-              – wystarczy wpisać tekst podczas składania zamówienia (10 zl).
-            </p>
-          </div>
-          <div className="p-4 bg-rose-50 rounded-lg shadow-sm">
-            <h3 className="font-semibold text-rose-900">
-              Jakie formy płatności są akceptowane?
-            </h3>
-            <p className="mt-2 text-rose-800">
-              Akceptujemy płatności gotówką, BLIK, szybkie przelewy, crypto oraz
-              PayPal. Wszystkie transakcje są szyfrowane i w pełni bezpieczne.
-            </p>
-          </div>
-        </div>
+        <FAQSection />
       </div>
       {/* FAQ Section 
       <h2 className=" text-2xl text-center font-bold text-rose-900 md:text-3xl">
