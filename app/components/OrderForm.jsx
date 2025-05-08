@@ -350,7 +350,7 @@ export default function OrderForm() {
       <button
         type="submit"
         disabled={!quantity || !height || budget < getFinalPrice()}
-        className="w-full py-3 px-4 bg-rose-700 text-white rounded-lg hover:bg-rose-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+        className="w-full py-3 px-4 bg-green-700 text-white rounded-lg hover:bg-green-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {budget >= getFinalPrice() ? "Złóż zamówienie" : "Za mały budżet"}
       </button>

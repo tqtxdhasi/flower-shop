@@ -19,7 +19,7 @@ export const HeaderBlog = () => {
         </p>
         <a
           href={`tel:${shopPhone}`}
-          className="bg-rose-700 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-rose-800 transition-colors"
+          className="bg-green-700 text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-green-800 transition-colors"
         >
           🛍️ Zamów teraz: {shopPhone}
         </a>

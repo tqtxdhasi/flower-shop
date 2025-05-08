@@ -62,7 +62,7 @@ function FlowerCard({ src, alt, name, price, colors }) {
       <p className="text-sm text-gray-600">{colors}</p>
       <a
         href={`tel:${shopPhone}`}
-        className="bg-rose-700 text-white hover:bg-rose-800 p-2 rounded-lg inline-block"
+        className="bg-green-700 text-white hover:bg-green-800 p-2 rounded-lg inline-block"
       >
         Zamów Teraz
       </a>
