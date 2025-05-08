@@ -7,38 +7,30 @@ import {
 import { IoLogoWhatsapp } from "react-icons/io";
 import { shopPhone } from "../data/mainData";
 import Image from "next/image";
-import { headers } from "next/headers";
 
-export default function HeroSection() {
-  const ua = headers().get("user-agent") || "";
-  const isMobile = /mobile/i.test(ua);
-
+function HeroSection() {
   return (
     <header className="relative pt-8 px-8 sm:p-16 text-center text-rose-900 rounded-lg shadow-lg bg-rose-100">
-      {!isMobile && (
-        <>
-          <div className="absolute left-0 top-1/2 transform -translate-y-1/2 sm:block hidden">
-            <Image
-              src="/Layer-2.webp"
-              alt="Dekoracyjny motyw kwiatowy - kwiaciarnia Kraków"
-              width={192}
-              height={192}
-              className="w-32 sm:w-48"
-              loading="lazy"
-            />
-          </div>
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 sm:block hidden">
-            <Image
-              src="/Layer-2.webp"
-              alt="Dekoracyjny motyw kwiatowy - kwiaciarnia Kraków"
-              width={192}
-              height={192}
-              className="w-32 sm:w-48 transform scale-x-[-1] scale-y-[-1]"
-              loading="lazy"
-            />
-          </div>
-        </>
-      )}
+      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 sm:block hidden">
+        <Image
+          src="/Layer 2.jpg"
+          alt="Dekoracyjny motyw kwiatowy - kwiaciarnia Kraków"
+          width={192}
+          height={192}
+          className="w-32 sm:w-48"
+          loading="lazy"
+        />
+      </div>
+      <div className="absolute right-0 top-1/2 transform -translate-y-1/2 sm:block hidden">
+        <Image
+          src="/Layer 2.jpg"
+          alt="Dekoracyjny motyw kwiatowy - kwiaciarnia Kraków"
+          width={192}
+          height={192}
+          className="w-32 sm:w-48 transform scale-x-[-1] scale-y-[-1]"
+          loading="lazy"
+        />
+      </div>
       <div className="relative">
         <h1 className="text-3xl sm:text-4xl font-bold">
           Świeże kwiaty z dostawa w Krakowie
@@ -88,18 +80,18 @@ export default function HeroSection() {
           </a>
         </p>
       </div>
-      {isMobile && (
-        <div className="sm:hidden flex justify-center relative w-full h-48">
-          <Image
-            src="/Layer-3.webp"
-            alt="Kwiaciarnia mobilna wersja - Kraków"
-            fill
-            priority
-            sizes="100vw"
-            className="object-bottom object-contain"
-          />
-        </div>
-      )}
+      <div className="sm:hidden flex justify-center relative w-full h-48">
+        <Image
+          src="/Layer 3.jpg"
+          alt="Kwiaciarnia mobilna wersja - Kraków"
+          fill
+          priority
+          sizes="100vw"
+          className="object-bottom object-contain"
+        />
+      </div>
     </header>
   );
 }
+
+export default HeroSection;
