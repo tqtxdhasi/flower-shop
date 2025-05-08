@@ -4,6 +4,7 @@ import OrderForm from "../../components/OrderForm";
 import Image from "next/image";
 import Regulamin from "@/app/components/Regulamin";
 import Link from "next/link";
+import Script from "next/script";
 
 const images = [
   "/roses2.jpg",
@@ -16,12 +17,106 @@ const images = [
   "/roses7.jpg",
   "/roses9.jpg",
 ];
-
+const schemaData = {
+  "@context": "https://schema.org/",
+  "@type": "ProductGroup",
+  productGroupID: "ROZE-GROUP",
+  name: "Bukiet róż – różne kolory, wielkości i ilości",
+  variesBy: ["height", "quantity", "color"],
+  hasVariant: [
+    {
+      "@type": "Product",
+      sku: "ROZE-19-50-WHITE",
+      name: "Bukiet 19 białych róż 50 cm",
+      color: "White",
+      image: "https://www.krakow-kwiaciarnia.pl/images/roze-19-50-biale.jpg",
+      description:
+        "Luksusowy bukiet 19 białych róż o długości 50 cm z opcją personalizacji opakowania, bilecikiem i dodaniem zdjęcia.",
+      offers: {
+        "@type": "Offer",
+        url: "https://www.krakow-kwiaciarnia.pl/kwiaty/roze?quantity=19&height=50&packaging=White&flowerColor=White",
+        priceCurrency: "PLN",
+        priceSpecification: {
+          "@type": "CompoundPriceSpecification",
+          priceComponent: [
+            {
+              "@type": "UnitPriceSpecification",
+              name: "Bukiet (19 szt. 50 cm)",
+              price: 160,
+            },
+            {
+              "@type": "UnitPriceSpecification",
+              name: "Opakowanie",
+              price: 10,
+            },
+            { "@type": "UnitPriceSpecification", name: "Dostawa", price: 20 },
+            { "@type": "UnitPriceSpecification", name: "Bilecik", price: 10 },
+            {
+              "@type": "UnitPriceSpecification",
+              name: "Dodanie zdjęcia",
+              price: 20,
+            },
+          ],
+          price: 220,
+        },
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+      },
+    },
+    {
+      "@type": "Product",
+      sku: "ROZE-19-50-RED",
+      name: "Bukiet 19 czerwonych róż 50 cm",
+      color: "Red",
+      image: "https://www.krakow-kwiaciarnia.pl/images/roze-19-50-czerwone.jpg",
+      description:
+        "Luksusowy bukiet 19 czerwonych róż o długości 50 cm z opcją personalizacji opakowania, bilecikiem i dodaniem zdjęcia.",
+      offers: {
+        "@type": "Offer",
+        url: "https://www.krakow-kwiaciarnia.pl/kwiaty/roze?quantity=19&height=50&packaging=White&flowerColor=Red",
+        priceCurrency: "PLN",
+        priceSpecification: {
+          "@type": "CompoundPriceSpecification",
+          priceComponent: [
+            {
+              "@type": "UnitPriceSpecification",
+              name: "Bukiet (19 szt. 50 cm)",
+              price: 160,
+            },
+            {
+              "@type": "UnitPriceSpecification",
+              name: "Opakowanie",
+              price: 10,
+            },
+            { "@type": "UnitPriceSpecification", name: "Dostawa", price: 20 },
+            { "@type": "UnitPriceSpecification", name: "Bilecik", price: 10 },
+            {
+              "@type": "UnitPriceSpecification",
+              name: "Dodanie zdjęcia",
+              price: 20,
+            },
+          ],
+          price: 220,
+        },
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+      },
+    },
+    /* repeat one Product block for each combination of quantity (9,19,29,39,49), height (40,50,60,70,80) and color (Red, Pink, White, Yellow, Purple, Blue) */
+  ],
+};
 const FlowerPage = () => {
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
   return (
     <div className="p-4 flex flex-col gap-4">
+      {/* ✅ SEO Schema - Correct placement */}
+      <Script
+        id="ld-json"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
       <h1 className="max-w-4xl px-4 mx-auto sm:my-4 text-3xl font-bold text-center text-rose-900 md:text-4xl">
         Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie
       </h1>
