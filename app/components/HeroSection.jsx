@@ -6,20 +6,25 @@ import {
 } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { shopPhone } from "../data/mainData";
+import Image from "next/image";
 
 function HeroSection() {
   return (
     <header className="relative pt-8 px-8 sm:p-16 text-center text-rose-900 rounded-lg shadow-lg bg-rose-100">
       <div className="absolute left-0 top-1/2 transform -translate-y-1/2 sm:block hidden">
-        <img
+        <Image
           src="/Layer 2.png"
           alt="Dekoracyjny motyw kwiatowy - kwiaciarnia Kraków"
+          width={192}
+          height={192}
           className="w-32 sm:w-48"
         />
       </div>
       <div className="absolute right-0 top-1/2 transform -translate-y-1/2 sm:block hidden">
-        <img
+        <Image
           src="/Layer 2.png"
+          width={192}
+          height={192}
           alt="Dekoracyjny motyw kwiatowy - kwiaciarnia Kraków"
           className="w-32 sm:w-48 transform scale-x-[-1] scale-y-[-1]"
         />
@@ -42,7 +47,7 @@ function HeroSection() {
           <div className="mt-6 flex justify-center">
             <a
               href={`tel:${shopPhone}`}
-              className="bg-rose-700 py-3 px-8 rounded-lg hover:bg-rose-800 text-white font-bold transition-all"
+              className="bg-green-700 py-3 px-8 rounded-lg hover:bg-green-800 text-white font-bold transition-all"
             >
               Zamów teraz: {shopPhone}
             </a>
@@ -73,11 +78,12 @@ function HeroSection() {
           </a>
         </p>
       </div>
-      <div className="sm:hidden mt-8 flex justify-center">
-        <img
+      <div className="sm:hidden mt-8 flex justify-center relative w-full h-64">
+        <Image
           src="/Layer 3.png"
           alt="Kwiaciarnia mobilna wersja - Kraków"
-          className="w-full"
+          fill
+          className="object-contain"
         />
       </div>
     </header>
