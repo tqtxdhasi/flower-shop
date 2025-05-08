@@ -28,6 +28,7 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.jsx",
+    "**/*.js",
 
     ".next/types/**/*.ts",
     "app/dostawa/page.jsx",
