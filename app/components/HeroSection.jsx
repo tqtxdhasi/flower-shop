@@ -83,6 +83,7 @@ function HeroSection() {
           src="/Layer 3.jpg"
           alt="Kwiaciarnia mobilna wersja - Kraków"
           fill
+          priority
           className="object-contain"
         />
       </div>
