@@ -85,7 +85,9 @@ function HeroSection() {
           width={320}
           height={256}
           priority
+          quality={75}
           className="object-contain"
+          placeholder="blur"
         />
       </div>
     </header>
