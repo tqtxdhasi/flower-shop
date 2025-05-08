@@ -13,7 +13,7 @@ function HeroSection() {
     <header className="relative pt-8 px-8 sm:p-16 text-center text-rose-900 rounded-lg shadow-lg bg-rose-100">
       <div className="absolute left-0 top-1/2 transform -translate-y-1/2 sm:block hidden">
         <Image
-          src="/Layer 2.png"
+          src="/Layer 2.jpg"
           alt="Dekoracyjny motyw kwiatowy - kwiaciarnia Kraków"
           width={192}
           height={192}
@@ -22,7 +22,7 @@ function HeroSection() {
       </div>
       <div className="absolute right-0 top-1/2 transform -translate-y-1/2 sm:block hidden">
         <Image
-          src="/Layer 2.png"
+          src="/Layer 2.jpg"
           width={192}
           height={192}
           alt="Dekoracyjny motyw kwiatowy - kwiaciarnia Kraków"
@@ -80,7 +80,7 @@ function HeroSection() {
       </div>
       <div className="sm:hidden mt-8 flex justify-center relative w-full h-64">
         <Image
-          src="/Layer 3.png"
+          src="/Layer 3.jpg"
           alt="Kwiaciarnia mobilna wersja - Kraków"
           fill
           className="object-contain"
