@@ -78,16 +78,13 @@ function HeroSection() {
           </a>
         </p>
       </div>
-      <div className="sm:hidden mt-8 flex justify-center relative w-full h-64">
+      <div className="sm:hidden mt-8 flex justify-center relative w-full h-56">
         <Image
           src="/Layer 3.jpg"
           alt="Kwiaciarnia mobilna wersja - Kraków"
-          width={320}
-          height={256}
+          fill
           priority
-          quality={75}
-          className="object-contain"
-          placeholder="blur"
+          className="object-bottom object-contain"
         />
       </div>
     </header>
