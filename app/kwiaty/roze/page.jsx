@@ -8,10 +8,11 @@ import holidaysList from "@/app/components/HolidaysData";
 import HolidaysSection from "@/app/components/HolidaysSection";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
 import { shopDomain } from "@/app/data/mainData";
+import VariantSections from "@/app/components/VariantSections";
 const breadcrumbs = [
-  { name: "Home", url: `${shopDomain}/` },
-  { name: "Kwiaty", url: `${shopDomain}/kwiaty` },
-  { name: "Róże", url: `${shopDomain}/kwiaty/roze` },
+  { name: "Home", url: `https://${shopDomain}/` },
+  { name: "Kwiaty", url: `https://${shopDomain}/kwiaty` },
+  { name: "Róże", url: `https://${shopDomain}/kwiaty/roze` },
 ];
 const schemaData = {
   "@context": "https://schema.org/",
@@ -104,17 +105,16 @@ const schemaData = {
 const FlowerPage = () => {
   return (
     <div className="p-4 flex flex-col gap-4">
-      {/* ✅ SEO Schema - Correct placement */}
       <Script
         id="ld-json"
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />{" "}
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <h1 className="max-w-4xl px-4 mx-auto sm:my-4 text-3xl font-bold text-center text-rose-900 md:text-4xl">
+      />
+      <h1 className="max-w-4xl px-4 mx-auto  text-3xl font-bold text-center text-rose-900 md:text-4xl">
         Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie
-      </h1>
+      </h1>{" "}
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
       <div className="flex flex-col w-full md:flex-row gap-4 mx-auto">
         <Gallery />
 
@@ -134,65 +134,7 @@ const FlowerPage = () => {
           możliwość personalizacji zamówienia, dzięki czemu bukiet staje się
           idealnym wyborem na każdą okazję.
         </p>
-        <h3 className=" text-xl text-rose-900 font-semibold">
-          Dostępne Warianty
-        </h3>
-        <div className="grid gap-4 md:grid-cols-2">
-          <div className="p-4 bg-rose-50 rounded-lg col-span-2 md:col-span-1 shadow-sm flex flex-col gap-2">
-            <h4 className="text-rose-900 font-semibold">Rozmiary łodyg</h4>
-            <div className="flex flex-wrap gap-2">
-              {["40cm", "50cm", "60cm", "70cm", "80cm"].map((size) => (
-                <span
-                  key={size}
-                  className="bg-white text-rose-900 border-2 border-rose-200 hover:bg-rose-50 transition-colors rounded-full px-4 py-1"
-                >
-                  {size}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <div className="p-4 bg-rose-50 rounded-lg col-span-2 md:col-span-1 shadow-sm flex flex-col gap-2">
-            <h4 className="text-rose-900 font-semibold">Kolorystyka</h4>
-            <div className="flex flex-wrap gap-2">
-              {[
-                "Czerwony",
-                "Biały",
-                "Różowy",
-                "Żółty",
-                "Pomarańczowy",
-                "Miks",
-              ].map((color) => (
-                <span
-                  key={color}
-                  className="bg-white text-rose-900 border-2 border-rose-200 hover:bg-rose-50 transition-colors rounded-full px-4 py-1"
-                >
-                  {color}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="p-4 bg-rose-50 rounded-lg shadow-sm flex flex-col gap-2 col-span-2">
-            <h4 className="text-rose-900 font-semibold">Dodatkowe Usługi</h4>
-            <div className="flex flex-wrap gap-2">
-              {[
-                "Personalizowane bileciki",
-                "Ekskluzywne opakowanie",
-                "Słodkie upominki",
-                "Eleganckie opakowanie prezentowe",
-                "Subskrypcja kwiatowa",
-                "Kompozycje na zamówienie",
-              ].map((color) => (
-                <span
-                  key={color}
-                  className="bg-white text-rose-900 border-2 text-center border-rose-200 hover:bg-rose-50 transition-colors rounded-full px-4 py-1"
-                >
-                  {color}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
+        <VariantSections />
         <HolidaysSection holidays={holidaysList} />
 
         <p className=" text-rose-800">

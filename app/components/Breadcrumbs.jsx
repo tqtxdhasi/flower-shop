@@ -26,10 +26,7 @@ const Breadcrumbs = ({ breadcrumbs }) => {
       />
 
       {/* Visible Breadcrumbs for User Navigation */}
-      <nav
-        aria-label="Breadcrumb"
-        className="bg-rose-50 p-4 rounded-lg shadow-sm mb-6"
-      >
+      <nav aria-label="Breadcrumb">
         <ol className="flex space-x-2 text-rose-900">
           {breadcrumbs.map((breadcrumb, index) => (
             <li key={breadcrumb.name} className="flex items-center">
