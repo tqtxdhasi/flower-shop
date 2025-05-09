@@ -7,10 +7,11 @@ import FAQSection from "@/app/components/FAQSection";
 import holidaysList from "@/app/components/HolidaysData";
 import HolidaysSection from "@/app/components/HolidaysSection";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
+import { shopDomain } from "@/app/data/mainData";
 const breadcrumbs = [
-  { name: "Home", url: "/" },
-  { name: "Kwiaty", url: "/kwiaty" },
-  { name: "Róże", url: "/kwiaty/roze" },
+  { name: "Home", url: `${shopDomain}/` },
+  { name: "Kwiaty", url: `${shopDomain}/kwiaty` },
+  { name: "Róże", url: `${shopDomain}/kwiaty/roze` },
 ];
 const schemaData = {
   "@context": "https://schema.org/",
