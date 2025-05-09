@@ -4,7 +4,13 @@ import Regulamin from "@/app/components/Regulamin";
 import Link from "next/link";
 import Script from "next/script";
 import FAQSection from "@/app/components/FAQSection";
-
+import holidaysList from "@/app/components/HolidaysData";
+import HolidaysSection from "@/app/components/HolidaysSection";
+const breadcrumbs = [
+  { name: "Home", url: "/" },
+  { name: "Kwiaty", url: "/kwiaty" },
+  { name: "Róże", url: "/kwiaty/roze" },
+];
 const schemaData = {
   "@context": "https://schema.org/",
   "@type": "ProductGroup",
@@ -102,7 +108,8 @@ const FlowerPage = () => {
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
-      />
+      />{" "}
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
       <h1 className="max-w-4xl px-4 mx-auto sm:my-4 text-3xl font-bold text-center text-rose-900 md:text-4xl">
         Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie
       </h1>
@@ -184,38 +191,8 @@ const FlowerPage = () => {
             </div>
           </div>
         </div>
-        <h2 className=" text-2xl text-center font-bold text-rose-900 md:text-3xl">
-          Święta i Okazje – Idealny Bukiet na Każde Święto i Uroczystość
-        </h2>{" "}
-        <div className="p-4 bg-rose-50 rounded-lg shadow-sm flex flex-col gap-2 col-span-2">
-          <h4 className="text-rose-900 font-semibold">Święta i Okazje</h4>
-          <div className="flex flex-wrap gap-2">
-            {[
-              "Walentynki",
-              "Rocznice",
-              "Zaręczyny",
-              "Urodziny",
-              "Imieniny",
-              "Dzień Matki",
-              "Dzień Ojca",
-              "Dzień Kobiet",
-              "Boże Narodzenie",
-              "Wielkanoc",
-              "Nowy Rok",
-              "Sylwester",
-              "Halloween",
-              "Dzień Dziecka",
-              "Święta",
-            ].map((occasion) => (
-              <div
-                key={occasion}
-                className="bg-white text-center text-rose-900 border-2 border-rose-200 hover:bg-rose-50 transition-colors rounded-full px-4 py-1"
-              >
-                {occasion}
-              </div>
-            ))}
-          </div>
-        </div>
+        <HolidaysSection holidays={holidaysList} />
+
         <p className=" text-rose-800">
           Niezależnie od tego, czy obchodzisz Walentynki, Boże Narodzenie,
           Wielkanoc, Nowy Rok, Sylwestra, Dzień Kobiet, Dzień Ojca, Dzień
@@ -232,7 +209,7 @@ const FlowerPage = () => {
         </p>
         <FAQSection />
       </div>
-      {/* FAQ Section 
+      {/*  
       <h2 className=" text-2xl text-center font-bold text-rose-900 md:text-3xl">
         Artykuły i Porady o Różach
       </h2>

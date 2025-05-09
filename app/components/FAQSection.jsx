@@ -6,6 +6,7 @@ const FAQSection = () => {
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
+    name: "FAQ dotyczące róż",
     mainEntity: faqData.map((item) => ({
       "@type": "Question",
       name: item.question,
