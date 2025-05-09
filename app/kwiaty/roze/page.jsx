@@ -6,6 +6,7 @@ import Script from "next/script";
 import FAQSection from "@/app/components/FAQSection";
 import holidaysList from "@/app/components/HolidaysData";
 import HolidaysSection from "@/app/components/HolidaysSection";
+import Breadcrumbs from "@/app/components/Breadcrumbs";
 const breadcrumbs = [
   { name: "Home", url: "/" },
   { name: "Kwiaty", url: "/kwiaty" },
