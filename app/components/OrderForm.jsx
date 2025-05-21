@@ -1,28 +1,14 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/navigation";
-
-const PRICE_SHEET = {
-  40: { 9: 90, 19: 140, 29: 195, 39: 240, 49: 290 },
-  50: { 9: 100, 19: 160, 29: 225, 39: 280, 49: 340 },
-  60: { 9: 110, 19: 180, 29: 255, 39: 320, 49: 390 },
-  70: { 9: 120, 19: 200, 29: 285, 39: 360, 49: 440 },
-  80: { 9: 130, 19: 220, 29: 315, 39: 400, 49: 490 },
-};
-
-const PACKAGING_COSTS = { 9: 10, 19: 10, 29: 15, 39: 15, 49: 20 };
-const DELIVERY_CHARGE = 20;
-const LETTER_COST = 10;
-const IMAGE_COST = 20;
-
-const COLOR_OPTIONS = {
-  Red: "#FF0000",
-  Pink: "#FFC0CB",
-  White: "#FFFFFF",
-  Yellow: "#FFFF00",
-  Purple: "#800080",
-  Blue: "#0000FF",
-};
+import {
+  COLOR_OPTIONS,
+  DELIVERY_CHARGE,
+  IMAGE_COST,
+  LETTER_COST,
+  PACKAGING_COSTS,
+  PRICE_SHEET,
+} from "../kwiaty/roze/roseData";
 
 export default function OrderForm() {
   const router = useRouter();
@@ -285,14 +271,14 @@ export default function OrderForm() {
             selected={packaging === ""}
             onClick={() => setPackaging("")}
           />
-          {Object.entries(COLOR_OPTIONS).map(([color, hex]) => (
+          {COLOR_OPTIONS.map(({ name, code }) => (
             <ColorButton
-              key={color}
-              color={color}
-              hex={hex}
-              selected={packaging === color}
+              key={name}
+              color={name}
+              hex={code}
+              selected={packaging === name}
               disabled={!isOptionAffordable(quantity, height)}
-              onClick={() => setPackaging(color)}
+              onClick={() => setPackaging(name)}
             />
           ))}
         </div>
@@ -300,13 +286,13 @@ export default function OrderForm() {
       {/* Flower Color Selection */}
       <FieldGroup label="Wybierz kolor róż:">
         <div className="flex flex-wrap gap-3">
-          {Object.entries(COLOR_OPTIONS).map(([color, hex]) => (
+          {COLOR_OPTIONS.map(({ name, code }) => (
             <ColorButton
-              key={color}
-              color={color}
-              hex={hex}
-              selected={flowerColor === color}
-              onClick={() => setFlowerColor(color)}
+              key={name}
+              color={name}
+              hex={code}
+              selected={flowerColor === name}
+              onClick={() => setFlowerColor(name)}
             />
           ))}
         </div>

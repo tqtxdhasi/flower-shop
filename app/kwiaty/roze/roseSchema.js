@@ -1,27 +1,13 @@
-const PRICE_SHEET = {
-  40: { 9: 90, 19: 140, 29: 195, 39: 240, 49: 290 },
-  50: { 9: 100, 19: 160, 29: 225, 39: 280, 49: 340 },
-  60: { 9: 110, 19: 180, 29: 255, 39: 320, 49: 390 },
-  70: { 9: 120, 19: 200, 29: 285, 39: 360, 49: 440 },
-  80: { 9: 130, 19: 220, 29: 315, 39: 400, 49: 490 },
-};
-
-const PACKAGING_COSTS = { 9: 10, 19: 10, 29: 15, 39: 15, 49: 20 };
-const DELIVERY_CHARGE = 20;
-const LETTER_COST = 10;
-const IMAGE_COST = 20;
-
-const COLOR_OPTIONS = [
-  { name: "Red", code: "#FF0000", slug: "czerwone" },
-  { name: "Pink", code: "#FFC0CB", slug: "rozowe" },
-  { name: "White", code: "#FFFFFF", slug: "biale" },
-  { name: "Yellow", code: "#FFFF00", slug: "zolte" },
-  { name: "Purple", code: "#800080", slug: "fioletowe" },
-  { name: "Blue", code: "#0000FF", slug: "niebieskie" },
-];
-
-const quantities = [9, 19, 29, 39, 49];
-const heights = [40, 50, 60, 70, 80];
+import {
+  COLOR_OPTIONS,
+  DELIVERY_CHARGE,
+  HEIGHTS,
+  IMAGE_COST,
+  LETTER_COST,
+  PACKAGING_COSTS,
+  PRICE_SHEET,
+  QUANTITIES,
+} from "./roseData";
 
 export const roseSchema = {
   "@context": "https://schema.org/",
@@ -32,8 +18,8 @@ export const roseSchema = {
     "Wybierz spośród różnych kolorów, ilości i długości eleganckich bukietów róż z dostawą w Krakowie.",
   brand: { "@type": "Brand", name: "Kwiaciarnia Kraków" },
   variesBy: ["height", "quantity", "color"],
-  hasVariant: quantities.flatMap((quantity) =>
-    heights.flatMap((height) =>
+  hasVariant: QUANTITIES.flatMap((quantity) =>
+    HEIGHTS.flatMap((height) =>
       COLOR_OPTIONS.map((color) => {
         const basePrice = PRICE_SHEET[height]?.[quantity] || 0;
         const packagingPrice = PACKAGING_COSTS[quantity] || 0;
@@ -95,12 +81,17 @@ export const roseSchema = {
   ),
 };
 
-export function buildRoseProductSchema(quantity, height, color) {
+export function buildRoseProductSchema(
+  quantity,
+  height,
+  color,
+  withVase = false
+) {
   const basePrice = PRICE_SHEET[height]?.[quantity] ?? 0;
   const totalPrice = basePrice;
 
   const option = withVase ? "VASE" : "";
-  const sku = `ROZE-${height}-${quantity}-${colorCode}${
+  const sku = `ROZE-${height}-${quantity}-${color.slug}${
     option ? `-${option}` : ""
   }`;
 
