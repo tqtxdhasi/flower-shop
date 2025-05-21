@@ -25,11 +25,10 @@ export const roseSchema = {
         const packagingPrice = PACKAGING_COSTS[quantity] || 0;
         return {
           "@type": "Product",
-          productGroupID: "ROZE-GROUP",
-          name: `Bukiet ${quantity} ${color.name.toLowerCase()} róż ${height} cm`,
-          description: `Luksusowy bukiet ${quantity} ${color.name.toLowerCase()} róż o długości ${height} cm z opcją personalizacji.`,
-          color: color.name,
-          image: `https://www.krakow-kwiaciarnia.pl/images/roze-${quantity}-${height}-${color.slug}.jpg`,
+          name: `Bukiet ${quantity} ${color.slug} róż ${height} cm`,
+          description: `Luksusowy bukiet ${quantity} ${color.slug} róż o długości ${height} cm z opcją personalizacji.`,
+          color: color.color,
+          image: `https://www.krakow-kwiaciarnia.pl/images/bukiet-${quantity}-${color.slug}-roz-${height}cm.jpg`,
           offers: {
             "@type": "Offer",
             url: `https://www.krakow-kwiaciarnia.pl/kwiaty/roze?quantity=${quantity}&height=${height}&flowerColor=${color.name}`,

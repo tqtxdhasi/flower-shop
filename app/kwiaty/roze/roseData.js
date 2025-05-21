@@ -15,13 +15,43 @@ export const PACKAGING_COSTS = {
 };
 
 export const COLOR_OPTIONS = [
-  { name: "Red", code: "#FF0000", slug: "czerwone" },
-  { name: "Pink", code: "#FFC0CB", slug: "rozowe" },
-  { name: "White", code: "#FFFFFF", slug: "biale" },
-  { name: "Yellow", code: "#FFFF00", slug: "zolte" },
-  { name: "Blue", code: "#0000FF", slug: "niebieskie" },
+  {
+    name: "Czerwonych",
+    code: "#FF0000",
+    slug: "czerwonych",
+    color: "cherwony",
+  },
+  {
+    name: "Różowych",
+    code: "#FFC0CB",
+    slug: "rozowych",
+    color: "rozowy",
+  },
+  {
+    name: "Białych",
+    code: "#FFFFFF",
+    slug: "bialych",
+    color: "bialy",
+  },
+  {
+    name: "Żółtych",
+    code: "#FFFF00",
+    slug: "zoltych",
+    color: "zolty",
+  },
+  {
+    name: "Niebieskich",
+    code: "#0000FF",
+    slug: "niebieskich",
+    color: "niebieski",
+  },
+  {
+    name: "Cherwony",
+    code: "#A52A2A",
+    slug: "cherwony",
+    color: "cherwony",
+  },
 ];
-
 export const HEIGHTS = Object.keys(PRICE_SHEET).map(Number);
 export const QUANTITIES = Object.keys(PRICE_SHEET[HEIGHTS[0]]).map(Number);
 
