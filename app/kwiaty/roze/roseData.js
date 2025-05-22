@@ -19,7 +19,7 @@ export const COLOR_OPTIONS = [
     name: "Czerwonych",
     code: "#FF0000",
     slug: "czerwonych",
-    color: "cherwony",
+    color: "czerwony",
   },
   {
     name: "Różowych",
@@ -44,12 +44,6 @@ export const COLOR_OPTIONS = [
     code: "#0000FF",
     slug: "niebieskich",
     color: "niebieski",
-  },
-  {
-    name: "Cherwony",
-    code: "#A52A2A",
-    slug: "cherwony",
-    color: "cherwony",
   },
 ];
 export const HEIGHTS = Object.keys(PRICE_SHEET).map(Number);
