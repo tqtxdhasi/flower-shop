@@ -33,6 +33,8 @@ export const roseSchema = {
             "@type": "Offer",
             url: `https://www.krakow-kwiaciarnia.pl/kwiaty/roze?quantity=${quantity}&height=${height}&flowerColor=${color.name}`,
             priceCurrency: "PLN",
+            price: basePrice,
+            priceValidUntil: "2025-12-28",
             priceSpecification: {
               "@type": "CompoundPriceSpecification",
               priceComponent: [
@@ -44,6 +46,57 @@ export const roseSchema = {
                 },
               ],
               price: basePrice,
+            },
+            shippingDetails: {
+              "@type": "OfferShippingDetails",
+              shippingRate: {
+                "@type": "MonetaryAmount",
+                value: 20,
+                currency: "PLN",
+              },
+              shippingDestination: {
+                "@type": "DefinedRegion",
+                addressCountry: {
+                  "@type": "Country",
+                  name: "PL",
+                },
+              },
+              deliveryTime: {
+                "@type": "ShippingDeliveryTime",
+                cutOffTime: "23:59:00",
+                handlingTime: {
+                  "@type": "QuantitativeValue",
+                  minValue: 1,
+                  maxValue: 1,
+                  unitCode: "d",
+                },
+                transitTime: {
+                  "@type": "QuantitativeValue",
+                  minValue: 0,
+                  maxValue: 1,
+                  unitCode: "d",
+                },
+                businessDays: [
+                  "https://schema.org/Monday",
+                  "https://schema.org/Tuesday",
+                  "https://schema.org/Wednesday",
+                  "https://schema.org/Thursday",
+                  "https://schema.org/Friday",
+                  "https://schema.org/Saturday",
+                  "https://schema.org/Sunday",
+                ],
+                deliveryTime: {
+                  "@type": "OpeningHoursSpecification",
+                  opens: "08:00",
+                  closes: "23:59",
+                },
+              },
+            },
+            hasMerchantReturnPolicy: {
+              "@type": "MerchantReturnPolicy",
+              returnPolicyCategory:
+                "https://schema.org/MerchantReturnNotPermitted",
+              applicableCountry: "PL",
             },
             addOn: [
               {
