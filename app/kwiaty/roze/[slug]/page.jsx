@@ -69,14 +69,8 @@ export async function generateMetadata({ params }) {
       `${product.color.name} róże Kraków`,
       `${product.height}cm róże Kraków`,
     ],
-    robots: { index: true, follow: true },
+    robots: { index: false, follow: true },
     alternates: { canonical: url },
-    other: {
-      "geo.region": "PL-MA",
-      "geo.placename": "Kraków",
-      "geo.position": "50.06465;19.94498",
-      ICBM: "50.06465, 19.94498",
-    },
     openGraph: {
       title,
       description,
@@ -132,6 +126,18 @@ export default async function Page({ params }) {
 
   return (
     <main className="p-6 sm:p-10 max-w-5xl mx-auto">
+      {/* Structured Data Scripts */}
+      <Script
+        id="product-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+      />
+
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Hero Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         <Image
@@ -241,19 +247,6 @@ export default async function Page({ params }) {
           </li>
         </ul>
       </section>
-
-      {/* Structured Data Scripts */}
-      <Script
-        id="product-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
-      />
-
-      <Script
-        id="breadcrumb-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
     </main>
   );
 }

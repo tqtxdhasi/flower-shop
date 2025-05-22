@@ -11,6 +11,50 @@ import { shopDomain } from "@/app/data/mainData";
 import VariantSections from "@/app/components/VariantSections";
 import { roseSchema } from "@/app/kwiaty/roze/roseSchema";
 
+export const metadata = {
+  title: "Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie",
+  description:
+    "Wybierz spośród 20 wariantów luksusowych bukietów róż: ilość, kolor i długość. Ekspresowa dostawa w Krakowie.",
+  keywords: [
+    "bukiet róż Kraków",
+    "kwiaty Kraków",
+    "luksusowe róże online",
+    "dostawa kwiatów Kraków",
+  ],
+  alternates: {
+    canonical: `https://${shopDomain}/kwiaty/roze`,
+  },
+  openGraph: {
+    title: "Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie",
+    description:
+      "Wybierz spośród 20 wariantów luksusowych bukietów róż: ilość, kolor i długość. Ekspresowa dostawa w Krakowie.",
+    url: `https://${shopDomain}/kwiaty/roze`,
+    siteName: "Kwiaciarnia Kraków",
+    images: [
+      {
+        url: `https://${shopDomain}/images/category-rose.jpg`,
+        width: 1200,
+        height: 628,
+        alt: "Bukiet róż premium",
+      },
+    ],
+    locale: "pl_PL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie",
+    description:
+      "Wybierz spośród 20 wariantów luksusowych bukietów róż: ilość, kolor i długość. Ekspresowa dostawa w Krakowie.",
+    images: [`https://${shopDomain}/images/category-rose.jpg`],
+    site: "@KwiaciarniaKrakow",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 const breadcrumbs = [
   { name: "Home", url: `https://${shopDomain}/` },
   { name: "Kwiaty", url: `https://${shopDomain}/kwiaty` },
