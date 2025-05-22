@@ -1,33 +1,23 @@
 import { notFound } from "next/navigation";
 import { buildRoseProductSchema } from "../roseSchema";
-import { PRICE_SHEET } from "../roseSchema";
 import Image from "next/image";
 import Script from "next/script";
+import { PRICE_SHEET, COLOR_OPTIONS, QUANTITIES, HEIGHTS } from "../roseData";
+export async function generateStaticParams() {
+  const slugs = [];
 
-// export async function generateStaticParams() {
-//   const quantities = [15, 25, 35, 45];
-//   const heights = [40, 50, 60];
+  for (const height of HEIGHTS) {
+    for (const quantity of QUANTITIES) {
+      for (const color of COLOR_OPTIONS) {
+        slugs.push({
+          slug: `bukiet-${quantity}-${color.slug}-roz-${height}-cm`,
+        });
+      }
+    }
+  }
 
-//   const slugs = [];
-
-//   for (const quantity of quantities) {
-//     for (const height of heights) {
-//       for (const color of Object.values(roseData)) {
-//         const slug = `bukiet-${quantity}-${color.slug}-roz-${height}-cm`;
-//         slugs.push({ slug });
-//       }
-//     }
-//   }
-
-//   return slugs;
-// }
-
-const roseData = {
-  red: { name: "Czerwonych", slug: "czerwonych", colorCode: "RD" },
-  pink: { name: "Różowych", slug: "rozowe", colorCode: "PK" },
-  white: { name: "Białych", slug: "biale", colorCode: "WH" },
-};
-
+  return slugs;
+}
 async function getProductBySlug(slug) {
   const regex = /^bukiet-(\d+)-([a-ząćęłńóśźż]+)-roz-(\d+)-cm$/;
   const match = slug.match(regex);
@@ -36,7 +26,7 @@ async function getProductBySlug(slug) {
   const quantity = parseInt(match[1], 10);
   const colorSlug = match[2];
   const height = parseInt(match[3], 10);
-  const color = Object.values(roseData).find((c) => c.slug === colorSlug);
+  const color = COLOR_OPTIONS.find((c) => c.slug === colorSlug);
 
   if (!color || isNaN(quantity) || isNaN(height)) return null;
 
@@ -92,7 +82,6 @@ export default async function Page({ params }) {
     product.height,
     product.color
   );
-
   return (
     <main className="p-8">
       <h1 className="text-3xl font-bold mb-4">
