@@ -39,7 +39,7 @@ function Footer() {
               </li>
               <li>
                 <a
-                  href="/flowers/roses"
+                  href="/kwiaty/roze"
                   className="hover:text-rose-600 transition-colors"
                 >
                   Róże
