@@ -18,7 +18,6 @@ const breadcrumbs = [
 ];
 
 const FlowerPage = () => {
-  console.log("ROSE: " + JSON.stringify(roseSchema));
   return (
     <div className="p-4 flex flex-col gap-4">
       <Script
