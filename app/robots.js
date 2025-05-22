@@ -1,11 +1,20 @@
 export default function robots() {
+  const domain = "https://www.krakow-kwiaciarnia.pl";
+
   return {
     rules: [
       {
         userAgent: "*",
+        // Allow the main roses category page
+        allow: "/kwiaty/roze",
+      },
+      {
+        userAgent: "*",
+        // Disallow individual variant pages under /kwiaty/roze/[slug]
+        disallow: "/kwiaty/roze/bukiet-",
       },
     ],
-    sitemap: `https://www.krakow-kwiaciarnia.pl/sitemap.xml`,
-    host: "https://www.krakow-kwiaciarnia.pl/",
+    sitemap: `${domain}/sitemap.xml`,
+    host: domain,
   };
 }
