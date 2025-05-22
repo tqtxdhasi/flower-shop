@@ -38,7 +38,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const height of HEIGHTS) {
     for (const quantity of QUANTITIES) {
       for (const color of COLOR_OPTIONS) {
-        const slug = `bukiet-${quantity}-${color.slug}-roz-${height}-cm`;
+        const slug = `kwiaty/roze/bukiet-${quantity}-${color.slug}-roz-${height}-cm`;
         urls.push({
           url: `${baseUrl}/${slug}`,
           lastModified: new Date(),
