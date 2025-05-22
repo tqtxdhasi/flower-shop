@@ -4,23 +4,23 @@ import { PRICE_SHEET } from "../roseSchema";
 import Image from "next/image";
 import Script from "next/script";
 
-export async function generateStaticParams() {
-  const quantities = [15, 25, 35, 45];
-  const heights = [40, 50, 60];
+// export async function generateStaticParams() {
+//   const quantities = [15, 25, 35, 45];
+//   const heights = [40, 50, 60];
 
-  const slugs = [];
+//   const slugs = [];
 
-  for (const quantity of quantities) {
-    for (const height of heights) {
-      for (const color of Object.values(roseData)) {
-        const slug = `bukiet-${quantity}-${color.slug}-roz-${height}-cm`;
-        slugs.push({ slug });
-      }
-    }
-  }
+//   for (const quantity of quantities) {
+//     for (const height of heights) {
+//       for (const color of Object.values(roseData)) {
+//         const slug = `bukiet-${quantity}-${color.slug}-roz-${height}-cm`;
+//         slugs.push({ slug });
+//       }
+//     }
+//   }
 
-  return slugs;
-}
+//   return slugs;
+// }
 
 const roseData = {
   red: { name: "Czerwonych", slug: "czerwonych", colorCode: "RD" },

@@ -80,19 +80,9 @@ export const roseSchema = {
   ),
 };
 
-export function buildRoseProductSchema(
-  quantity,
-  height,
-  color,
-  withVase = false
-) {
+export function buildRoseProductSchema(quantity, height, color) {
   const basePrice = PRICE_SHEET[height]?.[quantity] ?? 0;
   const totalPrice = basePrice;
-
-  const option = withVase ? "VASE" : "";
-  const sku = `ROZE-${height}-${quantity}-${color.slug}${
-    option ? `-${option}` : ""
-  }`;
 
   return {
     "@context": "https://schema.org/",
