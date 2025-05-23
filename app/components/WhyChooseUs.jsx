@@ -2,7 +2,7 @@ import Image from "next/image";
 
 function WhyChooseUs() {
   return (
-    <section className=" text-white rounded-lg shadow-lg p-4 bg-rose-700 sm:py-12">
+    <section className="text-white rounded-lg shadow-lg p-4 bg-rose-700 sm:py-12">
       <h2 className="text-2xl sm:text-3xl font-semibold text-center">
         Dlaczego warto wybrać nas?
       </h2>
@@ -20,7 +20,10 @@ function WhyChooseUs() {
         <Image
           src="/1223.jpg"
           alt="Bukiet kwiatów"
-          className="rounded-lg shadow-lg w-full max-h-80 object-cover"
+          width={356}
+          height={475}
+          sizes="(max-width: 640px) 100vw, 356px"
+          className="rounded-lg shadow-lg object-cover"
           priority
         />
       </div>
