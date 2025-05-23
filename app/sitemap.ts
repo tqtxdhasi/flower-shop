@@ -4,7 +4,7 @@ import { HEIGHTS, QUANTITIES, COLOR_OPTIONS } from "./data/roseData";
 const baseUrl = "https://www.krakow-kwiaciarnia.pl";
 
 const locales: string[] = []; // e.g., ['pl', 'en']
-const pages: string[] = ["", "kwiaty/roze"];
+const pages: string[] = ["", "kwiaty/roze", "favicon.ico"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const urls: MetadataRoute.Sitemap = [];

@@ -83,7 +83,7 @@ export async function generateMetadata({ params }) {
       `${product.color.name} róże Kraków`,
       `${product.height}cm róże Kraków`,
     ],
-    robots: { index: false, follow: true },
+    robots: { index: true, follow: true },
     alternates: { canonical: url },
     openGraph: {
       title,
