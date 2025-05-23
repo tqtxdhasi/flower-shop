@@ -8,11 +8,11 @@ export default function robots() {
         // Allow the main roses category page
         allow: "/kwiaty/roze",
       },
-      {
-        userAgent: "*",
-        // Disallow individual variant pages under /kwiaty/roze/[slug]
-        disallow: "/kwiaty/roze/bukiet-",
-      },
+      // {
+      //   userAgent: "*",
+      //   // Disallow individual variant pages under /kwiaty/roze/[slug]
+      //   disallow: "/kwiaty/roze/bukiet-",
+      // },
     ],
     sitemap: `${domain}/sitemap.xml`,
     host: domain,
