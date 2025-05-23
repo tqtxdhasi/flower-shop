@@ -8,7 +8,6 @@ const Submenu = ({ items, isOpen, className, itemClassName, onItemClick }) => {
             }`
           : "opacity-0 invisible group-hover:visible group-hover:opacity-100 transition-opacity duration-200"
       }`}
-      role="menu"
     >
       {items.map((sub, subIndex) => (
         <li key={sub.href}>
