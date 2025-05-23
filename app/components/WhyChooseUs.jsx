@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function WhyChooseUs() {
   return (
     <section className=" text-white rounded-lg shadow-lg p-4 bg-rose-700 sm:py-12">
@@ -15,7 +17,7 @@ function WhyChooseUs() {
             przegapić ważnej okazji
           </li>
         </ul>
-        <img
+        <Image
           src="/1223.jpg"
           alt="Bukiet kwiatów"
           className="rounded-lg shadow-lg w-full max-h-80 object-cover"
