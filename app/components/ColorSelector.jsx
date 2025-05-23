@@ -6,13 +6,13 @@ import { COLOR_OPTIONS } from "../kwiaty/roze/roseData";
 export default function ColorSelector({ flowerColor, setFlowerColor }) {
   return (
     <FieldGroup label="Wybierz kolor róż:">
-      {COLOR_OPTIONS.map(({ name, code }) => (
+      {COLOR_OPTIONS.map(({ color, code }) => (
         <ColorButton
-          key={name}
-          color={name}
+          key={color}
+          color={color}
           hex={code}
-          selected={flowerColor === name}
-          onClick={() => setFlowerColor(name)}
+          selected={flowerColor === color}
+          onClick={() => setFlowerColor(color)}
         />
       ))}
     </FieldGroup>

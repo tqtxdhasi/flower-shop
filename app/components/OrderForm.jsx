@@ -19,11 +19,11 @@ export default function OrderForm() {
   const [budget, setBudget] = useState(530);
   const [quantity, setQuantity] = useState(19);
   const [height, setHeight] = useState(50);
-  const [packaging, setPackaging] = useState("White");
+  const [packaging, setPackaging] = useState("bialy");
   const [delivery, setDelivery] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const [packagingCost, setPackagingCost] = useState(0);
-  const [flowerColor, setFlowerColor] = useState("Pink");
+  const [flowerColor, setFlowerColor] = useState("rozowy");
   const [letterOption, setLetterOption] = useState(false);
   const [imageOption, setImageOption] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");

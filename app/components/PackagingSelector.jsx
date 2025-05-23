@@ -18,14 +18,14 @@ export default function PackagingSelector({
         selected={packaging === ""}
         onClick={() => setPackaging("")}
       />
-      {COLOR_OPTIONS.map(({ name, code }) => (
+      {COLOR_OPTIONS.map(({ color, code }) => (
         <ColorButton
-          key={name}
-          color={name}
+          key={color}
+          color={color}
           hex={code}
-          selected={packaging === name}
+          selected={packaging === color}
           disabled={!isOptionAffordable(quantity, height)}
-          onClick={() => setPackaging(name)}
+          onClick={() => setPackaging(color)}
         />
       ))}
     </FieldGroup>
