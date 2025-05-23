@@ -8,6 +8,8 @@ const flowers = [
     name: "Róże",
     price: "od 5.92 zl/szt.",
     colors: "Czerwony, Niebieski, Tęczowy, Biały, Różowy",
+    width: 457,
+    height: 400,
   },
   {
     src: "/tulips.jpg",
@@ -15,6 +17,8 @@ const flowers = [
     name: "Tulipany",
     price: "od 4 zl/szt.",
     colors: "Czerwony, Różowy, Fioletowy, Biały, Żółty, Pomarańczowy",
+    width: 364,
+    height: 485,
   },
   {
     src: "/piwonie.jpg",
@@ -22,6 +26,8 @@ const flowers = [
     name: "Piwonie",
     price: "od 10 zl/szt.",
     colors: "Biały, Różowy",
+    width: 364,
+    height: 401,
   },
   {
     src: "/ranunculus.jpg",
@@ -29,6 +35,8 @@ const flowers = [
     name: "Jaskry",
     price: "od 10 zl/szt.",
     colors: "Różowy, Biały",
+    width: 381,
+    height: 508,
   },
   {
     src: "/gipsowka.jpg",
@@ -36,6 +44,8 @@ const flowers = [
     name: "Gipsówka",
     price: "od 5 zl/szt.",
     colors: "Biały, Różowy, Niebieski, Czerwony, Żółty, Fioletowy",
+    width: 381,
+    height: 508,
   },
   {
     src: "/hortensje.jpg",
@@ -43,18 +53,24 @@ const flowers = [
     name: "Hortensje",
     price: "od 25 zl/szt.",
     colors: "Niebieski, Różowy, Biały, Fioletowy, Czerwony",
+    width: 400,
+    height: 400,
   },
 ];
 
-function FlowerCard({ src, alt, name, price, colors }) {
+function FlowerCard({ src, alt, name, price, colors, width, height }) {
   return (
     <div className="bg-rose-100 flex text-rose-900 flex-col justify-between gap-2 p-3 rounded-lg shadow-lg text-center">
-      <div className="relative h-[400px]">
+      <div className="relative" style={{ height: height }}>
         <Image
           src={src}
           alt={alt}
-          fill
+          width={width}
+          height={height}
+          sizes="(max-width: 768px) 100vw, 400px"
           className="object-cover rounded-lg min-h-[300px]"
+          priority={false}
+          quality={75}
         />
       </div>
       <h3 className="text-xl font-bold">{name}</h3>
