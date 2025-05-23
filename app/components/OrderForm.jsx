@@ -1,16 +1,11 @@
+// components/OrderForm.js
 "use client";
-import { useState, useEffect, useCallback } from "react";
-import { useRouter } from "next/navigation";
-import {
-  COLOR_OPTIONS,
-  DELIVERY_CHARGE,
-  HEIGHTS,
-  IMAGE_COST,
-  LETTER_COST,
-  PACKAGING_COSTS,
-  PRICE_SHEET,
-  QUANTITIES,
-} from "../kwiaty/roze/roseData";
+import { useState, useEffect } from "react";
+import useOrderParams from "../hooks/useOrderParams";
+import useURLSync from "../hooks/useURLSync";
+import useModalScrollLock from "../hooks/useModalScrollLock";
+import useTotalPriceCalculator from "../hooks/useTotalPriceCalculator";
+import { QUANTITIES, HEIGHTS } from "../kwiaty/roze/roseData";
 import ModalConfirmation from "./ModalConfirmation";
 import PhoneInput from "./PhoneInput";
 import BudgetInput from "./BudgetInput";
@@ -21,7 +16,6 @@ import Extras from "./Extras";
 import Summary from "./Summary";
 
 export default function OrderForm() {
-  const router = useRouter();
   const [budget, setBudget] = useState(530);
   const [quantity, setQuantity] = useState(19);
   const [height, setHeight] = useState(50);
@@ -37,121 +31,65 @@ export default function OrderForm() {
   const [showModal, setShowModal] = useState(false);
   const [submittedData, setSubmittedData] = useState(null);
 
-  const calculateTotalPrice = useCallback(
-    (q, h) => {
-      if (!q || !h || !PRICE_SHEET[h]?.[q]) {
-        setTotalPrice(0);
-        setPackagingCost(0);
-        return;
-      }
+  useOrderParams({
+    quantity: setQuantity,
+    height: setHeight,
+    packaging: setPackaging,
+    flowerColor: setFlowerColor,
+    delivery: setDelivery,
+    budget: setBudget,
+    letterOption: setLetterOption,
+    imageOption: setImageOption,
+  });
 
-      const newPrice = PRICE_SHEET[h][q];
-      const newPackagingCost = packaging ? PACKAGING_COSTS[q] || 0 : 0;
-
-      setTotalPrice(newPrice);
-      setPackagingCost(newPackagingCost);
-    },
-    [packaging]
-  );
-  useEffect(() => {
-    if (showModal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [showModal]);
-
-  const isOptionAffordable = useCallback(
-    (q, h) => {
-      const basePrice = PRICE_SHEET[h]?.[q] || 0;
-      const totalCost =
-        basePrice +
-        (packaging ? PACKAGING_COSTS[q] || 0 : 0) +
-        (delivery ? DELIVERY_CHARGE : 0) +
-        (letterOption ? LETTER_COST : 0) +
-        (imageOption ? IMAGE_COST : 0);
-      return budget >= totalCost;
-    },
-    [budget, packaging, delivery, letterOption, imageOption]
-  );
-
-  const getFinalPrice = useCallback(() => {
-    return (
-      totalPrice +
-      packagingCost +
-      (delivery ? DELIVERY_CHARGE : 0) +
-      (letterOption ? LETTER_COST : 0) +
-      (imageOption ? IMAGE_COST : 0)
-    );
-  }, [totalPrice, packagingCost, delivery, letterOption, imageOption]);
-
-  // URL Handling
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const setStateFromParams = (param, setter, parser = Number) => {
-      const value = param && parser(param);
-      if (value !== null && value !== undefined) setter(value);
-    };
-
-    setStateFromParams(params.get("quantity"), setQuantity);
-    setStateFromParams(params.get("height"), setHeight);
-    setStateFromParams(params.get("packaging"), setPackaging, String);
-    setStateFromParams(params.get("flowerColor"), setFlowerColor, String);
-    setStateFromParams(params.get("delivery"), (v) =>
-      setDelivery(v === "true")
-    );
-    setStateFromParams(params.get("budget"), setBudget);
-    setStateFromParams(params.get("letterOption"), (v) =>
-      setLetterOption(v === "true")
-    );
-    setStateFromParams(params.get("imageOption"), (v) =>
-      setImageOption(v === "true")
-    );
-  }, []);
+  const { calculateTotalPrice, isOptionAffordable, getFinalPrice } =
+    useTotalPriceCalculator({
+      packaging,
+      delivery,
+      letterOption,
+      imageOption,
+      budget,
+      setTotalPrice,
+      setPackagingCost,
+    });
 
   useEffect(() => {
     calculateTotalPrice(quantity, height);
   }, [quantity, height, calculateTotalPrice]);
 
-  // Update URL
-  useEffect(() => {
-    const params = new URLSearchParams();
-    if (quantity) params.set("quantity", quantity);
-    if (height) params.set("height", height);
-    if (packaging) params.set("packaging", packaging);
-    if (flowerColor) params.set("flowerColor", flowerColor);
-    if (delivery) params.set("delivery", delivery);
-    if (budget) params.set("budget", budget);
-    if (letterOption) params.set("letterOption", letterOption);
-    if (imageOption) params.set("imageOption", imageOption);
+  useModalScrollLock(showModal);
 
-    router.replace(`?${params.toString()}`, { scroll: false });
-  }, [
-    quantity,
-    height,
-    packaging,
-    flowerColor,
-    delivery,
-    budget,
-    letterOption,
-    router,
-    imageOption,
-  ]);
+  useURLSync(
+    {
+      quantity,
+      height,
+      packaging,
+      flowerColor,
+      delivery,
+      budget,
+      letterOption,
+      imageOption,
+    },
+    [
+      quantity,
+      height,
+      packaging,
+      flowerColor,
+      delivery,
+      budget,
+      letterOption,
+      imageOption,
+    ]
+  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!validatePhoneNumber(phoneNumber)) {
+    if (!/^\+?[0-9]{9,15}$/.test(phoneNumber)) {
       setPhoneError("Nieprawidłowy numer telefonu");
       return;
     }
-
+    const finalPrice = getFinalPrice(totalPrice, packagingCost);
     const formData = {
-      budget,
       quantity,
       height,
       packaging,
@@ -159,24 +97,22 @@ export default function OrderForm() {
       delivery,
       totalPrice,
       packagingCost,
-      finalPrice: getFinalPrice(),
+      finalPrice,
       letterOption,
       imageOption,
+      budget,
       phoneNumber,
     };
-
     try {
       const res = await fetch("/api/send-email", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
-
       if (res.ok) {
         setSubmittedData(formData);
         setShowModal(true);
-
-        // Reset form fields
+        // reset
         setBudget(530);
         setQuantity(19);
         setHeight(50);
@@ -187,18 +123,10 @@ export default function OrderForm() {
         setImageOption(false);
         setPhoneNumber("");
         setPhoneError("");
-      } else {
-        const error = await res.json();
-        console.error("Błąd wysyłania:", error);
       }
-    } catch (error) {
-      console.error("Network error:", error);
+    } catch (err) {
+      console.error(err);
     }
-  };
-
-  const validatePhoneNumber = (number) => {
-    const phoneRegex = /^\+?[0-9]{9,15}$/;
-    return phoneRegex.test(number);
   };
 
   return (
@@ -245,16 +173,22 @@ export default function OrderForm() {
           delivery,
           letterOption,
           imageOption,
-          getFinalPrice,
+          getFinalPrice: () => getFinalPrice(totalPrice, packagingCost),
           budget,
         }}
       />
       <button
         type="submit"
-        disabled={!quantity || !height || budget < getFinalPrice()}
+        disabled={
+          !quantity ||
+          !height ||
+          budget < getFinalPrice(totalPrice, packagingCost)
+        }
         className="w-full py-3 px-4 bg-green-700 text-white rounded-lg hover:bg-green-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {budget >= getFinalPrice() ? "Złóż zamówienie" : "Za mały budżet"}
+        {budget >= getFinalPrice(totalPrice, packagingCost)
+          ? "Złóż zamówienie"
+          : "Za mały budżet"}
       </button>
       {showModal && submittedData && (
         <ModalConfirmation

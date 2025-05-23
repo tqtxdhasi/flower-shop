@@ -48,7 +48,6 @@ export const metadata: Metadata = {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
-    other: [{ rel: "manifest", url: "/site.webmanifest" }],
   },
   openGraph: {
     title: "Kwiaciarnia Kraków Online",
