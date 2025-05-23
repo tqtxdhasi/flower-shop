@@ -18,7 +18,7 @@ function HeroSection() {
           width={192}
           height={192}
           className="w-32 sm:w-48"
-          loading="lazy"
+          priority
         />
       </div>
       <div className="absolute right-0 top-1/2 transform -translate-y-1/2 sm:block hidden">

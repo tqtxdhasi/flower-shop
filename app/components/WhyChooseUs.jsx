@@ -21,6 +21,7 @@ function WhyChooseUs() {
           src="/1223.jpg"
           alt="Bukiet kwiatów"
           className="rounded-lg shadow-lg w-full max-h-80 object-cover"
+          priority
         />
       </div>
     </section>
