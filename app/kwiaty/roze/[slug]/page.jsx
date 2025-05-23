@@ -70,7 +70,7 @@ export async function generateMetadata({ params }) {
     product.quantity
   } ${product.color.name.toLowerCase()} róż o długości ${product.height} cm.`;
   const imageUrl = `https://www.krakow-kwiaciarnia.pl/images/roze-${product.quantity}-${product.height}-${product.color.slug}.jpg`;
-  const url = `https://www.krakow-kwiaciarnia.pl/kwiaty/roze/`;
+  const url = `https://www.krakow-kwiaciarnia.pl/kwiaty/roze/${slug}`;
 
   return {
     metadataBase: new URL("https://www.krakow-kwiaciarnia.pl"),
@@ -83,7 +83,7 @@ export async function generateMetadata({ params }) {
       `${product.color.name} róże Kraków`,
       `${product.height}cm róże Kraków`,
     ],
-    robots: { index: false, follow: true },
+    robots: { index: true, follow: true },
     alternates: { canonical: url },
     openGraph: {
       title,
@@ -131,7 +131,11 @@ export default async function Page({ params }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
       <h1 className="max-w-4xl px-4 mx-auto  text-3xl font-bold text-center text-rose-900 md:text-4xl">
-        Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie
+        Bukiet {product.quantity} {product.color.name} róż {product.height} cm{" "}
+        <br />
+        <span className="text-rose-800 text-lg">
+          Świeże Kwiaty z Dostawą w Krakowie
+        </span>
       </h1>{" "}
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <div className="flex flex-col w-full md:flex-row gap-4 mx-auto">
