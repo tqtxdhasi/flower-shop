@@ -28,7 +28,7 @@ function HeroSection() {
           width={192}
           height={192}
           className="w-32 sm:w-48 transform scale-x-[-1] scale-y-[-1]"
-          loading="lazy"
+          priority
         />
       </div>
       <div className="relative">
