@@ -1,9 +1,5 @@
 import Checkbox from "./Checkbox";
-import {
-  DELIVERY_CHARGE,
-  LETTER_COST,
-  IMAGE_COST,
-} from "../kwiaty/roze/roseData";
+import { DELIVERY_CHARGE, LETTER_COST, IMAGE_COST } from "@/app/data/roseData";
 
 export default function Extras({
   delivery,

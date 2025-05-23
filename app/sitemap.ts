@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { HEIGHTS, QUANTITIES, COLOR_OPTIONS } from "./kwiaty/roze/roseData";
+import { HEIGHTS, QUANTITIES, COLOR_OPTIONS } from "./data/roseData";
 
 const baseUrl = "https://www.krakow-kwiaciarnia.pl";
 

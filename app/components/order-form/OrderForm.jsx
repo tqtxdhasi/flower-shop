@@ -1,19 +1,19 @@
-// components/OrderForm.js
+// /OrderForm.jsx
 "use client";
 import { useState, useEffect } from "react";
-import useOrderParams from "../hooks/useOrderParams";
-import useURLSync from "../hooks/useURLSync";
-import useModalScrollLock from "../hooks/useModalScrollLock";
-import useTotalPriceCalculator from "../hooks/useTotalPriceCalculator";
-import { QUANTITIES, HEIGHTS } from "../kwiaty/roze/roseData";
-import ModalConfirmation from "./ModalConfirmation";
-import PhoneInput from "./PhoneInput";
-import BudgetInput from "./BudgetInput";
-import OptionSelector from "./OptionSelector";
-import PackagingSelector from "./PackagingSelector";
-import ColorSelector from "./ColorSelector";
-import Extras from "./Extras";
-import Summary from "./Summary";
+import useOrderParams from "../../hooks/useOrderParams";
+import useURLSync from "../../hooks/useURLSync";
+import useModalScrollLock from "../../hooks/useModalScrollLock";
+import useTotalPriceCalculator from "../../hooks/useTotalPriceCalculator";
+import { QUANTITIES, HEIGHTS } from "../../data/roseData";
+import ModalConfirmation from "./components/ModalConfirmation";
+import BudgetInput from "./components/BudgetInput";
+import OptionSelector from "./components/OptionSelector";
+import PackagingSelector from "./components/PackagingSelector";
+import ColorSelector from "./components/ColorSelector";
+import Extras from "./components/Extras";
+import Summary from "./components/Summary";
+import PhoneInput from "./components/PhoneInput";
 
 export default function OrderForm() {
   const [budget, setBudget] = useState(530);

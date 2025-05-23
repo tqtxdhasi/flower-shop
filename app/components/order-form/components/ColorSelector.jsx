@@ -1,7 +1,7 @@
 import React from "react";
 import FieldGroup from "./FieldGroup";
 import ColorButton from "./ColorButton";
-import { COLOR_OPTIONS } from "../kwiaty/roze/roseData";
+import { COLOR_OPTIONS } from "@/app/data/roseData";
 
 export default function ColorSelector({ flowerColor, setFlowerColor }) {
   return (

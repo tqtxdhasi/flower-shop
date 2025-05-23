@@ -7,9 +7,9 @@ import {
   PACKAGING_COSTS,
   PRICE_SHEET,
   QUANTITIES,
-} from "./roseData";
+} from "../../data/roseData";
 
-export const roseSchema = {
+export const rosesProductGroupSchema = {
   "@context": "https://schema.org/",
   "@type": "ProductGroup",
   productGroupID: "ROZE-GROUP",

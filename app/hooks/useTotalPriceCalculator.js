@@ -6,7 +6,7 @@ import {
   DELIVERY_CHARGE,
   LETTER_COST,
   IMAGE_COST,
-} from "../kwiaty/roze/roseData";
+} from "../data/roseData";
 
 export default function useTotalPriceCalculator({
   packaging,

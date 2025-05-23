@@ -2,7 +2,12 @@ import { notFound } from "next/navigation";
 import { buildRoseProductSchema } from "../roseSchema";
 import Image from "next/image";
 import Script from "next/script";
-import { PRICE_SHEET, COLOR_OPTIONS, QUANTITIES, HEIGHTS } from "../roseData";
+import {
+  PRICE_SHEET,
+  COLOR_OPTIONS,
+  QUANTITIES,
+  HEIGHTS,
+} from "../../../data/roseData";
 import Gallery from "@/app/components/Gallery";
 import Regulamin from "@/app/components/Regulamin";
 import Link from "next/link";
@@ -11,7 +16,7 @@ import holidaysList from "@/app/components/HolidaysData";
 import HolidaysSection from "@/app/components/HolidaysSection";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
 import VariantSections from "@/app/components/VariantSections";
-import OrderForm from "@/app/components/OrderForm";
+import OrderForm from "@/app/components/order-form/OrderForm";
 import { shopDomain } from "@/app/data/mainData";
 export async function generateStaticParams() {
   const slugs = [];

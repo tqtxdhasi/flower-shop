@@ -1,5 +1,5 @@
 import Gallery from "@/app/components/Gallery";
-import OrderForm from "../../components/OrderForm";
+import OrderForm from "../../components/order-form/OrderForm";
 import Regulamin from "@/app/components/Regulamin";
 import Link from "next/link";
 import Script from "next/script";
@@ -9,7 +9,7 @@ import HolidaysSection from "@/app/components/HolidaysSection";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
 import { shopDomain } from "@/app/data/mainData";
 import VariantSections from "@/app/components/VariantSections";
-import { roseSchema } from "@/app/kwiaty/roze/roseSchema";
+import { rosesProductGroupSchema } from "@/app/kwiaty/roze/roseSchema";
 
 export const metadata = {
   title: "Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie",
@@ -68,7 +68,7 @@ const FlowerPage = () => {
         id="ld-json"
         type="application/ld+json"
         strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(roseSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(rosesProductGroupSchema) }}
       />
       <h1 className="max-w-4xl px-4 mx-auto  text-3xl font-bold text-center text-rose-900 md:text-4xl">
         Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie
