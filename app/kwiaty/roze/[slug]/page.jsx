@@ -11,7 +11,7 @@ import {
 import Gallery from "@/app/components/Gallery";
 import Regulamin from "@/app/components/Regulamin";
 import Link from "next/link";
-import FAQSection from "@/app/components/FAQSection";
+import FAQSection from "@/app/components/faq/FAQSection";
 import holidaysList from "@/app/components/HolidaysData";
 import HolidaysSection from "@/app/components/HolidaysSection";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
@@ -70,7 +70,7 @@ export async function generateMetadata({ params }) {
     product.quantity
   } ${product.color.name.toLowerCase()} róż o długości ${product.height} cm.`;
   const imageUrl = `https://www.krakow-kwiaciarnia.pl/images/roze-${product.quantity}-${product.height}-${product.color.slug}.jpg`;
-  const url = `https://www.krakow-kwiaciarnia.pl/kwiaty/roze/${slug}`;
+  const url = `https://www.krakow-kwiaciarnia.pl/kwiaty/roze/`;
 
   return {
     metadataBase: new URL("https://www.krakow-kwiaciarnia.pl"),
@@ -138,7 +138,12 @@ export default async function Page({ params }) {
         <Gallery />
 
         <div className="w-full md:w-1/3">
-          <OrderForm />
+          <OrderForm
+            initialQuantity={product.quantity}
+            initialFlowerColor={product.color.slug}
+            initialHeight={product.height}
+            skipDimensions={true}
+          />
         </div>
       </div>
       <div className="max-w-4xl flex flex-col gap-4 px-2 mx-auto">

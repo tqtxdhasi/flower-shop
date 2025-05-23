@@ -6,13 +6,13 @@ import { COLOR_OPTIONS } from "@/app/data/roseData";
 export default function ColorSelector({ flowerColor, setFlowerColor }) {
   return (
     <FieldGroup label="Wybierz kolor róż:">
-      {COLOR_OPTIONS.map(({ color, code }) => (
+      {COLOR_OPTIONS.map(({ slug, code }) => (
         <ColorButton
-          key={color}
-          color={color}
+          key={slug}
+          color={slug}
           hex={code}
-          selected={flowerColor === color}
-          onClick={() => setFlowerColor(color)}
+          selected={flowerColor === slug}
+          onClick={() => setFlowerColor(slug)}
         />
       ))}
     </FieldGroup>

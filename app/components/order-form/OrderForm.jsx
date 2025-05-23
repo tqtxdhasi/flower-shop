@@ -15,15 +15,22 @@ import Extras from "./components/Extras";
 import Summary from "./components/Summary";
 import PhoneInput from "./components/PhoneInput";
 
-export default function OrderForm() {
-  const [budget, setBudget] = useState(530);
-  const [quantity, setQuantity] = useState(19);
-  const [height, setHeight] = useState(50);
+export default function OrderForm({
+  initialQuantity,
+  initialFlowerColor,
+  initialHeight,
+  skipDimensions,
+}) {
+  const [budget, setBudget] = useState(999);
+  const [quantity, setQuantity] = useState(initialQuantity ?? 19);
+  const [height, setHeight] = useState(initialHeight ?? 50);
   const [packaging, setPackaging] = useState("bialy");
   const [delivery, setDelivery] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const [packagingCost, setPackagingCost] = useState(0);
-  const [flowerColor, setFlowerColor] = useState("rozowy");
+  const [flowerColor, setFlowerColor] = useState(
+    initialFlowerColor ?? "rozowych"
+  );
   const [letterOption, setLetterOption] = useState(false);
   const [imageOption, setImageOption] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -79,9 +86,9 @@ export default function OrderForm() {
       budget,
       letterOption,
       imageOption,
-    ]
+    ],
+    skipDimensions
   );
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!/^\+?[0-9]{9,15}$/.test(phoneNumber)) {
