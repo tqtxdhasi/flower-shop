@@ -70,7 +70,7 @@ export async function generateMetadata({ params }) {
     product.quantity
   } ${product.color.name.toLowerCase()} róż o długości ${product.height} cm.`;
   const imageUrl = `https://www.krakow-kwiaciarnia.pl/images/roze-${product.quantity}-${product.height}-${product.color.slug}.jpg`;
-  const url = `https://www.krakow-kwiaciarnia.pl/kwiaty/roze/${slug}`;
+  const url = `https://www.krakow-kwiaciarnia.pl/kwiaty/roze`;
 
   return {
     metadataBase: new URL("https://www.krakow-kwiaciarnia.pl"),
@@ -83,7 +83,7 @@ export async function generateMetadata({ params }) {
       `${product.color.name} róże Kraków`,
       `${product.height}cm róże Kraków`,
     ],
-    robots: { index: true, follow: true },
+    robots: { index: false, follow: true },
     alternates: { canonical: url },
     openGraph: {
       title,

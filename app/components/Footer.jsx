@@ -2,7 +2,7 @@ import { shopName, shopPhone } from "../data/mainData";
 
 function Footer() {
   return (
-    <footer className="bg-rose-50 text-rose-900 pt-12 pb-8 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-rose-100 text-rose-900 pt-12 pb-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo and Description */}
@@ -11,7 +11,7 @@ function Footer() {
               <span className="text-3xl" aria-label="Ikona róż">
                 🌹
               </span>
-              <h2 className="text-2xl font-bold ml-2 text-rose-600">
+              <h2 className="text-2xl font-bold ml-2 text-rose-700">
                 {shopName}
               </h2>
             </div>
@@ -30,17 +30,17 @@ function Footer() {
 
           {/* Navigation */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-rose-600">Nawigacja</h3>
+            <h3 className="text-lg font-semibold text-rose-700">Nawigacja</h3>
             <ul className="space-y-2">
               <li>
-                <a href="/" className="hover:text-rose-600 transition-colors">
+                <a href="/" className="hover:text-rose-700 transition-colors">
                   Strona główna
                 </a>
               </li>
               <li>
                 <a
                   href="/kwiaty/roze"
-                  className="hover:text-rose-600 transition-colors"
+                  className="hover:text-rose-700 transition-colors"
                 >
                   Róże
                 </a>
@@ -49,7 +49,7 @@ function Footer() {
               {/*<li>
                 <a
                   href="/blog"
-                  className="hover:text-rose-600 transition-colors"
+                  className="hover:text-rose-700 transition-colors"
                 >
                   Poradnik
                 </a>
@@ -59,11 +59,11 @@ function Footer() {
 
           {/* Contact */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-rose-600">Kontakt</h3>
+            <h3 className="text-lg font-semibold text-rose-700">Kontakt</h3>
             <div className="space-y-2">
               <p className="flex items-center">
                 <svg
-                  className="w-5 h-5 mr-2 text-rose-600"
+                  className="w-5 h-5 mr-2 text-rose-700"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -82,12 +82,12 @@ function Footer() {
 
           {/* Social Media & Certificates 
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-rose-600">Śledź nas</h3>
+            <h3 className="text-lg font-semibold text-rose-700">Śledź nas</h3>
             <div className="flex space-x-4">
               <a
                 href="https://www.facebook.com/"
                 aria-label="Profil na Facebooku"
-                className="text-rose-600 hover:text-rose-800 transition-colors"
+                className="text-rose-700 hover:text-rose-800 transition-colors"
               >
                 <svg
                   className="w-6 h-6"
@@ -100,7 +100,7 @@ function Footer() {
               <a
                 href="https://www.instagram.com/"
                 aria-label="Profil na Instagramie"
-                className="text-rose-600 hover:text-rose-800 transition-colors"
+                className="text-rose-700 hover:text-rose-800 transition-colors"
               >
                 <svg
                   className="w-6 h-6"
@@ -115,7 +115,7 @@ function Footer() {
         </div>
 
         <div className="mt-12 border-t border-rose-200 pt-8 text-center">
-          <p className="text-sm text-rose-600">
+          <p className="text-sm text-rose-700">
             © {new Date().getFullYear() + " " + shopName}. Wszelkie prawa
             zastrzeżone.
           </p>

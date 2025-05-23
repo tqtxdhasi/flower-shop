@@ -69,7 +69,6 @@ function FlowerCard({ src, alt, name, price, colors, width, height }) {
           height={height}
           sizes="(max-width: 768px) 100vw, 400px"
           className="object-cover rounded-lg min-h-[300px]"
-          priority={false}
           quality={75}
         />
       </div>
