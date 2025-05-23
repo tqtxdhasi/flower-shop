@@ -4,11 +4,21 @@ import { useRouter } from "next/navigation";
 import {
   COLOR_OPTIONS,
   DELIVERY_CHARGE,
+  HEIGHTS,
   IMAGE_COST,
   LETTER_COST,
   PACKAGING_COSTS,
   PRICE_SHEET,
+  QUANTITIES,
 } from "../kwiaty/roze/roseData";
+import ModalConfirmation from "./ModalConfirmation";
+import PhoneInput from "./PhoneInput";
+import BudgetInput from "./BudgetInput";
+import OptionSelector from "./OptionSelector";
+import PackagingSelector from "./PackagingSelector";
+import ColorSelector from "./ColorSelector";
+import Extras from "./Extras";
+import Summary from "./Summary";
 
 export default function OrderForm() {
   const router = useRouter();
@@ -196,143 +206,49 @@ export default function OrderForm() {
       onSubmit={handleSubmit}
       className="p-6 rounded-xl flex flex-col gap-4 bg-rose-50"
     >
-      {/* Phone Number Input */}
-      <div className="flex flex-col gap-2">
-        <label className="block text-sm text-rose-900 font-medium">
-          Numer telefonu:
-        </label>
-        <input
-          type="tel"
-          value={phoneNumber}
-          onChange={(e) => {
-            const value = e.target.value;
-            setPhoneNumber(value);
-            setPhoneError(
-              validatePhoneNumber(value) ? "" : "Nieprawidłowy numer telefonu"
-            );
-          }}
-          className={`bg-white w-full px-4 py-2 rounded-lg text-rose-900 border-2 ${
-            phoneError ? "border-red-500" : "border-rose-200"
-          } focus:ring-rose-500 focus:outline-none focus:border-rose-500`}
-          placeholder="np. +48123456789"
-          required
-        />
-        {phoneError && (
-          <span className="text-red-600 text-sm">{phoneError}</span>
-        )}
-      </div>
-      {/* Budget Input */}
-      <div className="flex flex-col gap-2">
-        <label className="block text-sm text-rose-900 font-medium">
-          Twój budżet (zl):
-        </label>
-        <input
-          type="number"
-          value={budget}
-          onChange={(e) => setBudget(Math.max(0, Number(e.target.value)))}
-          className="bg-white w-full px-4 py-2 rounded-lg text-rose-900 border-2 border-rose-200 focus:ring-rose-500 focus:outline-none focus:border-rose-500"
-          min="0"
-          required
-        />
-      </div>
-      {/* Quantity Selection */}
-      <FieldGroup label="Wybierz ilość róż:">
-        <div className="flex flex-wrap gap-2">
-          {[9, 19, 29, 39, 49].map((q) => (
-            <SelectionButton
-              key={q}
-              value={q}
-              selected={quantity === q}
-              disabled={!isOptionAffordable(q, height)}
-              onClick={() => setQuantity(q)}
-            />
-          ))}
-        </div>
-      </FieldGroup>
-      {/* Height Selection */}
-      <FieldGroup label="Wybierz długość łodyg (cm):">
-        <div className="flex flex-wrap gap-2">
-          {[40, 50, 60, 70, 80].map((h) => (
-            <SelectionButton
-              key={h}
-              value={h}
-              selected={height === h}
-              disabled={!isOptionAffordable(quantity, h)}
-              onClick={() => setHeight(h)}
-            />
-          ))}
-        </div>
-      </FieldGroup>
-      {/* Packaging Selection */}
-      <FieldGroup label="Wybierz opakowanie:">
-        <div className="flex flex-wrap gap-3">
-          <SelectionButton
-            value="Wstążka"
-            selected={packaging === ""}
-            onClick={() => setPackaging("")}
-          />
-          {COLOR_OPTIONS.map(({ name, code }) => (
-            <ColorButton
-              key={name}
-              color={name}
-              hex={code}
-              selected={packaging === name}
-              disabled={!isOptionAffordable(quantity, height)}
-              onClick={() => setPackaging(name)}
-            />
-          ))}
-        </div>
-      </FieldGroup>
-      {/* Flower Color Selection */}
-      <FieldGroup label="Wybierz kolor róż:">
-        <div className="flex flex-wrap gap-3">
-          {COLOR_OPTIONS.map(({ name, code }) => (
-            <ColorButton
-              key={name}
-              color={name}
-              hex={code}
-              selected={flowerColor === name}
-              onClick={() => setFlowerColor(name)}
-            />
-          ))}
-        </div>
-      </FieldGroup>
-      {/* Checkboxes */}
-      <Checkbox
-        label={`Dołącz dostawę (+${DELIVERY_CHARGE} zl)`}
-        checked={delivery}
-        onChange={() => setDelivery(!delivery)}
+      <PhoneInput
+        {...{ phoneNumber, setPhoneNumber, phoneError, setPhoneError }}
       />
-      <Checkbox
-        label={`Dołącz list (+${LETTER_COST} zl)`}
-        checked={letterOption}
-        onChange={() => setLetterOption(!letterOption)}
-      />{" "}
-      <Checkbox
-        label={`Dołącz zdjęcie (+${IMAGE_COST} zl)`}
-        checked={imageOption}
-        onChange={() => setImageOption(!imageOption)}
+      <BudgetInput {...{ budget, setBudget }} />
+      <OptionSelector
+        label="Wybierz ilość róż:"
+        options={QUANTITIES}
+        selected={quantity}
+        onSelect={setQuantity}
+        isDisabled={(q) => !isOptionAffordable(q, height)}
       />
-      {/* Price Summary */}
-      <div className="p-4 bg-rose-200 rounded-lg">
-        <PriceRow label="Cena podstawowa" value={totalPrice} />
-        {packagingCost > 0 && (
-          <PriceRow label="Opakowanie" value={packagingCost} />
-        )}
-        {delivery && <PriceRow label="Dostawa" value={DELIVERY_CHARGE} />}
-        {letterOption && <PriceRow label="List" value={LETTER_COST} />}
-        {imageOption && <PriceRow label="Zdjęcie" value={IMAGE_COST} />}
-
-        <hr className="my-2 text-rose-900" />
-        <PriceRow label="Suma końcowa" value={getFinalPrice()} isTotal />
-
-        {budget < getFinalPrice() && (
-          <div className="mt-3 text-red-600 text-sm">
-            Budżet przekroczony o {(getFinalPrice() - budget).toFixed(2)} PLN
-          </div>
-        )}
-      </div>
-      {/* Submit Button */}
+      <OptionSelector
+        label="Wybierz długość łodyg (cm):"
+        options={HEIGHTS}
+        selected={height}
+        onSelect={setHeight}
+        isDisabled={(h) => !isOptionAffordable(quantity, h)}
+      />
+      <PackagingSelector
+        {...{ packaging, setPackaging, quantity, height, isOptionAffordable }}
+      />
+      <ColorSelector {...{ flowerColor, setFlowerColor }} />
+      <Extras
+        {...{
+          delivery,
+          setDelivery,
+          letterOption,
+          setLetterOption,
+          imageOption,
+          setImageOption,
+        }}
+      />
+      <Summary
+        {...{
+          totalPrice,
+          packagingCost,
+          delivery,
+          letterOption,
+          imageOption,
+          getFinalPrice,
+          budget,
+        }}
+      />
       <button
         type="submit"
         disabled={!quantity || !height || budget < getFinalPrice()}
@@ -341,177 +257,11 @@ export default function OrderForm() {
         {budget >= getFinalPrice() ? "Złóż zamówienie" : "Za mały budżet"}
       </button>
       {showModal && submittedData && (
-        <div
-          className="fixed inset-0 bg-black/50 bg-opacity-50 z-50 flex items-center justify-center"
-          onClick={() => setShowModal(false)}
-        >
-          <div
-            className="bg-white rounded-xl p-6 max-w-md w-full text-rose-900 relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h2 className="text-xl font-bold mb-4">Zamówienie otrzymane!</h2>
-            <div className="bg-rose-50 p-4 rounded text-sm space-y-2">
-              <p>
-                <strong>Budżet:</strong> {submittedData.budget} zł
-              </p>
-              <p>
-                <strong>Ilość róż:</strong> {submittedData.quantity}
-              </p>
-              <p>
-                <strong>Długość łodyg:</strong> {submittedData.height} cm
-              </p>
-              <p>
-                <strong>Opakowanie:</strong>{" "}
-                {submittedData.packaging || "Brak / Wstążka"}
-              </p>
-              <p>
-                <strong>Kolor róż:</strong> {submittedData.flowerColor}
-              </p>
-              <p>
-                <strong>Dostawa:</strong>{" "}
-                {submittedData.delivery ? "Tak" : "Nie"}
-              </p>
-              <p>
-                <strong>List:</strong>{" "}
-                {submittedData.letterOption ? "Tak" : "Nie"}
-              </p>
-              <p>
-                <strong>Zdjęcie:</strong>{" "}
-                {submittedData.imageOption ? "Tak" : "Nie"}
-              </p>
-              <p>
-                <strong>Cena podstawowa:</strong> {submittedData.totalPrice} zł
-              </p>
-              <p>
-                <strong>Koszt opakowania:</strong> {submittedData.packagingCost}{" "}
-                zł
-              </p>
-              <p>
-                <strong>Suma końcowa:</strong> {submittedData.finalPrice} zł
-              </p>
-              <p>
-                <strong>Numer telefonu:</strong> {submittedData.phoneNumber}
-              </p>
-            </div>
-
-            <p className="mt-4">
-              Dziękujemy! Skontaktujemy się z Tobą wkrótce przez SMS lub telefon
-              w celu potwierdzenia zamówienia.
-            </p>
-            <button
-              className="mt-6 w-full py-2 bg-rose-700 text-white rounded-lg hover:bg-rose-800"
-              onClick={() => setShowModal(false)}
-            >
-              Zamknij
-            </button>
-          </div>
-        </div>
+        <ModalConfirmation
+          data={submittedData}
+          onClose={() => setShowModal(false)}
+        />
       )}
     </form>
   );
 }
-
-// Reusable Components
-const FieldGroup = ({ label, children }) => (
-  <div className="flex flex-col gap-2">
-    <label className="block text-sm text-rose-900 font-medium">{label}</label>
-    {children}
-  </div>
-);
-
-const SelectionButton = ({ value, selected, disabled, onClick }) => (
-  <button
-    type="button"
-    onClick={onClick}
-    disabled={disabled}
-    className={`transition-colors rounded-full px-4 py-1
-      ${
-        selected
-          ? "bg-rose-600 hover:bg-rose-700 text-white "
-          : "bg-white text-rose-900 border-2 border-rose-200 hover:bg-rose-50"
-      }
-      ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
-  >
-    {value}
-  </button>
-);
-
-const ColorButton = ({ color, hex, selected, onClick, disabled }) => (
-  <button
-    type="button"
-    onClick={onClick}
-    disabled={disabled}
-    className={`w-10 h-10 rounded-full border-2 transition-all
-      ${selected ? "ring-2 ring-offset-2 ring-rose-300" : ""}
-      ${disabled ? "opacity-50 cursor-not-allowed" : "hover:scale-105"}`}
-    style={{ backgroundColor: hex, borderColor: selected ? hex : "#e5e7eb" }}
-    aria-label={`Kolor ${color}`}
-  >
-    {selected && (
-      <div className="text-white w-full p-1">
-        <svg
-          className="w-full h-full text-black"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-            clipRule="evenodd"
-          />
-        </svg>
-      </div>
-    )}
-  </button>
-);
-const Checkbox = ({ label, checked, onChange }) => (
-  <label className="inline-flex items-center cursor-pointer group">
-    {/* Hidden default checkbox */}
-    <input
-      type="checkbox"
-      checked={checked}
-      onChange={onChange}
-      className="absolute opacity-0 h-0 w-0"
-    />
-    {/* Custom round checkbox */}
-    <span
-      className={`
-      relative w-5 h-5 rounded-full border-2 flex items-center justify-center
-      ${checked ? "border-rose-500 bg-rose-50" : "border-rose-300"}
-      group-hover:border-rose-400
-      transition-all duration-200
-    `}
-    >
-      {/* Checkmark tick */}
-      {checked && (
-        <svg
-          className="w-3 h-3 text-rose-500"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-        >
-          <path
-            fillRule="evenodd"
-            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-            clipRule="evenodd"
-          />
-        </svg>
-      )}
-    </span>
-    {/* Label */}
-    {label && (
-      <span className=" block text-sm text-rose-900 ml-2 font-medium group-hover:text-rose-700">
-        {label}
-      </span>
-    )}
-  </label>
-);
-const PriceRow = ({ label, value, isTotal }) => (
-  <div
-    className={`flex text-rose-900 justify-between ${
-      isTotal ? "font-bold" : "text-sm"
-    }`}
-  >
-    <span>{label}:</span>
-    <span>{value.toFixed(2)} zl</span>
-  </div>
-);

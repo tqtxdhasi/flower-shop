@@ -3,7 +3,16 @@ import { buildRoseProductSchema } from "../roseSchema";
 import Image from "next/image";
 import Script from "next/script";
 import { PRICE_SHEET, COLOR_OPTIONS, QUANTITIES, HEIGHTS } from "../roseData";
-
+import Gallery from "@/app/components/Gallery";
+import Regulamin from "@/app/components/Regulamin";
+import Link from "next/link";
+import FAQSection from "@/app/components/FAQSection";
+import holidaysList from "@/app/components/HolidaysData";
+import HolidaysSection from "@/app/components/HolidaysSection";
+import Breadcrumbs from "@/app/components/Breadcrumbs";
+import VariantSections from "@/app/components/VariantSections";
+import OrderForm from "@/app/components/OrderForm";
+import { shopDomain } from "@/app/data/mainData";
 export async function generateStaticParams() {
   const slugs = [];
 
@@ -99,154 +108,72 @@ export default async function Page({ params }) {
     product.color
   );
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Strona główna",
-        item: "https://www.krakow-kwiaciarnia.pl",
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Róże",
-        item: "https://www.krakow-kwiaciarnia.pl/kwiaty/roze",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
-        name: `Bukiet ${product.quantity} ${product.color.name}`,
-        item: `https://www.krakow-kwiaciarnia.pl/kwiaty/roze/${slug}`,
-      },
-    ],
-  };
-
+  const breadcrumbs = [
+    { name: "Home", url: `https://${shopDomain}/` },
+    { name: "Kwiaty", url: `https://${shopDomain}/kwiaty` },
+    { name: "Róże", url: `https://${shopDomain}/kwiaty/roze` },
+    {
+      name: `Bukiet ${product.quantity} ${product.color.name} róż ${product.height} cm`,
+      url: `https://${shopDomain}/kwiaty/roze/${slug}`,
+    },
+  ];
   return (
-    <main className="p-6 sm:p-10 max-w-5xl mx-auto">
-      {/* Structured Data Scripts */}
+    <div className="p-4 flex flex-col gap-4">
       <Script
-        id="product-schema"
+        id="ld-json"
         type="application/ld+json"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
       />
+      <h1 className="max-w-4xl px-4 mx-auto  text-3xl font-bold text-center text-rose-900 md:text-4xl">
+        Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie
+      </h1>{" "}
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <div className="flex flex-col w-full md:flex-row gap-4 mx-auto">
+        <Gallery />
 
-      <Script
-        id="breadcrumb-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      {/* Hero Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-        <Image
-          src={`/images/bukiet-${product.quantity}-${product.color.slug}-roz-${product.height}cm.jpg`}
-          alt={`Bukiet ${product.quantity} ${product.color.name} róż`}
-          width={800}
-          height={600}
-          priority
-          className="rounded-2xl shadow-lg object-cover"
-        />
-        <div className="space-y-4">
-          <h1 className="text-4xl font-bold text-gray-800">
-            Bukiet {product.quantity} {product.color.name} róż {product.height}{" "}
-            cm
-          </h1>
-
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Luksusowy bukiet {product.quantity} {product.color.name} róż o
-            długości {product.height} cm. Dostawa tylko w Krakowie, tego samego
-            dnia.
-          </p>
-          <div className="text-2xl font-semibold text-green-700">
-            Cena: {product.basePrice} PLN
-          </div>
-          <button className="mt-4 px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl shadow transition-all">
-            Dodaj do koszyka
-          </button>
-          <div className="flex space-x-4 mt-2">
-            <span className="text-sm text-gray-500">
-              Odbiór osobisty: Rynek Główny 1
-            </span>
-            <span className="text-sm text-gray-500">
-              Darmowa dostawa powyżej 200 PLN
-            </span>
-          </div>
+        <div className="w-full md:w-1/3">
+          <OrderForm />
         </div>
       </div>
-
-      {/* Description */}
-      <section className="mt-10 prose prose-lg text-gray-800">
-        <h2>Opis bukietu</h2>
-        <p>
-          Nasz bukiet złożony z {product.quantity} starannie wyselekcjonowanych{" "}
-          {product.color.name} róż o długości {product.height} cm to doskonały
-          wybór na romantyczne okazje, rocznice, Dzień Matki czy Walentynki.
-          Każdy kwiat pochodzi od lokalnych hodowców z okolic Krakowa, co
-          gwarantuje świeżość i wyjątkowy kolor.
-        </p>
-        <p>
-          Kwiaty są cięte na zamówienie i przygotowywane ręcznie przez naszych
-          florystów, z dbałością o każdy detal. Wybierz bukiet, który zachwyci
-          obdarowaną osobę i pokaże Twoje uczucia w najpiękniejszy sposób.
-        </p>
-      </section>
-
-      {/* FAQ */}
-      <section className="mt-12">
-        <h2 className="text-2xl font-bold mb-4">
-          Najczęściej zadawane pytania
+      <div className="max-w-4xl flex flex-col gap-4 px-2 mx-auto">
+        <h2 className=" text-2xl text-center font-bold text-rose-900 md:text-3xl">
+          Eleganckie Bukiety Jednoróżane – Ekskluzywne Róże w Krakowie Online
         </h2>
-        <div className="space-y-6">
-          <div>
-            <h3 className="font-semibold">
-              Czy mogę zamówić bukiet z dostawą w ten sam dzień?
-            </h3>
-            <p>
-              Tak, oferujemy dostawę tego samego dnia wyłącznie na terenie
-              Krakowa, jeśli zamówienie zostanie złożone do godziny 17:00.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-semibold">
-              Czy bukiet będzie wyglądać dokładnie jak na zdjęciu?
-            </h3>
-            <p>
-              Zdjęcie prezentuje rzeczywisty wygląd bukietu. Drobne różnice mogą
-              wystąpić ze względu na sezonowość kwiatów.
-            </p>
-          </div>
-        </div>
-      </section>
+        <p className=" text-rose-800">
+          🌹 Szukasz wyjątkowego bukietu róż online? Nasz sklep internetowy
+          oferuje luksusowe, jednoróżane bukiety wykonane z kwiatów najwyższej
+          jakości. Każda róża jest starannie selekcjonowana, aby zapewnić
+          doskonały wygląd i trwałość. Oferujemy ekspresową wysyłkę oraz
+          możliwość personalizacji zamówienia, dzięki czemu bukiet staje się
+          idealnym wyborem na każdą okazję.
+        </p>
+        <VariantSections />
+        <HolidaysSection holidays={holidaysList} />
 
-      {/* Internal Links */}
-      <section className="mt-12 text-sm text-gray-600">
-        <h2 className="text-xl font-semibold mb-2">Zobacz także:</h2>
-        <ul className="list-disc list-inside space-y-1">
-          <li>
-            <a href="/kwiaty/roze" className="hover:underline text-green-700">
-              Wszystkie bukiety róż
-            </a>
-          </li>
-          <li>
-            <a
-              href="/okazje/rocznica"
-              className="hover:underline text-green-700"
-            >
-              Kwiaty na rocznicę
-            </a>
-          </li>
-          <li>
-            <a
-              href="/dostawa/kwiaty-krakow"
-              className="hover:underline text-green-700"
-            >
-              Dostawa kwiatów w Krakowie
-            </a>
-          </li>
-        </ul>
-      </section>
-    </main>
+        <p className=" text-rose-800">
+          Niezależnie od tego, czy obchodzisz Walentynki, Boże Narodzenie,
+          Wielkanoc, Nowy Rok, Sylwestra, Dzień Kobiet, Dzień Ojca, Dzień
+          Dziecka czy Halloween – nasze kwiaty to idealny wybór. Każda okazja
+          zasługuje na wyjątkową oprawę, a nasze bukiety doskonale wpisują się w
+          klimat świąteczny i okolicznościowy.
+        </p>
+        <p className=" text-rose-800">
+          Kwiaty na Święto Zakochanych, kompozycje na Wielkanoc czy świąteczne
+          stroiki bożonarodzeniowe – wszystko znajdziesz u nas. Spraw, aby Twoje
+          świętowanie było pełne kolorów, zapachu świeżych kwiatów i radości.
+          Zainspiruj się naszymi propozycjami na każdą okazję – od Walentynek po
+          Dzień Kobiet.
+        </p>
+        <FAQSection />
+      </div>
+      {/*  
+      <h2 className=" text-2xl text-center font-bold text-rose-900 md:text-3xl">
+        Artykuły i Porady o Różach
+      </h2>
+      ....
+      */}
+      <Regulamin />
+    </div>
   );
 }
