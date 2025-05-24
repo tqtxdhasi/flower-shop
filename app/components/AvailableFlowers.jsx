@@ -8,7 +8,7 @@ const flowers = [
     name: "Róże",
     price: "od 5.92 zl/szt.",
     colors: "Czerwony, Niebieski, Tęczowy, Biały, Różowy",
-    width: 457,
+    width: 400,
     height: 400,
   },
   {
@@ -17,8 +17,8 @@ const flowers = [
     name: "Tulipany",
     price: "od 4 zl/szt.",
     colors: "Czerwony, Różowy, Fioletowy, Biały, Żółty, Pomarańczowy",
-    width: 364,
-    height: 485,
+    width: 400,
+    height: 400,
   },
   {
     src: "/piwonie.jpg",
@@ -26,8 +26,8 @@ const flowers = [
     name: "Piwonie",
     price: "od 10 zl/szt.",
     colors: "Biały, Różowy",
-    width: 364,
-    height: 401,
+    width: 400,
+    height: 400,
   },
   {
     src: "/ranunculus.jpg",
@@ -35,8 +35,8 @@ const flowers = [
     name: "Jaskry",
     price: "od 10 zl/szt.",
     colors: "Różowy, Biały",
-    width: 381,
-    height: 508,
+    width: 400,
+    height: 400,
   },
   {
     src: "/gipsowka.jpg",
@@ -44,8 +44,8 @@ const flowers = [
     name: "Gipsówka",
     price: "od 5 zl/szt.",
     colors: "Biały, Różowy, Niebieski, Czerwony, Żółty, Fioletowy",
-    width: 381,
-    height: 508,
+    width: 400,
+    height: 400,
   },
   {
     src: "/hortensje.jpg",
@@ -67,8 +67,8 @@ function FlowerCard({ src, alt, name, price, colors, width, height }) {
           alt={alt}
           width={width}
           height={height}
-          sizes="(max-width: 768px) 100vw, 400px"
-          className="object-cover rounded-lg min-h-[300px]"
+          sizes="(max-width: 400px) 100vw, 400px"
+          className="object-cover rounded-lg h-[400px]"
           quality={75}
         />
       </div>
