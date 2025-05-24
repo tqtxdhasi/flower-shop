@@ -225,7 +225,11 @@ export const menuItems = [
       contactType: "customer service",
     },
   },*/
-  ,
+  {
+    href: "/regulamin",
+    text: "Regulamin",
+    title: "Regulamin zamówień i akceptacji bukietu",
+  },
 ];
 export const companyInfo = {
   name: "Kwiaty Kraków",
