@@ -125,10 +125,12 @@ export default async function Page({ params }) {
   return (
     <div className="p-4 flex flex-col gap-4">
       <Script
-        id="ld-json"
+        id="product-jsonld"
         type="application/ld+json"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        strategy="beforeInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productSchema),
+        }}
       />
       <h1 className="max-w-4xl px-4 mx-auto  text-3xl font-bold text-center text-rose-900 md:text-4xl">
         Bukiet {product.quantity} {product.color.name} róż {product.height} cm{" "}
