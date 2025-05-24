@@ -65,7 +65,7 @@ const FlowerPage = () => {
   return (
     <div className="p-4 flex flex-col gap-4">
       <Script
-        id="ld-json"
+        id="products-jsonld"
         type="application/ld+json"
         strategy="afterInteractive"
         dangerouslySetInnerHTML={{
