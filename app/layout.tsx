@@ -173,13 +173,13 @@ export default function RootLayout({
       >
         {/* ✅ SEO Schema - Correct placement */}
         <Script
-          id="ld-json"
+          id="florist-ld-json"
           type="application/ld+json"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
         <Script
-          id="ld-json-sitelinks"
+          id="sitelinks-ld-json"
           type="application/ld+json"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(sitelinksSchema) }}
