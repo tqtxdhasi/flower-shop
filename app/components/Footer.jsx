@@ -45,7 +45,14 @@ function Footer() {
                   Róże
                 </a>
               </li>
-
+              <li>
+                <a
+                  href="/regulamin"
+                  className="hover:text-rose-700 transition-colors"
+                >
+                  Regulamin
+                </a>
+              </li>
               {/*<li>
                 <a
                   href="/blog"
