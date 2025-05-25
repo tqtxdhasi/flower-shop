@@ -175,13 +175,13 @@ export default function RootLayout({
         <Script
           id="florist-ld-json"
           type="application/ld+json"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
         <Script
           id="sitelinks-ld-json"
           type="application/ld+json"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(sitelinksSchema) }}
         />
         <Navbar />
