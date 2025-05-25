@@ -72,7 +72,30 @@ export const metadata: Metadata = {
     images: ["https://krakow-kwiaciarnia.pl/og-image.jpg"],
   },
 };
-
+const sitelinksSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  itemListElement: [
+    {
+      "@type": "SiteNavigationElement",
+      position: 1,
+      name: "Strona Główna",
+      url: "https://krakow-kwiaciarnia.pl/",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      position: 2,
+      name: "Regulamin",
+      url: "https://krakow-kwiaciarnia.pl/regulamin",
+    },
+    {
+      "@type": "SiteNavigationElement",
+      position: 3,
+      name: "Róże i Bukiety",
+      url: "https://krakow-kwiaciarnia.pl/kwiaty/roze",
+    },
+  ],
+};
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "Florist",
@@ -155,7 +178,12 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
         />
-
+        <Script
+          id="ld-json-sitelinks"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(sitelinksSchema) }}
+        />
         <Navbar />
         {children}
         <Footer />

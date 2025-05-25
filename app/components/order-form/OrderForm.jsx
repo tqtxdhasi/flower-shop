@@ -141,9 +141,6 @@ export default function OrderForm({
       onSubmit={handleSubmit}
       className="p-6 rounded-xl flex flex-col gap-4 bg-rose-50"
     >
-      <PhoneInput
-        {...{ phoneNumber, setPhoneNumber, phoneError, setPhoneError }}
-      />
       <BudgetInput {...{ budget, setBudget }} />
       <OptionSelector
         label="Wybierz ilość róż:"
@@ -172,6 +169,9 @@ export default function OrderForm({
           imageOption,
           setImageOption,
         }}
+      />
+      <PhoneInput
+        {...{ phoneNumber, setPhoneNumber, phoneError, setPhoneError }}
       />
       <Summary
         {...{
