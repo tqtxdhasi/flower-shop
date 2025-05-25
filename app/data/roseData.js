@@ -46,6 +46,40 @@ export const COLOR_OPTIONS = [
     color: "niebieski",
   },
 ];
+
+export const PACKAGING_OPTIONS = [
+  {
+    name: "Czerwony papier",
+    code: "#FF0000",
+    slug: "czerwonym",
+    color: "czerwony",
+  },
+  {
+    name: "Różowy papier",
+    code: "#FFC0CB",
+    slug: "rozowym",
+    color: "rozowy",
+  },
+  {
+    name: "Biały papier",
+    code: "#FFFFFF",
+    slug: "bialym",
+    color: "bialy",
+  },
+  {
+    name: "Żółty papier",
+    code: "#FFFF00",
+    slug: "zoltym",
+    color: "zolty",
+  },
+  {
+    name: "Niebieski papier",
+    code: "#0000FF",
+    slug: "niebieskim",
+    color: "niebieski",
+  },
+];
+
 export const HEIGHTS = Object.keys(PRICE_SHEET).map(Number);
 export const QUANTITIES = Object.keys(PRICE_SHEET[HEIGHTS[0]]).map(Number);
 

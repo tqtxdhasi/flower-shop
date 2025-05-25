@@ -36,7 +36,7 @@ export default function useTotalPriceCalculator({
         (delivery ? DELIVERY_CHARGE : 0) +
         (letterOption ? LETTER_COST : 0) +
         (imageOption ? IMAGE_COST : 0);
-      return budget >= totalCost;
+      return budget == null || budget >= totalCost;
     },
     [budget, packaging, delivery, letterOption, imageOption]
   );

@@ -10,6 +10,12 @@ export default function Summary({
   getFinalPrice,
   budget,
 }) {
+  const finalPrice = getFinalPrice();
+  const overBudget =
+    budget != null && budget < finalPrice
+      ? (finalPrice - budget).toFixed(2)
+      : null;
+
   return (
     <div className="p-4 bg-rose-200 rounded-lg">
       <PriceRow label="Cena podstawowa" value={totalPrice} />
@@ -20,10 +26,10 @@ export default function Summary({
       {letterOption && <PriceRow label="List" value={LETTER_COST} />}
       {imageOption && <PriceRow label="Zdjęcie" value={IMAGE_COST} />}
       <hr className="my-2 text-rose-900" />
-      <PriceRow label="Suma końcowa" value={getFinalPrice()} isTotal />
-      {budget < getFinalPrice() && (
+      <PriceRow label="Suma końcowa" value={finalPrice} isTotal />
+      {overBudget && (
         <div className="mt-3 text-red-600 text-sm">
-          Budżet przekroczony o {(getFinalPrice() - budget).toFixed(2)} PLN
+          Budżet przekroczony o {overBudget} PLN
         </div>
       )}
     </div>

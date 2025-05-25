@@ -21,10 +21,10 @@ export default function OrderForm({
   initialHeight,
   skipDimensions,
 }) {
-  const [budget, setBudget] = useState(999);
+  const [budget, setBudget] = useState();
   const [quantity, setQuantity] = useState(initialQuantity ?? 19);
   const [height, setHeight] = useState(initialHeight ?? 50);
-  const [packaging, setPackaging] = useState("bialy");
+  const [packaging, setPackaging] = useState("");
   const [delivery, setDelivery] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
   const [packagingCost, setPackagingCost] = useState(0);
@@ -189,11 +189,11 @@ export default function OrderForm({
         disabled={
           !quantity ||
           !height ||
-          budget < getFinalPrice(totalPrice, packagingCost)
+          (budget != null && budget < getFinalPrice(totalPrice, packagingCost))
         }
         className="w-full py-3 px-4 bg-green-700 text-white rounded-lg hover:bg-green-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {budget >= getFinalPrice(totalPrice, packagingCost)
+        {budget == null || budget >= getFinalPrice(totalPrice, packagingCost)
           ? "Złóż zamówienie"
           : "Za mały budżet"}
       </button>
