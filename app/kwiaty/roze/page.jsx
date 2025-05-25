@@ -56,7 +56,7 @@ export const metadata = {
 };
 
 const breadcrumbs = [
-  { name: "Home", url: `https://${shopDomain}/` },
+  { name: "Główna", url: `https://${shopDomain}/` },
   { name: "Kwiaty", url: `https://${shopDomain}/kwiaty` },
   { name: "Róże", url: `https://${shopDomain}/kwiaty/roze` },
 ];

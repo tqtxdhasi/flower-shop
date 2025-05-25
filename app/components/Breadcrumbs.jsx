@@ -27,7 +27,7 @@ const Breadcrumbs = ({ breadcrumbs }) => {
 
       {/* Visible Breadcrumbs for User Navigation */}
       <nav aria-label="Breadcrumb">
-        <ol className="flex space-x-2 text-rose-900">
+        <ol className="flex flex-wrap space-x-2 text-rose-900">
           {breadcrumbs.map((breadcrumb, index) => (
             <li key={breadcrumb.name} className="flex items-center">
               {/* Link for all items except the last one */}
