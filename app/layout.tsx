@@ -72,30 +72,27 @@ export const metadata: Metadata = {
     images: ["https://krakow-kwiaciarnia.pl/og-image.jpg"],
   },
 };
-const sitelinksSchema = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  itemListElement: [
-    {
-      "@type": "SiteNavigationElement",
-      position: 1,
-      name: "Strona Główna",
-      url: "https://krakow-kwiaciarnia.pl/",
-    },
-    {
-      "@type": "SiteNavigationElement",
-      position: 2,
-      name: "Regulamin",
-      url: "https://krakow-kwiaciarnia.pl/regulamin",
-    },
-    {
-      "@type": "SiteNavigationElement",
-      position: 3,
-      name: "Róże i Bukiety",
-      url: "https://krakow-kwiaciarnia.pl/kwiaty/roze",
-    },
-  ],
-};
+const sitelinksSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "SiteNavigationElement",
+    name: "Strona Główna",
+    url: "https://krakow-kwiaciarnia.pl/",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SiteNavigationElement",
+    name: "Regulamin",
+    url: "https://krakow-kwiaciarnia.pl/regulamin",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "SiteNavigationElement",
+    name: "Róże i Bukiety",
+    url: "https://krakow-kwiaciarnia.pl/kwiaty/roze",
+  },
+];
+
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "Florist",
@@ -172,14 +169,17 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {/* ✅ SEO Schema - Correct placement */}
+
         <Script
-          id="florist-ld-json"
+          id="florist-jsonld"
           type="application/ld+json"
           strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schemaData),
+          }}
         />
         <Script
-          id="sitelinks-ld-json"
+          id="sitelinks-jsonld"
           type="application/ld+json"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(sitelinksSchema) }}
