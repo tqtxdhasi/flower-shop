@@ -89,7 +89,7 @@ const sitelinksSchema = [
     "@context": "https://schema.org",
     "@type": "SiteNavigationElement",
     name: "Róże i Bukiety",
-    url: "https://krakow-kwiaciarnia.pl/kwiaty/roze",
+    url: "https://www.krakow-kwiaciarnia.pl/kwiaty/roze",
   },
 ];
 

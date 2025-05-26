@@ -75,7 +75,7 @@ function HeroSection() {
         </section>
         <p className="mt-4 text-sm text-gray-600">
           Zasady zamówień i akceptacji bukietu dostępne w{" "}
-          <a href="#regulamin" className="underline">
+          <a href="/regulamin" className="underline">
             regulaminie
           </a>
         </p>
