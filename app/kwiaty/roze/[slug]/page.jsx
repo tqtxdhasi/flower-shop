@@ -67,9 +67,12 @@ export async function generateMetadata({ params }) {
   } ${product.color.name.toLowerCase()} róż ${
     product.height
   } cm – Kwiaciarnia Kraków`;
-  const description = `Luksusowy bukiet ${
+  const description = `Doświadcz jakości – bukiet ${
     product.quantity
-  } ${product.color.name.toLowerCase()} róż o długości ${product.height} cm.`;
+  } ${product.color.name.toLowerCase()} róż ${
+    product.height
+  } cm, starannie wyselekcjonowany, z dostawą Kraków.`;
+
   const imageUrl = `https://www.krakow-kwiaciarnia.pl/images/roze-${product.quantity}-${product.height}-${product.color.slug}.jpg`;
   const url = `https://www.krakow-kwiaciarnia.pl/kwiaty/roze/bukiet-${product.quantity}-${product.color.slug}-roz-${product.height}-cm`;
 
