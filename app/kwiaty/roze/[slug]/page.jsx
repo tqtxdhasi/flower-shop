@@ -93,6 +93,7 @@ export async function generateMetadata({ params }) {
       title,
       description,
       url,
+      type: "website",
       images: [{ url: imageUrl }],
       locale: "pl_PL",
       siteName: "Kwiaciarnia Kraków",
