@@ -10,6 +10,7 @@ import { shopDomain } from "@/app/data/mainData";
 import VariantSections from "@/app/components/VariantSections";
 import { rosesProductGroupSchema } from "@/app/kwiaty/roze/roseSchema";
 import FAQSection from "@/app/components/faq/FAQSection";
+import HolidaySuggestions from "@/app/components/HolidaySuggestions";
 
 export const metadata = {
   title: "Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie",
@@ -97,7 +98,6 @@ const FlowerPage = () => {
         </p>
         <VariantSections />
         <HolidaysSection holidays={holidaysList} />
-
         <p className=" text-rose-800">
           Niezależnie od tego, czy obchodzisz Walentynki, Boże Narodzenie,
           Wielkanoc, Nowy Rok, Sylwestra, Dzień Kobiet, Dzień Ojca, Dzień
@@ -111,7 +111,8 @@ const FlowerPage = () => {
           świętowanie było pełne kolorów, zapachu świeżych kwiatów i radości.
           Zainspiruj się naszymi propozycjami na każdą okazję – od Walentynek po
           Dzień Kobiet.
-        </p>
+        </p>{" "}
+        <HolidaySuggestions />
         <FAQSection />
       </div>
       {/*  

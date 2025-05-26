@@ -18,6 +18,7 @@ import Breadcrumbs from "@/app/components/Breadcrumbs";
 import VariantSections from "@/app/components/VariantSections";
 import OrderForm from "@/app/components/order-form/OrderForm";
 import { shopDomain } from "@/app/data/mainData";
+import SimilarBouquets from "@/app/components/SimilarBouquets";
 export async function generateStaticParams() {
   const slugs = [];
 
@@ -182,7 +183,8 @@ export default async function Page({ params }) {
           Dzień Kobiet.
         </p>
         <FAQSection />
-      </div>
+      </div>{" "}
+      <SimilarBouquets currentSlug={slug} maxItems={6} />
       {/*  
       <h2 className=" text-2xl text-center font-bold text-rose-900 md:text-3xl">
         Artykuły i Porady o Różach
