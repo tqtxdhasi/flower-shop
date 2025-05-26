@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: "Kwiaciarnia Kraków Online | Bukiety z Dostawą i Odbiorem",
   description:
     "Zamów kwiaty online w Krakowie z darmowym odbiorem osobistym lub ekspresową dostawą. Kwiaty na każdą okazję.",
-  metadataBase: new URL("https://krakow-kwiaciarnia.pl"),
+  metadataBase: new URL("https://www.krakow-kwiaciarnia.pl"),
   alternates: {
     canonical: "/",
   },
@@ -53,10 +53,10 @@ export const metadata: Metadata = {
     title: "Kwiaciarnia Kraków Online",
     description:
       "Zamów kwiaty online z dostawą lub odbiorem osobistym w Krakowie.",
-    url: "https://krakow-kwiaciarnia.pl",
+    url: "https://www.krakow-kwiaciarnia.pl",
     images: [
       {
-        url: "https://krakow-kwiaciarnia.pl/og-image.jpg",
+        url: "https://www.krakow-kwiaciarnia.pl/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Kwiaciarnia Kraków Online",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     title: "Kwiaciarnia Kraków Online",
     description:
       "Zamów kwiaty online z dostawą lub odbiorem osobistym w Krakowie.",
-    images: ["https://krakow-kwiaciarnia.pl/og-image.jpg"],
+    images: ["https://www.krakow-kwiaciarnia.pl/og-image.jpg"],
   },
 };
 const sitelinksSchema = [
@@ -77,13 +77,13 @@ const sitelinksSchema = [
     "@context": "https://schema.org",
     "@type": "SiteNavigationElement",
     name: "Strona Główna",
-    url: "https://krakow-kwiaciarnia.pl/",
+    url: "https://www.krakow-kwiaciarnia.pl/",
   },
   {
     "@context": "https://schema.org",
     "@type": "SiteNavigationElement",
     name: "Regulamin",
-    url: "https://krakow-kwiaciarnia.pl/regulamin",
+    url: "https://www.krakow-kwiaciarnia.pl/regulamin",
   },
   {
     "@context": "https://schema.org",
@@ -96,13 +96,13 @@ const sitelinksSchema = [
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "Florist",
-  "@id": "https://krakow-kwiaciarnia.pl#florist",
+  "@id": "https://www.krakow-kwiaciarnia.pl#florist",
   name: "Kwiaciarnia Kraków Online",
-  url: "https://krakow-kwiaciarnia.pl",
+  url: "https://www.krakow-kwiaciarnia.pl",
   description:
     "Zamów kwiaty online z dostawą lub darmowym odbiorem osobistym w Krakowie.",
   telephone: shopPhone,
-  image: "https://krakow-kwiaciarnia.pl/og-image.jpg",
+  image: "https://www.krakow-kwiaciarnia.pl/og-image.jpg",
   priceRange: "$",
   areaServed: {
     "@type": "Place",

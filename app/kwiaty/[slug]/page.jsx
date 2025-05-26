@@ -23,10 +23,10 @@ export async function generateMetadata({ params }, _parent) {
     openGraph: {
       title: `${flower.name} – Zamów Online w Krakowie`,
       description: flower.description,
-      url: `https://krakow-kwiaciarnia.pl/kwiaty/${flower.slug}`,
+      url: `https://www.krakow-kwiaciarnia.pl/kwiaty/${flower.slug}`,
       images: [
         {
-          url: `https://krakow-kwiaciarnia.pl${flower.image}`,
+          url: `https://www.krakow-kwiaciarnia.pl${flower.image}`,
           width: 1200,
           height: 630,
           alt: flower.name,
@@ -37,7 +37,7 @@ export async function generateMetadata({ params }, _parent) {
       card: "summary_large_image",
       title: `${flower.name} – Bukiet z Dostawą`,
       description: flower.description,
-      images: [`https://krakow-kwiaciarnia.pl${flower.image}`],
+      images: [`https://www.krakow-kwiaciarnia.pl${flower.image}`],
     },
   };
 }
@@ -55,7 +55,7 @@ export default function FlowerPage({ params }) {
     "@type": "Product",
     name: flower.name,
     description: flower.description,
-    image: `https://krakow-kwiaciarnia.pl${flower.image}`,
+    image: `https://www.krakow-kwiaciarnia.pl${flower.image}`,
     brand: { "@type": "Brand", name: "Kwiaciarnia Kraków Online" },
     offers: {
       "@type": "AggregateOffer",
@@ -63,7 +63,7 @@ export default function FlowerPage({ params }) {
       lowPrice: flower.minPrice,
       highPrice: flower.maxPrice,
       availability: "https://schema.org/InStorePickup",
-      url: `https://krakow-kwiaciarnia.pl/kwiaty/${flower.slug}`,
+      url: `https://www.krakow-kwiaciarnia.pl/kwiaty/${flower.slug}`,
     },
     additionalProperty: [
       {
