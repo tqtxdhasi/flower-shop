@@ -42,7 +42,7 @@ export default async function SimilarBouquets({ currentSlug, maxItems = 6 }) {
       <h2 className="text-2xl font-bold text-center text-rose-900 mb-6">
         Podobne Bukiety Róż
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {choices.map(({ slug, label, quantity, height, color, price }) => (
           <Link key={slug} href={`/kwiaty/roze/${slug}`}>
             <div className="border border-rose-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
