@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "Przeglądaj dostępne kwiaty i bukiety w Kwiaciarni Kraków Online.",
   alternates: {
-    canonical: "/available-flowers",
+    canonical: "https://www.krakow-kwiaciarnia.pl/kwiaty",
   },
 };
 
