@@ -48,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         urls.push({
           url: `${baseUrl}/${slug}`,
           lastModified: new Date(),
-          changeFrequency: "weekly",
+          changeFrequency: "daily",
           priority: 0.7,
         });
       }
