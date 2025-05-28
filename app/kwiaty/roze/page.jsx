@@ -113,7 +113,7 @@ const FlowerPage = () => {
           Dzień Kobiet.
         </p>{" "}
         <HolidaySuggestions />
-        <FAQSection />
+        <FAQSection limit={6} />
       </div>
       {/*  
       <h2 className=" text-2xl text-center font-bold text-rose-900 md:text-3xl">

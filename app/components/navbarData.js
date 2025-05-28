@@ -226,6 +226,11 @@ export const menuItems = [
     },
   },*/
   {
+    href: "/najczesciej-zadawane-pytania",
+    text: "Pytania",
+    title: "Często Zadawane Pytania",
+  },
+  {
     href: "/regulamin",
     text: "Regulamin",
     title: "Regulamin zamówień i akceptacji bukietu",

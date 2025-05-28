@@ -186,7 +186,7 @@ export default async function Page({ params }) {
           Zainspiruj się naszymi propozycjami na każdą okazję – od Walentynek po
           Dzień Kobiet.
         </p>
-        <FAQSection />
+        <FAQSection limit={6} />
       </div>{" "}
       <SimilarBouquets currentSlug={slug} maxItems={6} />
       {/*  

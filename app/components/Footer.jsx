@@ -47,6 +47,14 @@ function Footer() {
               </li>
               <li>
                 <a
+                  href="/najczesciej-zadawane-pytania"
+                  className="hover:text-rose-700 transition-colors"
+                >
+                  Najczesciej Zadawane Pytania
+                </a>
+              </li>
+              <li>
+                <a
                   href="/regulamin"
                   className="hover:text-rose-700 transition-colors"
                 >
