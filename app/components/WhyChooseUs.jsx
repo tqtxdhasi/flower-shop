@@ -23,7 +23,7 @@ function WhyChooseUs() {
           width={356}
           height={475}
           sizes="(max-width: 640px) 100vw, 356px"
-          className="rounded-lg shadow-lg object-cover"
+          className="rounded-lg shadow-lg object-cover max-h-64"
           priority
         />
       </div>
