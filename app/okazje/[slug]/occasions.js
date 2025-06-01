@@ -1,20 +1,40 @@
 export const OCCASIONS = [
   {
-    slug: "urodziny",
-    name: "Urodziny",
-    description:
-      "Wyjątkowe bukiety urodzinowe z dostawą w Krakowie. Kwiaty, które wywołają uśmiech.",
-    image: "/images/okazje/urodziny.jpg",
-  },
-  {
     slug: "walentynki",
     name: "Walentynki",
     description:
       "Romantyczne kwiaty na Walentynki — róże, bukiety miłosne i niespodzianki z sercem.",
     image: "/images/okazje/walentynki.jpg",
   },
+  {
+    slug: "urodziny",
+    name: "Bukiet Urodzinowy",
+    description:
+      "Wyjątkowe bukiety urodzinowe z dostawą w Krakowie – elegancja i świeżość kwiatów w najlepszym wydaniu.",
+    deliveryTime: " 1 day",
+    occasionType: "Urodziny",
+    bouquets: [
+      {
+        id: "rose-1",
+        title: "Bukiet Róż na Urodziny",
+        price: 199,
+        image: "/images/bukiet-roz.jpg",
+      },
+      {
+        id: "tulip-1",
+        title: "Bukiet Tulipanów na Urodziny",
+        price: 179,
+        image: "/images/bukiet-tulipanow.jpg",
+      },
+      {
+        id: "peony-1",
+        title: "Bukiet Piwonii na Urodziny",
+        price: 239,
+        image: "/images/bukiet-piwonii.jpg",
+      },
+    ],
+  },
 ];
 export function getOccasionBySlug(slug) {
-  const occasion = OCCASIONS.find((o) => o.slug === slug);
-  if (!occasion) return null;
+  return OCCASIONS.find((o) => o.slug === slug);
 }
