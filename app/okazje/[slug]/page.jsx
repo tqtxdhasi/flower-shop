@@ -59,7 +59,7 @@ function OccasionSchema({ occasion }) {
       position: index + 1,
       name: bouquet.title,
       image: "https://" + shopDomain + bouquet.image,
-      url: new URL(`/bukiet/${bouquet.slug}`, shopDomain).toString(), // adjust if different
+      url: `https://${shopDomain}/okazje/${occasion.slug}`,
       brand: {
         "@type": "Brand",
         name: { shopName },
