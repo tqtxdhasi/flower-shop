@@ -6,7 +6,7 @@ export const flowers = {
     name: "Bukiet Róż",
     description:
       "Zamów bukiet świeżych róż z dostawą w Krakowie lub odbiorem osobistym. Wybierz długość i ilość kwiatów.",
-    image: "/images/bukiet-roz.jpg",
+    image: "/images/bukiet-19-czerwonych-roz-40cm.jpeg",
     minPrice: "100.00",
     maxPrice: "600.00",
     lengthRange: "40cm–80cm",
