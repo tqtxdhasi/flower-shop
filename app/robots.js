@@ -15,6 +15,6 @@ export default function robots() {
       // },
     ],
     sitemap: `${shopDomain}/sitemap.xml`,
-    host: domain,
+    host: shopDomain,
   };
 }
