@@ -119,12 +119,12 @@ export default async function Page({ params }) {
   );
 
   const breadcrumbs = [
-    { name: "Główna", url: `https://${shopDomain}/` },
-    { name: "Kwiaty", url: `https://${shopDomain}/kwiaty` },
-    { name: "Róże", url: `https://${shopDomain}/kwiaty/roze` },
+    { name: "Główna", url: `${shopDomain}/` },
+    { name: "Kwiaty", url: `${shopDomain}/kwiaty` },
+    { name: "Róże", url: `${shopDomain}/kwiaty/roze` },
     {
       name: `Bukiet ${product.quantity} ${product.color.name} róż ${product.height} cm`,
-      url: `https://${shopDomain}/kwiaty/roze/${slug}`,
+      url: `${shopDomain}/kwiaty/roze/${slug}`,
     },
   ];
   return (

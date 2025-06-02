@@ -23,17 +23,17 @@ export const metadata = {
     "dostawa kwiatów Kraków",
   ],
   alternates: {
-    canonical: `https://${shopDomain}/kwiaty/roze`,
+    canonical: `${shopDomain}/kwiaty/roze`,
   },
   openGraph: {
     title: "Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie",
     description:
       "Wybierz spośród 20 wariantów luksusowych bukietów róż: ilość, kolor i długość. Ekspresowa dostawa w Krakowie.",
-    url: `https://${shopDomain}/kwiaty/roze`,
+    url: `${shopDomain}/kwiaty/roze`,
     siteName: "Kwiaciarnia Kraków",
     images: [
       {
-        url: `https://${shopDomain}/images/category-rose.jpg`,
+        url: `${shopDomain}/images/category-rose.jpg`,
         width: 1200,
         height: 628,
         alt: "Bukiet róż premium",
@@ -47,7 +47,7 @@ export const metadata = {
     title: "Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie",
     description:
       "Wybierz spośród 20 wariantów luksusowych bukietów róż: ilość, kolor i długość. Ekspresowa dostawa w Krakowie.",
-    images: [`https://${shopDomain}/images/category-rose.jpg`],
+    images: [`${shopDomain}/images/category-rose.jpg`],
     site: "@KwiaciarniaKrakow",
   },
   robots: {
@@ -57,9 +57,9 @@ export const metadata = {
 };
 
 const breadcrumbs = [
-  { name: "Główna", url: `https://${shopDomain}/` },
-  { name: "Kwiaty", url: `https://${shopDomain}/kwiaty` },
-  { name: "Róże", url: `https://${shopDomain}/kwiaty/roze` },
+  { name: "Główna", url: `${shopDomain}/` },
+  { name: "Kwiaty", url: `${shopDomain}/kwiaty` },
+  { name: "Róże", url: `${shopDomain}/kwiaty/roze` },
 ];
 
 const FlowerPage = () => {

@@ -58,8 +58,8 @@ function OccasionSchema({ occasion }) {
       "@type": "Product",
       position: index + 1,
       name: bouquet.title,
-      image: "https://" + shopDomain + bouquet.image,
-      url: `https://${shopDomain}/okazje/${occasion.slug}`,
+      image: shopDomain + bouquet.image,
+      url: `${shopDomain}/okazje/${occasion.slug}`,
       brand: {
         "@type": "Brand",
         name: { shopName },

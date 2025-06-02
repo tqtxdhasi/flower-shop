@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Script from "next/script";
-import { shopPhone } from "./data/mainData";
+import { shopDomain, shopName, shopPhone } from "./data/mainData";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,22 +17,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kwiaciarnia Kraków Online | Bukiety z Dostawą i Odbiorem",
+  title: ` ${shopName} | Kwiaty, Bukiety z Dostawą i Odbiorem`,
   description:
     "Zamów kwiaty online w Krakowie z darmowym odbiorem osobistym lub ekspresową dostawą. Kwiaty na każdą okazję.",
-  metadataBase: new URL("https://www.krakow-kwiaciarnia.pl"),
+  metadataBase: new URL(shopDomain),
   alternates: {
-    canonical: "/",
+    canonical: shopDomain,
   },
   keywords: [
     "kwiaciarnia Kraków",
+    "online kwiaciarnia Kraków",
+    "kwiaciarnia internetowa Kraków",
     "kwiaty online Kraków",
     "dostawa kwiatów",
     "odbiór osobisty kwiatów",
   ],
-  authors: [{ name: "Kwiaciarnia Kraków" }],
-  publisher: "Kwiaciarnia Kraków Online",
-
+  authors: [{ name: shopName }],
+  publisher: shopName,
   robots: {
     index: true,
     follow: true,
@@ -50,59 +51,39 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Kwiaciarnia Kraków Online",
+    title: ` ${shopName} | Kwiaty, Bukiety z Dostawą i Odbiorem`,
     description:
       "Zamów kwiaty online z dostawą lub odbiorem osobistym w Krakowie.",
-    url: "https://www.krakow-kwiaciarnia.pl",
+    url: shopDomain,
     images: [
       {
-        url: "https://www.krakow-kwiaciarnia.pl/og-image.jpg",
+        url: `${shopDomain}/og-image.jpg`,
         width: 1200,
         height: 630,
-        alt: "Kwiaciarnia Kraków Online",
+        alt: ` ${shopName} | Kwiaty, Bukiety z Dostawą i Odbiorem`,
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kwiaciarnia Kraków Online",
+    title: ` ${shopName} | Kwiaty, Bukiety z Dostawą i Odbiorem`,
     description:
       "Zamów kwiaty online z dostawą lub odbiorem osobistym w Krakowie.",
-    images: ["https://www.krakow-kwiaciarnia.pl/og-image.jpg"],
+    images: [`${shopDomain}/og-image.jpg`],
   },
 };
-const sitelinksSchema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "SiteNavigationElement",
-    name: "Strona Główna",
-    url: "https://www.krakow-kwiaciarnia.pl/",
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "SiteNavigationElement",
-    name: "Regulamin",
-    url: "https://www.krakow-kwiaciarnia.pl/regulamin",
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "SiteNavigationElement",
-    name: "Róże i Bukiety",
-    url: "https://www.krakow-kwiaciarnia.pl/kwiaty/roze",
-  },
-];
 
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "Florist",
-  "@id": "https://www.krakow-kwiaciarnia.pl#florist",
-  name: "Kwiaciarnia Kraków Online",
-  url: "https://www.krakow-kwiaciarnia.pl",
+  "@id": `${shopDomain}#florist`,
+  name: ` ${shopName} | Kwiaty, Bukiety z Dostawą i Odbiorem`,
+  url: shopDomain,
   description:
     "Zamów kwiaty online z dostawą lub darmowym odbiorem osobistym w Krakowie.",
   telephone: shopPhone,
-  image: "https://www.krakow-kwiaciarnia.pl/og-image.jpg",
+  image: `${shopDomain}/og-image.jpg`,
   priceRange: "$",
   areaServed: {
     "@type": "Place",
@@ -168,8 +149,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* ✅ SEO Schema - Correct placement */}
-
         <Script
           id="florist-jsonld"
           type="application/ld+json"
@@ -178,12 +157,7 @@ export default function RootLayout({
             __html: JSON.stringify(schemaData),
           }}
         />
-        <Script
-          id="sitelinks-jsonld"
-          type="application/ld+json"
-          strategy="beforeInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(sitelinksSchema) }}
-        />
+
         <Navbar />
         {children}
         <Footer />
