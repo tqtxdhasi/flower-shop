@@ -1,3 +1,4 @@
+//app/layout.tsx
 import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 import type { Metadata } from "next";
@@ -19,11 +20,8 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: ` ${shopName} | Kwiaty, Bukiety z Dostawą i Odbiorem`,
   description:
-    "Zamów kwiaty online w Krakowie z darmowym odbiorem osobistym lub ekspresową dostawą. Kwiaty na każdą okazję.",
+    "Zamów kwiaty online w Krakowie z dostawą lub darmowym odbiorem osobistym na następny dzień. Kwiaty na każdą okazję.",
   metadataBase: new URL(shopDomain),
-  alternates: {
-    canonical: shopDomain,
-  },
   keywords: [
     "kwiaciarnia Kraków",
     "online kwiaciarnia Kraków",
@@ -53,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: ` ${shopName} | Kwiaty, Bukiety z Dostawą i Odbiorem`,
     description:
-      "Zamów kwiaty online z dostawą lub odbiorem osobistym w Krakowie.",
+      "Zamów kwiaty online w Krakowie z dostawą lub darmowym odbiorem osobistym na następny dzień. Kwiaty na każdą okazję.",
     url: shopDomain,
     images: [
       {
@@ -69,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: ` ${shopName} | Kwiaty, Bukiety z Dostawą i Odbiorem`,
     description:
-      "Zamów kwiaty online z dostawą lub odbiorem osobistym w Krakowie.",
+      "Zamów kwiaty online w Krakowie z dostawą lub darmowym odbiorem osobistym na następny dzień. Kwiaty na każdą okazję.",
     images: [`${shopDomain}/og-image.jpg`],
   },
 };
@@ -81,7 +79,7 @@ const schemaData = {
   name: ` ${shopName} | Kwiaty, Bukiety z Dostawą i Odbiorem`,
   url: shopDomain,
   description:
-    "Zamów kwiaty online z dostawą lub darmowym odbiorem osobistym w Krakowie.",
+    "Zamów kwiaty online w Krakowie z dostawą lub darmowym odbiorem osobistym na następny dzień. Kwiaty na każdą okazję.",
   telephone: shopPhone,
   image: `${shopDomain}/og-image.jpg`,
   priceRange: "$",
