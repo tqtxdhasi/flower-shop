@@ -29,7 +29,7 @@ export const rosesProductGroupSchema = {
           name: `Bukiet ${quantity} ${color.slug} róż ${height} cm`,
           description: `Świeży bukiet ${quantity} ${color.slug} róż o długości ${height} cm z opcją personalizacji.`,
           color: color.color,
-          image: `https://www.krakow-kwiaciarnia.pl/images/bukiet-${quantity}-${color.slug}-roz-${height}cm.jpg`,
+          image: `${shopDomain}/images/bukiet-${quantity}-${color.slug}-roz-${height}cm.jpg`,
           offers: {
             "@type": "Offer",
             url: `${shopDomain}/kwiaty/roze?quantity=${quantity}&height=${height}&flowerColor=${color.name}`,

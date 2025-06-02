@@ -73,11 +73,11 @@ export async function generateMetadata({ params }) {
     product.height
   } cm. Starannie wyselekcjonowane róże z szybką dostawą w Krakowie. Idealny prezent na urodziny, rocznicę, Walentynki i inne okazje. Zamów bukiet róż w Krakowie już dziś!`;
 
-  const imageUrl = `https://www.krakow-kwiaciarnia.pl/images/roze-${product.quantity}-${product.height}-${product.color.slug}.jpg`;
-  const url = `https://www.krakow-kwiaciarnia.pl/kwiaty/roze/bukiet-${product.quantity}-${product.color.slug}-roz-${product.height}-cm`;
+  const imageUrl = `${shopDomain}/images/roze-${product.quantity}-${product.height}-${product.color.slug}.jpg`;
+  const url = `${shopDomain}/kwiaty/roze/bukiet-${product.quantity}-${product.color.slug}-roz-${product.height}-cm`;
 
   return {
-    metadataBase: new URL("https://www.krakow-kwiaciarnia.pl"),
+    metadataBase: new URL(shopDomain),
     title,
     description,
     keywords: [

@@ -1,6 +1,6 @@
-export default function robots() {
-  const domain = "https://www.krakow-kwiaciarnia.pl";
+import { shopDomain } from "./data/mainData";
 
+export default function robots() {
   return {
     rules: [
       {
@@ -14,7 +14,7 @@ export default function robots() {
       //   disallow: "/kwiaty/roze/bukiet-",
       // },
     ],
-    sitemap: `${domain}/sitemap.xml`,
+    sitemap: `${shopDomain}/sitemap.xml`,
     host: domain,
   };
 }

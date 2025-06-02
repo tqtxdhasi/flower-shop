@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 import { HEIGHTS, QUANTITIES, COLOR_OPTIONS } from "./data/roseData";
-
-const baseUrl = "https://www.krakow-kwiaciarnia.pl";
+import { shopDomain } from "./data/mainData";
 
 const locales: string[] = []; // e.g., ['pl', 'en']
 const pages: string[] = [
@@ -20,7 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     for (const page of pages) {
       const path = page ? `/${page}` : "";
       urls.push({
-        url: `${baseUrl}${path}`,
+        url: `${shopDomain}${path}`,
         lastModified: new Date(),
         changeFrequency: "daily",
         priority: 0.8,
@@ -31,7 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       for (const page of pages) {
         const path = page ? `/${locale}/${page}` : `/${locale}`;
         urls.push({
-          url: `${baseUrl}${path}`,
+          url: `${shopDomain}${path}`,
           lastModified: new Date(),
           changeFrequency: "daily",
           priority: 0.8,
@@ -46,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       for (const color of COLOR_OPTIONS) {
         const slug = `kwiaty/roze/bukiet-${quantity}-${color.slug}-roz-${height}-cm`;
         urls.push({
-          url: `${baseUrl}/${slug}`,
+          url: `${shopDomain}/${slug}`,
           lastModified: new Date(),
           changeFrequency: "daily",
           priority: 0.7,
