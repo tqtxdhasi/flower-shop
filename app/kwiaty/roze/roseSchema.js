@@ -1,3 +1,4 @@
+import { shopDomain, shopName } from "@/app/data/mainData";
 import {
   COLOR_OPTIONS,
   DELIVERY_CHARGE,
@@ -13,10 +14,10 @@ export const rosesProductGroupSchema = {
   "@context": "https://schema.org/",
   "@type": "ProductGroup",
   productGroupID: "ROZE-GROUP",
-  name: "Bukiet róż – różne kolory, wielkości i ilości",
+  name: `Świeże Róże | Kwiaty, Bukiet Róż z Dostawą i Odbiorem | ${shopName}`,
   description:
-    "Wybierz spośród różnych kolorów, ilości i długości eleganckich bukietów róż z dostawą w Krakowie.",
-  brand: { "@type": "Brand", name: "Kwiaciarnia Kraków" },
+    "Zamów kwiaty online w Krakowie — luksusowe bukiety róż w ponad 100 wariantach ilości, koloru i długości. Bukiet róż w Krakowie z dostawą lub darmowym odbiorem osobistym na następny dzień",
+  brand: { "@type": "Brand", name: shopName },
   variesBy: ["height", "quantity", "color"],
   hasVariant: QUANTITIES.flatMap((quantity) =>
     HEIGHTS.flatMap((height) =>
@@ -26,12 +27,12 @@ export const rosesProductGroupSchema = {
         return {
           "@type": "Product",
           name: `Bukiet ${quantity} ${color.slug} róż ${height} cm`,
-          description: `Luksusowy bukiet ${quantity} ${color.slug} róż o długości ${height} cm z opcją personalizacji.`,
+          description: `Świeży bukiet ${quantity} ${color.slug} róż o długości ${height} cm z opcją personalizacji.`,
           color: color.color,
           image: `https://www.krakow-kwiaciarnia.pl/images/bukiet-${quantity}-${color.slug}-roz-${height}cm.jpg`,
           offers: {
             "@type": "Offer",
-            url: `https://www.krakow-kwiaciarnia.pl/kwiaty/roze?quantity=${quantity}&height=${height}&flowerColor=${color.name}`,
+            url: `${shopDomain}/kwiaty/roze?quantity=${quantity}&height=${height}&flowerColor=${color.name}`,
             priceCurrency: "PLN",
             price: basePrice,
             priceValidUntil: "2025-12-28",
@@ -141,14 +142,27 @@ export function buildRoseProductSchema(quantity, height, color) {
     "@context": "https://schema.org/",
     "@type": "Product",
     name: `Bukiet ${quantity} ${color.slug} róż ${height} cm`,
-    description: `Luksusowy bukiet ${quantity} ${color.slug} róż o długości ${height} cm z opcją personalizacji.`,
+    description: `Świeży bukiet ${quantity} ${color.slug} róż o długości ${height} cm z opcją personalizacji.`,
     color: color.color,
-    image: `https://www.krakow-kwiaciarnia.pl/images/bukiet-${quantity}-${color.slug}-roz-${height}cm.jpg`,
+    image: `${shopDomain}/images/bukiet-${quantity}-${color.slug}-roz-${height}cm.jpg`,
     brand: {
       "@type": "Brand",
-      name: "Kwiaciarnia Kraków",
+      name: shopName,
     },
-    occasion: ["Valentine’s Day", "Anniversary"],
+    occasion: [
+      "Valentine’s Day",
+      "Anniversary",
+      "Birthday",
+      "Mother’s Day",
+      "Wedding",
+      "Graduation",
+      "Get Well Soon",
+      "Thank You",
+      "Christmas",
+      "New Year",
+      "Just Because",
+      "Sympathy",
+    ],
     audience: {
       "@type": "PeopleAudience",
       geographicArea: {
@@ -159,7 +173,7 @@ export function buildRoseProductSchema(quantity, height, color) {
     },
     offers: {
       "@type": "Offer",
-      url: `https://www.krakow-kwiaciarnia.pl/kwiaty/roze?quantity=${quantity}&height=${height}&flowerColor=${color.name}`,
+      url: `${shopDomain}/kwiaty/roze?quantity=${quantity}&height=${height}&flowerColor=${color.name}`,
       priceCurrency: "PLN",
       price: totalPrice,
       priceValidUntil: "2025-12-28",
