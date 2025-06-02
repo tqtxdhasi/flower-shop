@@ -1,12 +1,12 @@
 import React from "react";
 import AvailableFlowers from "../components/AvailableFlowers";
+import { shopDomain, shopName } from "../data/mainData";
 
 export const metadata = {
-  title: "Dostępne kwiaty – Kwiaciarnia Kraków Online",
-  description:
-    "Przeglądaj dostępne kwiaty i bukiety w Kwiaciarni Kraków Online.",
+  title: `Dostępne kwiaty | ${shopName}`,
+  description: `Przeglądaj dostępne kwiaty i bukiety w ${shopName}`,
   alternates: {
-    canonical: "https://www.krakow-kwiaciarnia.pl/kwiaty",
+    canonical: `${shopDomain}/kwiaty`,
   },
 };
 

@@ -1,10 +1,10 @@
 import React from "react";
 import Regulamin from "../components/Regulamin";
+import { shopName } from "../data/mainData";
 
 export const metadata = {
-  title: "Regulamin – Kwiaciarnia Kraków Online",
-  description:
-    "Zapoznaj się z regulaminem korzystania z usług Kwiaciarni Kraków Online.",
+  title: `Regulamin | ${shopName}`,
+  description: `Zapoznaj się z regulaminem korzystania z usług "${shopName}"`,
   alternates: {
     canonical: "/regulamin",
   },

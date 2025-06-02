@@ -6,31 +6,37 @@ import Script from "next/script";
 import holidaysList from "@/app/components/HolidaysData";
 import HolidaysSection from "@/app/components/HolidaysSection";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
-import { shopDomain } from "@/app/data/mainData";
+import { shopDomain, shopName } from "@/app/data/mainData";
 import VariantSections from "@/app/components/VariantSections";
 import { rosesProductGroupSchema } from "@/app/kwiaty/roze/roseSchema";
 import FAQSection from "@/app/components/faq/FAQSection";
 import HolidaySuggestions from "@/app/components/HolidaySuggestions";
 
 export const metadata = {
-  title: "Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie",
+  title: `Świeże Róże | Kwiaty, Bukiet Róż z Dostawą i Odbiorem | ${shopName}`,
   description:
-    "Wybierz spośród 20 wariantów luksusowych bukietów róż: ilość, kolor i długość. Ekspresowa dostawa w Krakowie.",
+    "Zamów kwiaty online w Krakowie — luksusowe bukiety róż w ponad 100 wariantach ilości, koloru i długości. Bukiet róż w Krakowie z dostawą lub darmowym odbiorem osobistym na następny dzień",
   keywords: [
+    "świeże kwiaty Kraków",
     "bukiet róż Kraków",
     "kwiaty Kraków",
-    "luksusowe róże online",
     "dostawa kwiatów Kraków",
+    "kwiaciarnia Kraków",
+    "online kwiaciarnia Kraków",
+    "kwiaciarnia internetowa Kraków",
+    "kwiaty online Kraków",
+    "dostawa kwiatów",
+    "odbiór osobisty kwiatów",
   ],
   alternates: {
     canonical: `${shopDomain}/kwiaty/roze`,
   },
   openGraph: {
-    title: "Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie",
+    title: `Świeże Róże | Kwiaty, Bukiet Róż z Dostawą i Odbiorem | ${shopName}`,
     description:
-      "Wybierz spośród 20 wariantów luksusowych bukietów róż: ilość, kolor i długość. Ekspresowa dostawa w Krakowie.",
+      "Zamów kwiaty online w Krakowie — luksusowe bukiety róż w ponad 100 wariantach ilości, koloru i długości. Bukiet róż w Krakowie z dostawą lub darmowym odbiorem osobistym na następny dzień",
     url: `${shopDomain}/kwiaty/roze`,
-    siteName: "Kwiaciarnia Kraków",
+    siteName: shopName,
     images: [
       {
         url: `${shopDomain}/images/category-rose.jpg`,
@@ -44,11 +50,10 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie",
+    title: `Świeże Róże | Kwiaty, Bukiet Róż z Dostawą i Odbiorem | ${shopName}`,
     description:
-      "Wybierz spośród 20 wariantów luksusowych bukietów róż: ilość, kolor i długość. Ekspresowa dostawa w Krakowie.",
+      "Zamów kwiaty online w Krakowie — luksusowe bukiety róż w ponad 100 wariantach ilości, koloru i długości. Bukiet róż w Krakowie z dostawą lub darmowym odbiorem osobistym na następny dzień",
     images: [`${shopDomain}/images/category-rose.jpg`],
-    site: "@KwiaciarniaKrakow",
   },
   robots: {
     index: true,
@@ -74,8 +79,9 @@ const FlowerPage = () => {
         }}
       />
       <h1 className="max-w-4xl px-4 mx-auto  text-3xl font-bold text-center text-rose-900 md:text-4xl">
-        Bukiet Róż Premium - Świeże Kwiaty z Dostawą w Krakowie
-      </h1>{" "}
+        Zachwyć bliskich świeżymi różami – wyjątkowe bukiety Róż z dostawą w
+        Krakowie
+      </h1>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <div className="flex flex-col w-full md:flex-row gap-4 mx-auto">
         <Gallery />
@@ -86,15 +92,17 @@ const FlowerPage = () => {
       </div>
       <div className="max-w-4xl flex flex-col gap-4 px-2 mx-auto">
         <h2 className=" text-2xl text-center font-bold text-rose-900 md:text-3xl">
-          Eleganckie Bukiety Jednoróżane – Ekskluzywne Róże w Krakowie Online
+          Eleganckie Jednoróżane Bukiety – Świeże Róże z Dostawą w Krakowie
         </h2>
         <p className=" text-rose-800">
-          🌹 Szukasz wyjątkowego bukietu róż online? Nasz sklep internetowy
-          oferuje luksusowe, jednoróżane bukiety wykonane z kwiatów najwyższej
-          jakości. Każda róża jest starannie selekcjonowana, aby zapewnić
-          doskonały wygląd i trwałość. Oferujemy ekspresową wysyłkę oraz
-          możliwość personalizacji zamówienia, dzięki czemu bukiet staje się
-          idealnym wyborem na każdą okazję.
+          🌹 Szukasz wyjątkowego bukietu róż online? Nasza internetowa
+          kwiaciarnia oferuje oferuje świeże, jednoróżane bukiety wykonane z
+          kwiatów najwyższej jakości. Każda róża jest starannie selekcjonowana,
+          aby zapewnić doskonały wygląd i trwałość. Dostępnych jest ponad 100
+          wariantów ilości, koloru i długości. Oferujemy dostawę lub darmowy
+          odbiór osobisty już na następny dzień. Istnieje także możliwość
+          personalizacji zamówienia, dzięki czemu bukiet staje się idealnym
+          wyborem na każdą okazję.
         </p>
         <VariantSections />
         <HolidaysSection holidays={holidaysList} />
@@ -109,9 +117,9 @@ const FlowerPage = () => {
           Kwiaty na Święto Zakochanych, kompozycje na Wielkanoc czy świąteczne
           stroiki bożonarodzeniowe – wszystko znajdziesz u nas. Spraw, aby Twoje
           świętowanie było pełne kolorów, zapachu świeżych kwiatów i radości.
-          Zainspiruj się naszymi propozycjami na każdą okazję – od Walentynek po
-          Dzień Kobiet.
-        </p>{" "}
+          Spraw, aby każda chwila była niezapomniana dzięki zapachowi świeżych
+          kwiatów i pięknie skomponowanym bukietom.
+        </p>
         <HolidaySuggestions />
         <FAQSection limit={6} />
       </div>
