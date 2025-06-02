@@ -3,9 +3,9 @@ import VariantSection from "@/app/components/VariantSection";
 const VariantSections = () => {
   return (
     <>
-      <h3 className=" text-xl text-rose-900 font-semibold">
+      <h2 className=" text-xl text-rose-900 font-semibold">
         Dostępne Warianty
-      </h3>
+      </h2>
       <div className="grid gap-4 md:grid-cols-2">
         <VariantSection
           title="Rozmiary łodyg"

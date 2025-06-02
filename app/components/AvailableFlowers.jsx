@@ -85,12 +85,14 @@ function FlowerCard({ src, alt, name, price, colors, width, height }) {
   );
 }
 
-function AvailableFlowers() {
+function AvailableFlowers({ useH1 = false }) {
+  const HeadingTag = useH1 ? "h1" : "h2";
+
   return (
     <section className="sm:py-4">
-      <h2 className="text-2xl sm:text-3xl font-semibold text-rose-900 text-center">
+      <HeadingTag className="text-2xl sm:text-3xl font-semibold text-rose-900 text-center">
         Dostępne kwiaty i Nasze Ceny
-      </h2>
+      </HeadingTag>
       <div className="mt-8 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
         {flowers.map((flower, index) => (
           <FlowerCard key={index} {...flower} />

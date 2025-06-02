@@ -31,9 +31,15 @@ const FAQSection = ({ limit }) => {
           __html: JSON.stringify(faqSchema),
         }}
       />
-      <h2 className="text-3xl text-center font-bold text-rose-900 mb-8">
-        Często Zadawane Pytania
-      </h2>
+      {typeof limit === "number" ? (
+        <h2 className="text-3xl text-center font-bold text-rose-900 mb-8">
+          Często Zadawane Pytania
+        </h2>
+      ) : (
+        <h1 className="text-4xl text-center font-bold text-rose-900 mb-8">
+          Często Zadawane Pytania
+        </h1>
+      )}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {visibleFaqs.map((item, idx) => (
           <article key={idx} className="p-6 bg-rose-50 rounded-2xl shadow-md">

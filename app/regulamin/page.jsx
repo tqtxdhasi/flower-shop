@@ -13,7 +13,7 @@ export const metadata = {
 const page = () => {
   return (
     <div className="p-3">
-      <Regulamin />
+      <Regulamin useH1={true} />
     </div>
   );
 };

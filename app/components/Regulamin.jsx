@@ -1,13 +1,15 @@
-function Regulamin() {
+function Regulamin({ useH1 = false }) {
+  const HeadingTag = useH1 ? "h1" : "h2";
+
   return (
     <div
       id="regulamin"
       className="bg-rose-50 max-w-full md:max-w-4xl mx-auto py-6 px-4 lg:px-6 flex flex-col rounded-xl gap-6"
     >
-      <h2 className="text-4xl font-bold text-rose-900 flex items-center gap-2">
+      <HeadingTag className="text-4xl font-bold text-rose-900 flex items-center gap-2">
         <span>📜</span>
         Regulamin zamówień i akceptacji bukietu
-      </h2>
+      </HeadingTag>
       <div className="bg-white rounded-lg shadow-sm p-6  border-l-4 border-rose-300">
         <h3 className="text-2xl font-semibold text-rose-900 mb-4 flex items-center gap-2">
           🕒 Termin składania zamówień

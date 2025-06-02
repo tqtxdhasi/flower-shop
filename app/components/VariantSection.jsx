@@ -3,7 +3,7 @@ export default function VariantSection({ title, items, columns = 1 }) {
 
   return (
     <div
-      className={`p-4 bg-rose-50 rounded-lg shadow-sm flex flex-col gap-2 ${colSpanClass}`}
+      className={`p-4 bg-rose-50 rounded-lg shadow-sm flex flex-col gap-2 col-span-2 md:${colSpanClass}`}
     >
       <h4 className="text-rose-900 font-semibold">{title}</h4>
       <div className="flex flex-wrap gap-2">

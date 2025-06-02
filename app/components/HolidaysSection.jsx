@@ -12,7 +12,7 @@ const HolidaysSection = ({ holidays }) => {
   };
 
   return (
-    <section>
+    <section className="space-y-4">
       <Script
         id="holidays-jsonld"
         type="application/ld+json"
@@ -22,7 +22,7 @@ const HolidaysSection = ({ holidays }) => {
         }}
       />
 
-      <h2 className="text-2xl text-center font-bold text-rose-900 md:text-3xl">
+      <h2 className=" text-xl text-rose-900 font-semibold">
         Święta i Okazje – Idealny Bukiet na Każde Święto i Uroczystość
       </h2>
       <div className="p-4 bg-rose-50 rounded-lg shadow-sm flex flex-col gap-2 col-span-2">

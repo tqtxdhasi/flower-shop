@@ -24,7 +24,7 @@ export default function HolidaySuggestions() {
       <h2 className="text-2xl text-center font-bold text-rose-900 mb-4">
         Bukiety na Najbliższe Święta
       </h2>
-      <p className="text-center text-rose-800 mb-6">
+      <p className="text-center text-rose-800 mb-6 max-w-4xl mx-auto">
         Zainspiruj się naszymi propozycjami bukietów na nadchodzące okazje.
         Idealne prezenty z dostawą w Krakowie!
       </p>

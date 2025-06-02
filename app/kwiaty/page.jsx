@@ -13,7 +13,7 @@ export const metadata = {
 const page = () => {
   return (
     <div>
-      <AvailableFlowers />
+      <AvailableFlowers useH1={true} />
     </div>
   );
 };
