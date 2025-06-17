@@ -8,29 +8,27 @@ export const OCCASIONS = [
   },
   {
     slug: "urodziny",
-    name: "Bukiet Urodzinowy",
-    description:
-      "Wyjątkowe bukiety urodzinowe z dostawą w Krakowie – elegancja i świeżość kwiatów w najlepszym wydaniu.",
-    deliveryTime: " 1 day",
+    name: "Urodziny",
+    description: `  Skorzystaj z wyjątkowych bukietów urodzinowych – elegancja i świeżość w najlepszym wydaniu. Dostawa w Krakowie; w dni świąteczne ekspresowo!`,
+    deliveryTime: "Nastepnego dnia ",
     occasionType: "Urodziny",
     bouquets: [
       {
-        id: "rose-1",
         title: "Bukiet Róż na Urodziny",
-        price: 199,
-        image: "/images/bukiet-19-czerwonych-roz-40cm.jpeg",
+        price: 120,
+        image: "/bukiet-19-czerwonych-roz-40cm.jpg",
       },
       {
         id: "tulip-1",
         title: "Bukiet Tulipanów na Urodziny",
-        price: 179,
-        image: "/images/bukiet-tulipanow.jpg",
+        price: 99,
+        image: "/tulips.jpg",
       },
       {
         id: "peony-1",
         title: "Bukiet Piwonii na Urodziny",
-        price: 239,
-        image: "/images/bukiet-piwonii.jpg",
+        price: 150,
+        image: "/piwonie.jpg",
       },
     ],
   },
