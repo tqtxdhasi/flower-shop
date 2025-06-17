@@ -185,12 +185,12 @@ export const menuItems = [
     text: "Okazje",
     schemaType: "ItemList",
     submenu: [
-      {
-        href: "/okazje/dzien-ojca",
-        text: "Kwiaty na Dzień Ojca",
-        title: "Kwiaty na Dzień Ojca z Dostawą w Krakowie | 23 czerwca",
-        schemaType: "Product",
-      },
+      // {
+      //   href: "/okazje/dzien-ojca",
+      //   text: "Kwiaty na Dzień Ojca",
+      //   title: "Kwiaty na Dzień Ojca z Dostawą w Krakowie | 23 czerwca",
+      //   schemaType: "Product",
+      // },
       {
         href: "/okazje/urodziny",
         text: "Kwiaty na Urodziny",
@@ -198,36 +198,36 @@ export const menuItems = [
           "Kwiaty na Urodziny z Dostawą w Krakowie | Ekspresowa Dostawa 2h",
         schemaType: "Product",
       },
-      {
-        href: "/okazje/imieniny",
-        text: "Kwiaty na Imieniny",
-        title: "Bukiety Imieninowe z Dostawą | Kwiaciarnia Kraków",
-        schemaType: "Product",
-      },
-      {
-        href: "/okazje/rocznica",
-        text: "Kwiaty na Rocznicę",
-        title: "Romantyczne Bukiety na Rocznicę Ślubu | Kwiaty Kraków",
-        schemaType: "Product",
-      },
-      {
-        href: "/okazje/gratulacje",
-        text: "Kwiaty z Gratulacjami",
-        title: "Kwiaty Gratulacyjne | Awans, Narodziny, Ślub | Kraków Dostawa",
-        schemaType: "Product",
-      },
-      {
-        href: "/okazje/przeprosiny",
-        text: "Kwiaty na Przeprosiny",
-        title: "Wyjątkowe Kwiaty na Przeprosiny | Dostawa w Krakowie",
-        schemaType: "Product",
-      },
-      {
-        href: "/okazje/bez-okazji",
-        text: "Kwiaty bez Okazji",
-        title: "Kwiaty bez Okazji | Spraw Radość bez Powodu | Kraków",
-        schemaType: "Product",
-      },
+      // {
+      //   href: "/okazje/imieniny",
+      //   text: "Kwiaty na Imieniny",
+      //   title: "Bukiety Imieninowe z Dostawą | Kwiaciarnia Kraków",
+      //   schemaType: "Product",
+      // },
+      // {
+      //   href: "/okazje/rocznica",
+      //   text: "Kwiaty na Rocznicę",
+      //   title: "Romantyczne Bukiety na Rocznicę Ślubu | Kwiaty Kraków",
+      //   schemaType: "Product",
+      // },
+      // {
+      //   href: "/okazje/gratulacje",
+      //   text: "Kwiaty z Gratulacjami",
+      //   title: "Kwiaty Gratulacyjne | Awans, Narodziny, Ślub | Kraków Dostawa",
+      //   schemaType: "Product",
+      // },
+      // {
+      //   href: "/okazje/przeprosiny",
+      //   text: "Kwiaty na Przeprosiny",
+      //   title: "Wyjątkowe Kwiaty na Przeprosiny | Dostawa w Krakowie",
+      //   schemaType: "Product",
+      // },
+      // {
+      //   href: "/okazje/bez-okazji",
+      //   text: "Kwiaty bez Okazji",
+      //   title: "Kwiaty bez Okazji | Spraw Radość bez Powodu | Kraków",
+      //   schemaType: "Product",
+      // },
     ],
   },
   {
