@@ -16,7 +16,7 @@ export const OCCASIONS = [
       {
         title: "Bukiet Róż na Urodziny",
         price: 120,
-        image: "/bukiet-19-czerwonych-roz-40cm.jpg",
+        image: "/images/bukiet-19-czerwonych-roz-40cm.jpg",
       },
       {
         id: "tulip-1",
