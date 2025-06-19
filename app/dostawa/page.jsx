@@ -1,10 +1,42 @@
 import React from "react";
 import Link from "next/link";
-import { shopPhone } from "../data/mainData";
+import { shopDomain, shopName, shopPhone } from "../data/mainData";
 import { getOccasionBySlug } from "../data/occasions";
 import BouquetsSection from "../okazje/[slug]/components/BouquetsSection";
 import Regulamin from "../components/Regulamin";
-
+export const metadata = {
+  title: `Dostawa Kwiatów w Krakowie - Szybka i Świeża Dostawa | ${shopName}`,
+  description:
+    "Oferujemy szybką dostawę świeżych bukietów i kompozycji kwiatowych na terenie Krakowa i okolic. Zamów online lub telefonicznie 24/7.",
+  openGraph: {
+    title: "Dostawa Kwiatów w Krakowie",
+    description:
+      "Zamów świeże kwiaty z szybką dostawą na terenie Krakowa. Dostawa lub odbiór już następnego dnia!",
+    url: `${shopDomain}/dostawa`,
+    images: [
+      {
+        url: `${shopDomain}/images/flowers-delivery.jpg`,
+        width: 1200,
+        height: 630,
+        alt: "Dostawa Kwiatów w Krakowie",
+      },
+    ],
+    siteName: shopName,
+    locale: "pl_PL",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dostawa Kwiatów w Krakowie",
+    description:
+      "Szybka dostawa świeżych bukietów w Krakowie i okolicach. Zamów już dziś!",
+    images: [`${shopDomain}/images/flowers-delivery.jpg`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 export default function DeliveryInfo() {
   const occasion = getOccasionBySlug("urodziny");
 
