@@ -9,6 +9,7 @@ const pages: string[] = [
   "favicon.ico",
   "regulamin",
   "kwiaty",
+  "dostawa",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
