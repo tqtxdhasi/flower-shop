@@ -20,7 +20,7 @@ const Navbar = () => {
       className="w-full sticky top-0 z-50 bg-rose-800 text-white transition-all"
     >
       <div className="container mx-auto px-4">
-        <div className="flex justify-around items-center py-4">
+        <div className="flex justify-between max-w-7xl mx-auto items-center py-4">
           <a
             href="/"
             className="flex items-center text-2xl font-bold hover:text-rose-200 transition-colors space-x-2"

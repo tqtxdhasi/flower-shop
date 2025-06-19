@@ -233,12 +233,8 @@ export const menuItems = [
       },
     ],
   },*/
+
   /*
-
-  {
-    text: "Dostawa",
-  },
-
   {
     text: "Poradnik",
     schemaType: "CollectionPage",
@@ -275,6 +271,10 @@ export const menuItems = [
     href: "/najczesciej-zadawane-pytania",
     text: "Pytania",
     title: "Często Zadawane Pytania",
+  },
+  {
+    text: "Dostawa",
+    href: "/dostawa",
   },
   {
     href: "/regulamin",

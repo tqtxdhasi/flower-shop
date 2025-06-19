@@ -65,9 +65,8 @@ function FlowerCard({ src, alt, name, price, colors, width, height }) {
         <Image
           src={src}
           alt={alt}
-          width={width}
-          height={height}
-          sizes="(max-width: 400px) 100vw, 400px"
+          fill
+          sizes="(max-width: 600px) 100vw, 600px"
           className="object-cover rounded-lg h-[400px]"
           quality={75}
         />
