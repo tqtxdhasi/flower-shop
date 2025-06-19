@@ -29,7 +29,7 @@ export const OCCASIONS = [
     slug: "dzien-ojca",
     name: "Dzień Ojca",
     description: `Zaskocz Tatę wyjątkowym bukietem! Elegancja i wyraz szacunku w jednym – dostarczane prosto pod drzwi.`,
-    deliveryTime: "W tym samym dniu",
+    deliveryTime: "Następnego dnia",
     occasionType: "Święto",
     bouquets: [
       {
@@ -71,7 +71,7 @@ export const OCCASIONS = [
     slug: "rocznica",
     name: "Rocznica",
     description: `Uczcij wspólne chwile – bukiety na rocznicę, które mówią więcej niż słowa.`,
-    deliveryTime: "W tym samym dniu",
+    deliveryTime: "Następnego dnia",
     occasionType: "Rocznica",
     bouquets: [
       {
@@ -113,7 +113,7 @@ export const OCCASIONS = [
     slug: "przeprosiny",
     name: "Przeprosiny",
     description: `Powiedz "przepraszam" kwiatami – delikatność i szczerość w pięknej oprawie.`,
-    deliveryTime: "W tym samym dniu",
+    deliveryTime: "Następnego dnia",
     occasionType: "Przeprosiny",
     bouquets: [
       {
