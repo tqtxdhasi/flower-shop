@@ -26,27 +26,6 @@ export const OCCASIONS = [
     ],
   },
   {
-    slug: "dzien-ojca",
-    name: "Dzień Ojca",
-    description: `Zaskocz Tatę wyjątkowym bukietem! Elegancja i wyraz szacunku w jednym – dostarczane prosto pod drzwi.`,
-    deliveryTime: "Następnego dnia",
-    occasionType: "Święto",
-    bouquets: [
-      {
-        id: "gozdziki-ojciec",
-        title: "Goździki na Dzień Ojca",
-        price: 85,
-        image: "/carnations.jpg",
-      },
-      {
-        id: "anturia-ojciec",
-        title: "Anturia na Dzień Ojca",
-        price: 140,
-        image: "/anthuriums.jpg",
-      },
-    ],
-  },
-  {
     slug: "imieniny",
     name: "Imieniny",
     description: `Podaruj uśmiech z okazji imienin – szeroki wybór świeżych kompozycji na każdą osobowość.`,
@@ -148,6 +127,33 @@ export const OCCASIONS = [
         title: "Goździki Bez Okazji",
         price: 80,
         image: "/carnations-random.jpg",
+      },
+    ],
+  },
+  {
+    slug: "szkola",
+    name: "Szkoła",
+    description: `Zakończenie roku, Dzień Nauczyciela czy rozpoczęcie szkoły – kwiaty to zawsze dobry wybór! Spraw radość uczniowi, nauczycielowi lub wychowawcy.`,
+    deliveryTime: "Następnego dnia",
+    occasionType: "Szkoła",
+    bouquets: [
+      {
+        id: "bukiet-nauczyciel",
+        title: "Bukiet dla Nauczyciela",
+        price: 110,
+        image: "/teacher-bouquet.jpg",
+      },
+      {
+        id: "bukiet-rozpoczecie",
+        title: "Bukiet na Rozpoczęcie Roku",
+        price: 95,
+        image: "/school-start.jpg",
+      },
+      {
+        id: "bukiet-zakonczenie",
+        title: "Bukiet na Zakończenie Roku",
+        price: 120,
+        image: "/school-end.jpg",
       },
     ],
   },
