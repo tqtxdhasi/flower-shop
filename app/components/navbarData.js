@@ -66,7 +66,7 @@ function printTodayDate() {
   const year = today.getFullYear();
   const month = String(today.getMonth() + 1).padStart(2, "0");
   const day = String(today.getDate()).padStart(2, "0");
-  return day;
+  return `${year}-${month}-${day}`;
 }
 // mock date via ENV: set process.env.MOCK_TODAY = "2025-06-10"
 function getToday() {
