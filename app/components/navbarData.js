@@ -1,5 +1,90 @@
 import { shopPhone } from "../data/mainData";
+const baseOccasions = [
+  {
+    href: "/okazje/urodziny",
+    text: "Kwiaty na Urodziny",
+    title: "Kwiaty na Urodziny z Dostawą w Krakowie | Ekspresowa Dostawa 2h",
+    schemaType: "Product",
+  },
+  {
+    href: "/okazje/imieniny",
+    text: "Kwiaty na Imieniny",
+    title: "Bukiety Imieninowe z Dostawą | Kwiaciarnia Kraków",
+    schemaType: "Product",
+  },
+  {
+    href: "/okazje/rocznica",
+    text: "Kwiaty na Rocznicę",
+    title: "Romantyczne Bukiety na Rocznicę Ślubu | Kwiaty Kraków",
+    schemaType: "Product",
+  },
+  {
+    href: "/okazje/gratulacje",
+    text: "Kwiaty z Gratulacjami",
+    title: "Kwiaty Gratulacyjne | Awans, Narodziny, Ślub | Kraków Dostawa",
+    schemaType: "Product",
+  },
+  {
+    href: "/okazje/przeprosiny",
+    text: "Kwiaty na Przeprosiny",
+    title: "Wyjątkowe Kwiaty na Przeprosiny | Dostawa w Krakowie",
+    schemaType: "Product",
+  },
+  {
+    href: "/okazje/bez-okazji",
+    text: "Kwiaty bez Okazji",
+    title: "Kwiaty bez Okazji | Spraw Radość bez Powodu | Kraków",
+    schemaType: "Product",
+  },
+];
 
+const seasonalOccasions = [
+  {
+    key: "dzien-ojca",
+    date: new Date(new Date().getFullYear(), 5, 23),
+    item: {
+      href: "/okazje/dzien-ojca",
+      text: "Kwiaty na Dzień Ojca",
+      title: "Kwiaty na Dzień Ojca z Dostawą w Krakowie | 23 czerwca",
+      schemaType: "Product",
+    },
+  },
+  {
+    key: "walentynki",
+    date: new Date(new Date().getFullYear(), 1, 14),
+    item: {
+      href: "/swieta/walentynki",
+      text: "Kwiaty na Walentynki",
+      title:
+        "Kwiaty na Walentynki z Dostawą w Krakowie | Róże, Bukiety, Serce z Kwiatów",
+      schemaType: "Product",
+    },
+  },
+];
+function printTodayDate() {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  return day;
+}
+// mock date via ENV: set process.env.MOCK_TODAY = "2025-06-10"
+function getToday() {
+  const env = printTodayDate() || "2025-02-10";
+  return env ? new Date(env) : new Date();
+}
+
+function getUpcomingOccasions(max = 2, windowDays = 14) {
+  const today = getToday();
+  return seasonalOccasions
+    .filter(({ date }) => {
+      const diff = (date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24);
+      return diff >= 0 && diff <= windowDays;
+    })
+    .sort((a, b) => a.date.getTime() - b.date.getTime())
+    .slice(0, max)
+    .map(({ item }) => item);
+}
 export const menuItems = [
   {
     text: "Kwiaty",
@@ -184,51 +269,7 @@ export const menuItems = [
   },*/ {
     text: "Okazje",
     schemaType: "ItemList",
-    submenu: [
-      // {
-      //   href: "/okazje/dzien-ojca",
-      //   text: "Kwiaty na Dzień Ojca",
-      //   title: "Kwiaty na Dzień Ojca z Dostawą w Krakowie | 23 czerwca",
-      //   schemaType: "Product",
-      // },
-      {
-        href: "/okazje/urodziny",
-        text: "Kwiaty na Urodziny",
-        title:
-          "Kwiaty na Urodziny z Dostawą w Krakowie | Ekspresowa Dostawa 2h",
-        schemaType: "Product",
-      },
-      // {
-      //   href: "/okazje/imieniny",
-      //   text: "Kwiaty na Imieniny",
-      //   title: "Bukiety Imieninowe z Dostawą | Kwiaciarnia Kraków",
-      //   schemaType: "Product",
-      // },
-      // {
-      //   href: "/okazje/rocznica",
-      //   text: "Kwiaty na Rocznicę",
-      //   title: "Romantyczne Bukiety na Rocznicę Ślubu | Kwiaty Kraków",
-      //   schemaType: "Product",
-      // },
-      // {
-      //   href: "/okazje/gratulacje",
-      //   text: "Kwiaty z Gratulacjami",
-      //   title: "Kwiaty Gratulacyjne | Awans, Narodziny, Ślub | Kraków Dostawa",
-      //   schemaType: "Product",
-      // },
-      // {
-      //   href: "/okazje/przeprosiny",
-      //   text: "Kwiaty na Przeprosiny",
-      //   title: "Wyjątkowe Kwiaty na Przeprosiny | Dostawa w Krakowie",
-      //   schemaType: "Product",
-      // },
-      // {
-      //   href: "/okazje/bez-okazji",
-      //   text: "Kwiaty bez Okazji",
-      //   title: "Kwiaty bez Okazji | Spraw Radość bez Powodu | Kraków",
-      //   schemaType: "Product",
-      // },
-    ],
+    submenu: [...getUpcomingOccasions(), ...baseOccasions],
   },
   {
     href: "/najczesciej-zadawane-pytania",
@@ -241,6 +282,7 @@ export const menuItems = [
     title: "Regulamin zamówień i akceptacji bukietu",
   },
 ];
+
 export const companyInfo = {
   name: "Kwiaty Kraków",
   logo: {
