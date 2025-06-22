@@ -71,7 +71,7 @@ export async function generateMetadata({ params }) {
     product.quantity
   } ${product.color.name.toLowerCase()} róż o wysokości ${
     product.height
-  } cm. Starannie wyselekcjonowane róże z szybką dostawą w Krakowie. Idealny prezent na urodziny, rocznicę, Walentynki i inne okazje. Zamów bukiet róż w Krakowie już dziś!`;
+  } cm. Starannie wyselekcjonowane róże z dostawą już na następny dzień w Krakowie. Idealny prezent na urodziny, rocznicę, Walentynki i inne okazje. Zamów bukiet róż w Krakowie już dziś!`;
 
   const imageUrl = `${shopDomain}/images/roze-${product.quantity}-${product.height}-${product.color.slug}.jpg`;
   const url = `${shopDomain}/kwiaty/roze/bukiet-${product.quantity}-${product.color.slug}-roz-${product.height}-cm`;
@@ -137,13 +137,14 @@ export default async function Page({ params }) {
           __html: JSON.stringify(productSchema),
         }}
       />
-      <h1 className="max-w-4xl px-4 mx-auto  text-3xl font-bold text-center text-rose-900 md:text-4xl">
+      <h1 className="max-w-4xl px-4 mx-auto  text-2xl font-bold text-center text-rose-900 md:text-4xl">
         Bukiet {product.quantity} {product.color.name} róż {product.height} cm{" "}
         <br />
-        <span className="text-rose-800 text-lg">
-          Świeże Kwiaty z Dostawą w Krakowie
-        </span>
       </h1>{" "}
+      <p className="text-rose-800 text-md text-center max-w-96 mx-auto">
+        <span className="font-bold">Zamów Dziś, Dostawa Już Jutro </span>-
+        Świeże Kwiaty z Dostawą w Krakowie!
+      </p>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <div className="flex flex-col w-full md:flex-row gap-4 mx-auto">
         <Gallery />

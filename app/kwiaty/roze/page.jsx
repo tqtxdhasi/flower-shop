@@ -78,10 +78,13 @@ const FlowerPage = () => {
           __html: JSON.stringify(rosesProductGroupSchema),
         }}
       />
-      <h1 className="max-w-4xl px-4 mx-auto  text-3xl font-bold text-center text-rose-900 md:text-4xl">
-        Zachwyć bliskich świeżymi różami – wyjątkowe bukiety Róż z dostawą w
-        Krakowie
+      <h1 className="max-w-4xl px-4 mx-auto  text-2xl font-bold text-center text-rose-900 md:text-4xl">
+        Zachwyć bliskich świeżością róż – podaruj im wyjątkowe bukiety.{" "}
       </h1>
+      <p className="text-rose-800 text-md text-center max-w-96 mx-auto">
+        <span className="font-bold">Zamów Dziś, Dostawa Już Jutro </span>-
+        Świeże Kwiaty z Dostawą w Krakowie!
+      </p>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
       <div className="flex flex-col w-full md:flex-row gap-4 mx-auto">
         <Gallery />
