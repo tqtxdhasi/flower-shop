@@ -19,6 +19,9 @@ const Navbar = () => {
       role="navigation"
       className="w-full sticky top-0 z-50 bg-rose-800 text-white transition-all"
     >
+      <div className=" bg-rose-300 text-rose-900 text-center py-2 ">
+        Zamów dzień wcześniej – bez dostawy tego samego dnia!
+      </div>
       <div className="container mx-auto px-4">
         <div className="flex justify-between max-w-7xl mx-auto items-center py-4">
           <a
