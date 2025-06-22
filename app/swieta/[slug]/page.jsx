@@ -4,8 +4,10 @@ import { shopPhone } from "@/app/data/mainData";
 import AvailableFlowers from "@/app/components/AvailableFlowers";
 import holidays from "./holidayData";
 
-export default function SwietaPage({ params }) {
-  const holiday = holidays[params.slug] || {
+export default async function SwietaPage({ params }) {
+  const { slug } = await params;
+
+  const holiday = holidays[slug] || {
     heading: "Święta",
     hook: "Wybierz idealny prezent na każdą okazję!",
     urgency: "Zamów do 14:00, by zdążyć na czas!",
