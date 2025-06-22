@@ -43,7 +43,7 @@ const baseOccasions = [
 const seasonalOccasions = [
   {
     key: "dzien-ojca",
-    date: new Date(new Date().getFullYear(), 5, 23),
+    date: new Date(new Date().getFullYear(), 5, 23), // 23 czerwca
     item: {
       href: "/swieta/dzien-ojca",
       text: "Kwiaty na Dzień Ojca",
@@ -52,7 +52,7 @@ const seasonalOccasions = [
   },
   {
     key: "walentynki",
-    date: new Date(new Date().getFullYear(), 1, 14),
+    date: new Date(new Date().getFullYear(), 1, 14), // 14 lutego
     item: {
       href: "/swieta/walentynki",
       text: "Kwiaty na Walentynki",
@@ -60,7 +60,71 @@ const seasonalOccasions = [
         "Kwiaty na Walentynki z Dostawą w Krakowie | Róże, Bukiety, Serce z Kwiatów",
     },
   },
+  {
+    key: "dzien-matki",
+    date: new Date(new Date().getFullYear(), 4, 26), // 26 maja
+    item: {
+      href: "/swieta/dzien-matki",
+      text: "Kwiaty na Dzień Matki",
+      title: "Kwiaty na Dzień Matki z Dostawą w Krakowie | 26 maja",
+    },
+  },
+  {
+    key: "dzien-kobiet",
+    date: new Date(new Date().getFullYear(), 2, 8), // 8 marca
+    item: {
+      href: "/swieta/dzien-kobiet",
+      text: "Kwiaty na Dzień Kobiet",
+      title: "Kwiaty na Dzień Kobiet z Dostawą w Krakowie | 8 marca",
+    },
+  },
+  {
+    key: "dzien-babci",
+    date: new Date(new Date().getFullYear(), 0, 21), // 21 stycznia
+    item: {
+      href: "/swieta/dzien-babci",
+      text: "Kwiaty na Dzień Babci",
+      title: "Kwiaty na Dzień Babci z Dostawą w Krakowie | 21 stycznia",
+    },
+  },
+  {
+    key: "dzien-dziadka",
+    date: new Date(new Date().getFullYear(), 0, 22), // 22 stycznia
+    item: {
+      href: "/swieta/dzien-dziadka",
+      text: "Upominki na Dzień Dziadka",
+      title: "Upominki na Dzień Dziadka z Dostawą w Krakowie | 22 stycznia",
+    },
+  },
+  {
+    key: "wielkanoc",
+    date: (() => {
+      // Computation of Easter Sunday using Anonymous Gregorian algorithm
+      const Y = new Date().getFullYear();
+      const a = Y % 19;
+      const b = Math.floor(Y / 100);
+      const c = Y % 100;
+      const d = Math.floor(b / 4);
+      const e = b % 4;
+      const f = Math.floor((b + 8) / 25);
+      const g = Math.floor((b - f + 1) / 3);
+      const h = (19 * a + b - d - g + 15) % 30;
+      const i = Math.floor(c / 4);
+      const k = c % 4;
+      const l = (32 + 2 * e + 2 * i - h - k) % 7;
+      const m = Math.floor((a + 11 * h + 22 * l) / 451);
+      const month = Math.floor((h + l - 7 * m + 114) / 31) - 1;
+      const day = ((h + l - 7 * m + 114) % 31) + 1;
+      return new Date(Y, month, day);
+    })(),
+    item: {
+      href: "/swieta/wielkanoc",
+      text: "Dekoracje i upominki na Wielkanoc",
+      title: "Dekoracje i upominki na Wielkanoc z Dostawą w Krakowie",
+    },
+  },
 ];
+
 function printTodayDate() {
   const today = new Date();
   const year = today.getFullYear();
@@ -132,56 +196,6 @@ export const menuItems = [
       },*/,
     ],
   },
-  /*
-
-  {
-    text: "Prezenty",
-    schemaType: "ItemList",
-    submenu: [
-      {
-        href: "/prezenty/czekoladki",
-        text: "Czekoladki",
-        title: "Czekoladki i Kwiaty - Słodki Dodatek do Bukietu",
-        
-      },
-      {
-        href: "/prezenty/kartki",
-        text: "Kartki Okolicznościowe",
-        title: "Kartki z Życzeniami do Kwiatów - Personalizowane Dodatki",
-        
-      },
-      {
-        href: "/prezenty/misie",
-        text: "Pluszowe Misie",
-        title: "Pluszaki do Kwiatów - Uroczy Dodatek na Prezent",
-        
-      },
-      {
-        href: "/prezenty/wino",
-        text: "Wino i Prosecco",
-        title: "Wino i Prosecco do Kwiatów - Elegancki Prezent z Dostawą",
-        
-      },
-      {
-        href: "/prezenty/świece",
-        text: "Świece Zapachowe",
-        title: "Naturalne Świece i Bukiety - Romantyczny Zestaw",
-        
-      },
-      {
-        href: "/prezenty/kawa-herbata",
-        text: "Kawa i Herbata",
-        title: "Zestawy Kwiaty + Kawa lub Herbata - Relaksujący Upominek",
-        
-      },
-      {
-        href: "/prezenty/zestawy",
-        text: "Zestawy Prezentowe",
-        title: "Zestawy Prezentowe: Kwiaty + Prezenty - Gotowe do Wręczenia",
-        
-      },
-    ],
-  },*/
 
   /*
   {
