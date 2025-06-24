@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Script from "next/script";
 import { shopDomain, shopName, shopPhone } from "./data/mainData";
+import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -155,10 +156,10 @@ export default function RootLayout({
             __html: JSON.stringify(schemaData),
           }}
         />
-
         <Navbar />
         {children}
-        <Footer />
+        <Footer /> 
+        <Analytics />
       </body>
     </html>
   );
