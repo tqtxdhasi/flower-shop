@@ -6,10 +6,11 @@ const flowers = [
     src: "/roses.jpg",
     alt: "Róże",
     name: "Róże",
-    price: "od 5.92 zl/szt.",
+    price: "od 5.11 zl/szt.",
     colors: "Czerwony, Niebieski, Tęczowy, Biały, Różowy",
     width: 400,
     height: 400,
+    season: [2, 3, 4, 5, 6, 7, 8, 9, 10], // long season: late winter to autumn
   },
   {
     src: "/tulips.jpg",
@@ -19,6 +20,7 @@ const flowers = [
     colors: "Czerwony, Różowy, Fioletowy, Biały, Żółty, Pomarańczowy",
     width: 400,
     height: 400,
+    season: [2, 3, 4, 5], // early to mid spring
   },
   {
     src: "/piwonie.jpg",
@@ -28,6 +30,7 @@ const flowers = [
     colors: "Biały, Różowy",
     width: 400,
     height: 400,
+    season: [5, 6, 7], // late spring to midsummer
   },
   {
     src: "/ranunculus.jpg",
@@ -37,6 +40,7 @@ const flowers = [
     colors: "Różowy, Biały",
     width: 400,
     height: 400,
+    season: [3, 4, 5], // spring
   },
   {
     src: "/gipsowka.jpg",
@@ -46,6 +50,7 @@ const flowers = [
     colors: "Biały, Różowy, Niebieski, Czerwony, Żółty, Fioletowy",
     width: 400,
     height: 400,
+    season: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], // available year-round (often imported)
   },
   {
     src: "/hortensje.jpg",
@@ -55,6 +60,7 @@ const flowers = [
     colors: "Niebieski, Różowy, Biały, Fioletowy, Czerwony",
     width: 400,
     height: 400,
+    season: [5, 6, 7, 8, 9], // late spring to early autumn
   },
 ];
 
@@ -86,6 +92,11 @@ function FlowerCard({ src, alt, name, price, colors, width, height }) {
 
 function AvailableFlowers({ useH1 = false }) {
   const HeadingTag = useH1 ? "h1" : "h2";
+  const currentMonth = new Date().getMonth() + 1; // getMonth is 0-based
+
+  const seasonalFlowers = flowers.filter((flower) =>
+    flower.season.includes(currentMonth)
+  );
 
   return (
     <section className="sm:py-4">
@@ -93,7 +104,7 @@ function AvailableFlowers({ useH1 = false }) {
         Dostępne kwiaty i Nasze Ceny
       </HeadingTag>
       <div className="mt-8 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8">
-        {flowers.map((flower, index) => (
+        {seasonalFlowers.map((flower, index) => (
           <FlowerCard key={index} {...flower} />
         ))}
       </div>

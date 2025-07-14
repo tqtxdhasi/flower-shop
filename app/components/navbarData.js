@@ -217,6 +217,11 @@ export const menuItems = [
     ],
   },
   */ {
+    href: "/cennik",
+    text: "Cennik",
+    title: "Cennik",
+  },
+  {
     text: "Okazje",
     schemaType: "ItemList",
     submenu: baseOccasions,

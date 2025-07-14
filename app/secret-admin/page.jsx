@@ -3,7 +3,9 @@
 import { useRouter } from "next/navigation";
 import { useAuth } from "./useAuth";
 import LoginForm from "./components/LoginForm";
-import PriceCalculator from "./components/PriceCalculator";
+import ProductFeedTable from "./components/ProductFeedTable";
+import RoseTable from "./components/RoseTable";
+import PremiumRoseTable from "./components/PremiumRoseTable";
 
 export default function AdminPage() {
   const router = useRouter();
@@ -21,11 +23,15 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-green-50 flex flex-col items-center justify-center p-4 w-full">
+    <div className="min-h-screen overflow-auto bg-rose-50 flex flex-col items-center justify-start p-4 w-full">
       <h1 className="text-3xl font-bold mb-6 text-center">
         Flower Shop Admin - Price Calculator
       </h1>
-      <PriceCalculator />
+      Kwiaciarnia internetowa Kraków - Kwiaty z dostawą Florystyczna Poczta,
+      Kwiatowa Dostawa Kraków
+      <RoseTable />
+      <PremiumRoseTable />
+      <ProductFeedTable />
     </div>
   );
 }
