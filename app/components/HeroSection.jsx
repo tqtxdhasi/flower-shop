@@ -46,12 +46,18 @@ function HeroSection() {
           <p className="mt-2 text-lg">
             Wybierz jedną z naszych metod kontaktu:
           </p>
-          <div className="mt-6 flex justify-center">
+          <div className="mt-6 flex gap-2 flex-col lg:flex-row justify-center">
             <a
               href={`tel:${shopPhone}`}
               className="bg-green-700 py-3 px-8 rounded-lg hover:bg-green-800 text-white font-bold transition-all"
             >
               Zamów teraz: {shopPhone}
+            </a>
+            <a
+              href={"/cennik"}
+              className="bg-none py-3 px-8 rounded-lg hover:bg-rose-200 border-2 border-rose-700 text-rose-900 font-bold transition-all"
+            >
+              Cennik Róż
             </a>
           </div>
           <div className="mt-6 flex justify-center gap-6">

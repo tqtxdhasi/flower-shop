@@ -10,6 +10,8 @@ const pages: string[] = [
   "regulamin",
   "kwiaty",
   "dostawa",
+  "cennik",
+  "najczesciej-zadawane-pytania",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
