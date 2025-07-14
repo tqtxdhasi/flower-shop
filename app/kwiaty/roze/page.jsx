@@ -11,6 +11,7 @@ import VariantSections from "@/app/components/VariantSections";
 import { rosesProductGroupSchema } from "@/app/kwiaty/roze/roseSchema";
 import FAQSection from "@/app/components/faq/FAQSection";
 import HolidaySuggestions from "@/app/components/HolidaySuggestions";
+import RoseCreator from "@/app/components/RoseCreator";
 
 export const metadata = {
   title: `Świeże Róże | Kwiaty, Bukiet Róż z Dostawą i Odbiorem | ${shopName}`,
@@ -70,6 +71,7 @@ const breadcrumbs = [
 const FlowerPage = () => {
   return (
     <div className="p-4 flex flex-col gap-4">
+      <RoseCreator />
       <Script
         id="products-jsonld"
         type="application/ld+json"

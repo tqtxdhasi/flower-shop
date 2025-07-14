@@ -2,7 +2,7 @@ import React from "react";
 import ReusableRoseTable from "./ReusableRoseTable";
 import { STANDARD_BASES, STANDARD_ROSE_DATA } from "@/app/data/roseConfig";
 
-const calculateStandardRow = ({
+export const calculateStandardRow = ({
   length,
   cost,
   quantity,

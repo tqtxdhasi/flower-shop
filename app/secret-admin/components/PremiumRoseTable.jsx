@@ -2,7 +2,13 @@ import React from "react";
 import ReusableRoseTable from "./ReusableRoseTable";
 import { PREMIUM_BASES, PREMIUM_ROSE_DATA } from "@/app/data/roseConfig";
 
-const calculatePremiumRow = ({ length, cost, quantity, packaging, profit }) => {
+export const calculatePremiumRow = ({
+  length,
+  cost,
+  quantity,
+  packaging,
+  profit,
+}) => {
   const adjustedQuantity = quantity + (quantity === 47 ? 3 : 2);
   const totalCost = cost * adjustedQuantity;
   const flowerPrice = totalCost + profit;
