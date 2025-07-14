@@ -3,29 +3,29 @@ import { shopPhone } from "@/app/data/mainData";
 import React, { useState } from "react";
 
 const COLUMN_LABELS = {
-  długość: "Długość (cm)",
-  koszt: "Koszt (zł/szt)",
-  ilość: "Ilość",
-  cena_szt: "Cena (zł/szt)",
-  koszt_łączny: "Koszt (zł)",
-  zysk: "Zysk (zł)",
-  cena_kwiatów: "Cena kwiatów (zł)",
-  opakowanie: "Opakowanie (zł)",
-  cena_bukietu: "Cena bukietu (zł)",
-  zysk_całkowity: "Zysk całkowity (zł)",
+  length: "Długość (cm)",
+  cost: "Koszt (zł/szt)",
+  quantity: "Ilość",
+  pricePerStem: "Cena (zł/szt)",
+  totalCost: "Koszt (zł)",
+  profit: "Zysk (zł)",
+  flowerPrice: "Cena kwiatów (zł)",
+  packaging: "Opakowanie (zł)",
+  bouquetPrice: "Cena bukietu (zł)",
+  totalProfit: "Zysk całkowity (zł)",
 };
 
 const DEFAULT_COLUMNS = [
-  "długość",
-  "koszt",
-  "ilość",
-  "cena_szt",
-  "koszt_łączny",
-  "zysk",
-  "cena_kwiatów",
-  "opakowanie",
-  "cena_bukietu",
-  "zysk_całkowity",
+  "length",
+  "cost",
+  "quantity",
+  "pricePerStem",
+  "totalCost",
+  "profit",
+  "flowerPrice",
+  "packaging",
+  "bouquetPrice",
+  "totalProfit",
 ];
 
 const ReusableRoseTable = ({
@@ -34,7 +34,7 @@ const ReusableRoseTable = ({
 }) => {
   const [selectedRow, setSelectedRow] = useState(null);
 
-  const cenaBukietuColIndex = visibleColumns.indexOf("cena_bukietu");
+  const bouquetPriceColIndex = visibleColumns.indexOf("bouquetPrice");
 
   return (
     <div className="w-full xl:mx-auto xl:w-fit overflow-x-auto">
@@ -74,7 +74,7 @@ const ReusableRoseTable = ({
                       <td
                         key={col}
                         className={`px-4 py-2 border border-rose-200 whitespace-nowrap ${
-                          isSelected && colIndex === cenaBukietuColIndex
+                          isSelected && colIndex === bouquetPriceColIndex
                             ? "bg-rose-400 text-white"
                             : ""
                         }`}
@@ -88,13 +88,12 @@ const ReusableRoseTable = ({
                 );
               })}
 
-              {/* Add custom row after each height group */}
               <tr className="bg-rose-100">
                 <td
                   colSpan={visibleColumns.length}
                   className="text-center italic text-rose-700 py-2"
                 >
-                  Powyżej {rows[rows.length - 1]?.ilość} kwiatów prosimy o
+                  Powyżej {rows[rows.length - 1]?.quantity} kwiatów prosimy o
                   kontakt{" "}
                   <a
                     href={`tel:${shopPhone}`}

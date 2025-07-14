@@ -1,52 +1,35 @@
 import React from "react";
 import ReusableRoseTable from "./ReusableRoseTable";
+import { PREMIUM_BASES, PREMIUM_ROSE_DATA } from "@/app/data/roseConfig";
 
- const premiumBases = [
-  { długość: 40, koszt: 3.6 },
-  { długość: 50, koszt: 4 },
-  { długość: 60, koszt: 4.4 },
-  { długość: 70, koszt: 5 },
-  { długość: 80, koszt: 5.6 },
-];
-
- const premiumRoseData = [
-  { ilość: 23, opakowanie: 15, zysk: 49.99 },
-  { ilość: 47, opakowanie: 20, zysk: 59.99 },
-];
-
- const calculatePremiumRoseRow = ({
-  długość,
-  koszt,
-  ilość,
-  opakowanie,
-  zysk,
-}) => {
-  const koszt_łączny = koszt * (ilość === 47 ? ilość + 3 : ilość + 2);
-  const cena_kwiatów = koszt_łączny + zysk;
-  const cena_bukietu = cena_kwiatów + opakowanie;
-  const cena_szt = +(cena_kwiatów / ilość).toFixed(2);
-  const zysk_całkowity = zysk + opakowanie;
+const calculatePremiumRow = ({ length, cost, quantity, packaging, profit }) => {
+  const adjustedQuantity = quantity + (quantity === 47 ? 3 : 2);
+  const totalCost = cost * adjustedQuantity;
+  const flowerPrice = totalCost + profit;
+  const bouquetPrice = flowerPrice + packaging;
+  const pricePerStem = +(flowerPrice / quantity).toFixed(2);
+  const totalProfit = profit + packaging;
 
   return {
-    długość,
-    koszt,
-    ilość,
-    cena_szt,
-    koszt_łączny,
-    zysk,
-    cena_kwiatów,
-    opakowanie,
-    cena_bukietu,
-    zysk_całkowity,
+    length,
+    cost,
+    quantity,
+    pricePerStem,
+    totalCost,
+    profit,
+    flowerPrice,
+    packaging,
+    bouquetPrice,
+    totalProfit,
   };
 };
-export const processedDataRosesPremium = premiumBases.map(({ długość, koszt }) =>
-  premiumRoseData.map((row) =>
-    calculatePremiumRoseRow({ długość, koszt, ...row })
-  )
+
+export const processedPremiumData = PREMIUM_BASES.map(({ length, cost }) =>
+  PREMIUM_ROSE_DATA.map((row) => calculatePremiumRow({ length, cost, ...row }))
 );
+
 const PremiumRoseTable = () => (
-  <ReusableRoseTable rowsByHeight={processedDataRosesPremium} />
+  <ReusableRoseTable rowsByHeight={processedPremiumData} />
 );
 
 export default PremiumRoseTable;

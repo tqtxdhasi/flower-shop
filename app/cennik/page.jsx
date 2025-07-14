@@ -1,7 +1,13 @@
 import React from "react";
 import ReusableRoseTable from "../secret-admin/components/ReusableRoseTable";
-import { processedDataRosesPremium } from "../secret-admin/components/PremiumRoseTable";
-import { processedDataRoses } from "../secret-admin/components/RoseTable";
+import {
+  processedDataRosesPremium,
+  processedPremiumData,
+} from "../secret-admin/components/PremiumRoseTable";
+import {
+  processedDataRoses,
+  processedStandardData,
+} from "../secret-admin/components/RoseTable";
 
 const ColorCircle = ({ color, label }) => (
   <div className="flex items-center gap-2">
@@ -35,14 +41,14 @@ const page = () => {
         <ColorCircle color="#ff0000" label="czerwony" />
       </div>
       <ReusableRoseTable
-        rowsByHeight={processedDataRoses}
+        rowsByHeight={processedStandardData}
         visibleColumns={[
-          "długość",
-          "ilość",
-          "cena_szt",
-          "cena_kwiatów",
-          "opakowanie",
-          "cena_bukietu",
+          "length",
+          "quantity",
+          "pricePerStem",
+          "flowerPrice",
+          "packaging",
+          "bouquetPrice",
         ]}
       />
 
@@ -56,14 +62,14 @@ const page = () => {
         <ColorCircle color="#ff0000" label="czerwony" />
       </div>
       <ReusableRoseTable
-        rowsByHeight={processedDataRosesPremium}
+        rowsByHeight={processedPremiumData}
         visibleColumns={[
-          "długość",
-          "ilość",
-          "cena_szt",
-          "cena_kwiatów",
-          "opakowanie",
-          "cena_bukietu",
+          "length",
+          "quantity",
+          "pricePerStem",
+          "flowerPrice",
+          "packaging",
+          "bouquetPrice",
         ]}
       />
     </div>

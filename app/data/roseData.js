@@ -13,37 +13,30 @@ export const PACKAGING_COSTS = {
   39: 15,
   49: 20,
 };
-
 export const COLOR_OPTIONS = [
   {
-    name: "Czerwonych",
-    code: "#FF0000",
-    slug: "czerwonych",
-    color: "czerwony",
-  },
-  {
-    name: "Różowych",
-    code: "#FFC0CB",
-    slug: "rozowych",
-    color: "rozowy",
-  },
-  {
     name: "Białych",
-    code: "#FFFFFF",
+    code: "#ffffff",
     slug: "bialych",
     color: "bialy",
   },
   {
-    name: "Żółtych",
-    code: "#FFFF00",
-    slug: "zoltych",
-    color: "zolty",
+    name: "Brzoskwiniowych",
+    code: "#fcd5ce",
+    slug: "brzoskwiniowych",
+    color: "brzoskwiniowy",
   },
   {
-    name: "Niebieskich",
-    code: "#0000FF",
-    slug: "niebieskich",
-    color: "niebieski",
+    name: "Różowych",
+    code: "#ff69b4",
+    slug: "rozowych",
+    color: "rozowy",
+  },
+  {
+    name: "Czerwonych",
+    code: "#ff0000",
+    slug: "czerwonych",
+    color: "czerwony",
   },
 ];
 

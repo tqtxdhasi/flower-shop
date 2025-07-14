@@ -1,21 +1,49 @@
 "use client";
-import { COLOR_OPTIONS } from "@/app/data/roseData";
 import React from "react";
+import { COLOR_OPTIONS } from "@/app/data/roseData";
+import {
+  STANDARD_BASES,
+  STANDARD_ROSE_DATA,
+  PREMIUM_BASES,
+  PREMIUM_ROSE_DATA,
+} from "@/app/data/roseConfig";
 
-// your helper from before
+// helper to round up
 const roundUp = (value, decimals) => {
   const factor = Math.pow(10, decimals);
   return Math.ceil(value * factor) / factor;
 };
 
-// your maps
-const initialCostMap = { 40: 4, 50: 5, 60: 6, 70: 7, 80: 8 };
-const initialProfitMap = { 9: 50, 19: 60, 29: 75, 39: 80, 49: 90, 59: 100 };
-const initialPackagingMap = { 9: 10, 19: 10, 29: 15, 39: 15, 49: 20, 59: 20 };
-const initialWholesaleMap = { 40: 10, 50: 10, 60: 10, 70: 10, 80: 10 };
+// compute metrics for standard bouquets
+const computeStandard = (length, quantity) => {
+  const { cost, profit, packaging } = STANDARD_BASES.find(
+    (b) => b.length === length
+  )
+    ? {
+        cost: STANDARD_BASES.find((b) => b.length === length).cost,
+        profit: STANDARD_ROSE_DATA.find((r) => r.quantity === quantity).profit,
+        packaging: STANDARD_ROSE_DATA.find((r) => r.quantity === quantity)
+          .packaging,
+      }
+    : {};
+  const totalCost = cost * (quantity + 1);
+  const flowerPrice = totalCost + profit;
+  const pricePerStem = roundUp(flowerPrice / quantity, 2);
+  const bouquetPrice = flowerPrice + packaging;
+  return { pricePerStem, flowerPrice, bouquetPrice };
+};
 
-const lengths = [40, 50, 60, 70, 80];
-const quantities = [9, 19, 29, 39, 49, 59];
+// compute metrics for premium bouquets
+const computePremium = (length, quantity) => {
+  const base = PREMIUM_BASES.find((b) => b.length === length);
+  const data = PREMIUM_ROSE_DATA.find((r) => r.quantity === quantity);
+  const countWithBonus = quantity + (quantity === 47 ? 3 : 2);
+  const totalCost = base.cost * countWithBonus;
+  const flowerPrice = totalCost + data.profit;
+  const pricePerStem = roundUp(flowerPrice / quantity, 2);
+  const bouquetPrice = flowerPrice + data.packaging;
+  return { pricePerStem, flowerPrice, bouquetPrice };
+};
 
 const headers = [
   "id",
@@ -58,32 +86,38 @@ const headers = [
   "sell on google quantity",
 ];
 
-// compute your metrics per bouquet
-const computeRow = (length, qty) => {
-  const costPerStem = initialCostMap[length];
-  const totalStemCost = costPerStem * qty + costPerStem;
-  const costPlusProfit = totalStemCost + initialProfitMap[qty];
-  const pricePerStem = roundUp(costPlusProfit / qty, 2);
-  const flowersRevenue = pricePerStem * qty;
-  const bouquetPrice = flowersRevenue + initialPackagingMap[qty];
-  return {
-    pricePerStem,
-    totalStemCost,
-    flowersRevenue,
-    bouquetPrice,
-  };
-};
-
 const ProductFeedTable = () => {
   const linkBase = "https://www.krakow-kwiaciarnia.pl";
 
-  const rows = lengths.flatMap((length) =>
-    quantities.flatMap((qty) =>
+  // merge both standard & premium
+  const allLengths = [
+    ...STANDARD_BASES.map((b) => b.length),
+    ...PREMIUM_BASES.map((b) => b.length),
+  ];
+  const allQuantities = [
+    ...STANDARD_ROSE_DATA.map((r) => r.quantity),
+    ...PREMIUM_ROSE_DATA.map((r) => r.quantity),
+  ];
+
+  const rows = Array.from(new Set(allLengths)).flatMap((length) =>
+    Array.from(new Set(allQuantities)).flatMap((quantity) =>
       COLOR_OPTIONS.map((colorOpt) => {
-        const { bouquetPrice, flowersRevenue } = computeRow(length, qty);
-        const id = `ROZE-Q${qty}-CC${colorOpt.slug.toUpperCase()}-H${length}`;
-        const title = `Bukiet ${qty} ${colorOpt.name.toLowerCase()} róż ${length} cm`;
-        const desc = `Luksusowy bukiet ${colorOpt.name.toLowerCase()} róż o długości ${length} cm z opcją personalizacji.`;
+        const isPremium =
+          PREMIUM_ROSE_DATA.some((r) => r.quantity === quantity) &&
+          PREMIUM_BASES.some((b) => b.length === length);
+        const { flowerPrice, bouquetPrice } = isPremium
+          ? computePremium(length, quantity)
+          : computeStandard(length, quantity);
+
+        const idPrefix = isPremium ? "PREMIUM" : "ROZE";
+        const id = `${idPrefix}-Q${quantity}-CC${colorOpt.slug.toUpperCase()}-H${length}`;
+        const title = `Bukiet ${quantity} ${colorOpt.name.toLowerCase()} róż ${length} cm ${
+          isPremium ? "PREMIUM" : ""
+        }`;
+        const desc = isPremium
+          ? `Ekskluzywny bukiet ${colorOpt.name.toLowerCase()} róż premium o długości ${length} cm.`
+          : `Luksusowy bukiet ${colorOpt.name.toLowerCase()} róż o długości ${length} cm z opcją personalizacji.`;
+
         return {
           id,
           title,
@@ -91,18 +125,36 @@ const ProductFeedTable = () => {
           availability: "in_stock",
           "availability date": "",
           "expiration date": "",
-          link: `${linkBase}/kwiaty/roze/bukiet-${qty}-${colorOpt.slug}-roz-${length}-cm`,
+          link: `${linkBase}/kwiaty/roze/${
+            isPremium ? "bukiet-premium" : "bukiet"
+          }-${quantity}-${colorOpt.slug}-roz-${length}-cm`,
           "mobile link": "",
-          "image link": `${linkBase}/images/bukiet-${qty}-${colorOpt.slug}-roz-${length}cm.jpeg`,
-          price: `${Math.round(flowersRevenue)} PLN`,
+          "image link": `${linkBase}/images/${
+            isPremium ? "bukiet-premium" : "bukiet"
+          }-${quantity}-${colorOpt.slug}-roz-${length}cm.jpeg`,
+          price: `${Math.round(flowerPrice)} PLN`,
           "sale price": "",
           "sale price effective date": "",
           "identifier exists": "no",
           gtin: "",
           mpn: "",
           brand: "Kraków Kwiaciarnia",
-          "product highlight": `"Luksusowy bukiet z ${qty} ${colorOpt.name.toLowerCase()} róż","Długość kwiatów: ${length} cm","Bukiet związany delikatną sznurkiem","Dostępna płatna dostawa 20 PLN lub bezpłatny odbiór osobisty","Idealny na każdą okazję","Kwiaty przygotowane z przyciętymi łodygami"`,
-          "product detail": `:Length:${length} cm,:Color:${colorOpt.color},:Quantity:${qty}`,
+          "product highlight": isPremium
+            ? [
+                `Ekskluzywny bukiet premium z ${quantity} ${colorOpt.name.toLowerCase()} róż`,
+                `Długość kwiatów: ${length} cm`,
+                "Dodatkowe kwiaty gratis",
+                "Idealny na wyjątkowe okazje",
+              ].join('","')
+            : [
+                `Luksusowy bukiet z ${quantity} ${colorOpt.name.toLowerCase()} róż`,
+                `Długość kwiatów: ${length} cm`,
+                "Bukiet związany delikatną sznurkiem",
+                "Dostępna płatna dostawa 20 PLN lub bezpłatny odbiór osobisty",
+                "Idealny na każdą okazję",
+                "Kwiaty przygotowane z przyciętymi łodygami",
+              ].join('","'),
+          "product detail": `:Length:${length} cm,:Color:${colorOpt.color},:Quantity:${quantity}`,
           "additional image link": "",
           condition: "new",
           adult: "",
@@ -116,7 +168,7 @@ const ProductFeedTable = () => {
           "age group": "",
           multipack: "",
           "is bundle": "",
-          "unit pricing measure": `${qty}ct`,
+          "unit pricing measure": `${quantity}ct`,
           "unit pricing base measure": "1ct",
           "energy efficiency class": "",
           "min energy efficiency class": "",
@@ -127,9 +179,28 @@ const ProductFeedTable = () => {
       })
     )
   );
+  const totalItems = rows.length;
 
+  const premiumCount = rows.filter((row) =>
+    row.id.startsWith("PREMIUM")
+  ).length;
+  const standardCount = totalItems - premiumCount;
+
+  const uniqueColors = new Set(rows.map((row) => row.color)).size;
+  const uniqueLengths = new Set(
+    rows.map((row) => {
+      const match = row["product detail"]?.match(/:Length:(\d+)/);
+      return match ? match[1] : null;
+    })
+  ).size;
+  const uniqueQuantities = new Set(
+    rows.map((row) => {
+      const match = row["product detail"]?.match(/:Quantity:(\d+)/);
+      return match ? match[1] : null;
+    })
+  ).size;
   return (
-    <div className="overflow-x-auto flex w-full justify-start  text-xs">
+    <div className="overflow-x-auto flex flex-col w-full justify-start text-xs">
       <table className="min-w-full border border-gray-300 bg-white">
         <thead className="bg-gray-100">
           <tr>
@@ -157,7 +228,18 @@ const ProductFeedTable = () => {
             </tr>
           ))}
         </tbody>
-      </table>
+      </table>{" "}
+      <div className="mt-4 text-sm text-gray-800 bg-gray-50 p-4 border rounded">
+        <strong>Summary:</strong>
+        <ul className="list-disc list-inside mt-2">
+          <li>Total products: {totalItems}</li>
+          <li>Standard bouquets: {standardCount}</li>
+          <li>Premium bouquets: {premiumCount}</li>
+          <li>Colors available: {uniqueColors}</li>
+          <li>Stem lengths: {uniqueLengths}</li>
+          <li>Quantities offered: {uniqueQuantities}</li>
+        </ul>
+      </div>
     </div>
   );
 };
